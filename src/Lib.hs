@@ -16,15 +16,24 @@ import Text.Parsec.Char
 import Text.Parsec.Combinator
 
 import Data.Char
+import Data.List (isPrefixOf, break)
+
+import qualified Data.ByteString.Lazy.Char8 as LBS
+import qualified Data.ByteString.Lazy as LBS hiding (readFile, pack, snoc)
+import qualified Data.Text.Lazy as Text
+import Data.Text.Lazy.Encoding (decodeUtf8)
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
-data HoogleLine = Blank | Comment String | Instance | Class | Package | Version | Type | Data | Module | Decl | Newtype | MultiDecl | BracketDecl
+data HoogleLine = Blank | Comment String | Instance | Class | Package | Version | Type | Data | Module | Decl | Newtype | MultiDecl | BracketDecl | DataType | Constr
+  deriving (Show)
+
+restOfLine = manyTill anyChar (char '\n');
 
 oneLineComment =
   do string "--";
-     comment <- manyTill anyChar (char '\n');
+     comment <- restOfLine
      return $ Comment comment
 
 blankLine =
@@ -37,7 +46,7 @@ lineSpace c = isSpace c && c /= '\n'
 startsWith str val =
   do string str
      satisfy lineSpace
-     _ <- manyTill anyChar (char '\n');
+     restOfLine
      return val
 
 instanceDef = startsWith "instance" Instance
@@ -49,43 +58,108 @@ dataDef     = startsWith "data" Data
 moduleDef   = startsWith "module" Module
 newTypeDef  = startsWith "newtype" Newtype
 
-ident = Token.identifier haskell
-symbol = Token.symbol haskell
-reservedOp = Token.reservedOp haskell
-operator = Token.operator haskell
-whitespace = Token.whiteSpace haskell
+lexeme      = Token.lexeme haskell
+identStart  = letter <|> oneOf "_"
+identLetter = alphaNum <|> oneOf "_'" <|> satisfy (\c -> ord c > 127)
+
+ident = lexeme $ try $ 
+          (do { c <- identStart
+             ; cs <- many identLetter
+             ; hash <- option False $ do { satisfy (== '#'); return True }
+             ; return (c:cs)
+             } <?> "identifier")
+
+isSimpleSpace ch = isSpace ch && ch /= '\n'
+symbol name = do { string name; skipMany (satisfy isSimpleSpace) }
+
+opLetter = oneOf ":!#$%&*+./<=>?@\\^|-~" <|> satisfy (\c -> ord c > 127)
+operator = do { op <- many1 opLetter; whitespace; return op }
+           <|> do { symbol "("; commas <- many (symbol ","); symbol ")"; return $ "(" ++ map (const ',') commas ++ ")" }
+
+reservedOp = symbol
+whitespace = skipMany (satisfy isSimpleSpace)
 
 decl = do i <- ident
           reservedOp "::"
-          _ <- manyTill anyChar (char '\n');
+          restOfLine
           return $ Decl
 
-multiDecl =
+multiDecl1 =
   do symbol "(" 
-     sepBy1 (try ident <|> operator) (symbol ",")
+     sepBy (try ident <|> operator) (symbol ",")
      symbol ")"
      reservedOp "::"
-     _ <- manyTill anyChar (char '\n');
+     restOfLine
+     return $ MultiDecl
+
+multiDecl2 =
+  do sepBy (try ident <|> operator) (symbol ",")
+     reservedOp "::"
+     restOfLine
      return $ MultiDecl
 
 bracketDecl =
   do symbol "["
-     i <- try ident <|> operator
+     sepBy (try ident <|> operator) (symbol ",")
      symbol "]"
      reservedOp "::"
-     _ <- manyTill anyChar (char '\n');
+     restOfLine
      return $ BracketDecl
 
-anyLine = try oneLineComment <|> try instanceDef <|> try classDef <|> try packageDef <|> try versionDef <|> try typeDef <|> try dataDef <|> try moduleDef <|> try newTypeDef <|> try decl <|> try multiDecl <|> try bracketDecl <|> blankLine
+dataTypeDecl =
+  do string "dataType"
+     symbol "["
+     ident
+     symbol "]"
+     reservedOp "::"
+     restOfLine
+     return $ DataType
+
+constrDecl =
+  do string "constr"
+     symbol "["
+     ident
+     symbol "]"
+     reservedOp "::"
+     restOfLine
+     return $ Constr
+
+anyLine = try oneLineComment
+          <|> try instanceDef
+          <|> try classDef
+          <|> try packageDef
+          <|> try versionDef
+          <|> try typeDef
+          <|> try dataDef
+          <|> try moduleDef
+          <|> try newTypeDef
+          <|> try decl
+          <|> try multiDecl1
+          <|> try multiDecl2
+          <|> try bracketDecl
+          <|> try dataTypeDecl
+          <|> constrDecl
+          <|> blankLine
 
 -- e.g.: testFile anyLine "hoogle-data/abacate/0.0.0.0/doc/html/abacate.txt"
 
 testFile parser path = do
-  lns <- fmap lines $ readFile path
-  forM_ (zip [(1::Int)..] lns) $ \(i,ln) -> do
+  lns <- fmap LBS.lines $ LBS.readFile path
+  -- Lines before @package may not be properly UTF-8 encoded
+  -- so ignore them.
+  let (ignored, lns') = break (LBS.isPrefixOf (LBS.pack "@package")) lns
+      i0 = 1+length ignored
+  forM_ (zip [(i0::Int)..] lns') $ \(i,ln) -> do
     let source = path ++ " line " ++ show i
-        ln' = ln ++ ['\n']
+        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
     case parse parser source ln' of
-      Left e  -> putStrLn $ "error: " ++ show e
+      Left e  -> do putStrLn $ "error: " ++ show e
+                    putStr ln'
+                    putStrLn ""
       Right x -> return ()
+
+-- test the anyLine parse against all of the hoogle files
+testAllFiles = do
+  files <- fmap lines $ readFile "all-hoogle-files"
+  mapM_ (testFile anyLine) files
 
