@@ -26,7 +26,21 @@ import Data.Text.Lazy.Encoding (decodeUtf8)
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
-data HoogleLine = Blank | Comment String | Instance | Class | Package | Version | Type | Data | Module | Decl | Newtype | MultiDecl | BracketDecl | DataType | Constr
+data HoogleLine = BlankLine
+                | Comment String       -- comment line (begins with "--"
+                | Package String       -- @package declaration
+                | Version String       -- @version declaration
+                | Instance String      -- instance (...) => ...
+                | Class String         -- class (...) => ...
+                | Type                 -- type ... = ...
+                | Data                 -- data ...
+                | Module String        -- module ...
+                | Decl                 -- function signature
+                | Newtype              -- newtype ...
+                | MultiDecl            -- (a,b,c) :: ...
+                | BracketDecl          -- [a] :: ...
+                | DataType             -- dataType[...] :: DataType
+                | Constr               -- constr[...] :: Constr
   deriving (Show)
 
 restOfLine = manyTill anyChar (char '\n');
@@ -39,24 +53,23 @@ oneLineComment =
 blankLine =
   do skipMany (satisfy (\c -> isSpace c && c /= '\n'))
      char '\n'
-     return Blank
+     return BlankLine
 
 lineSpace c = isSpace c && c /= '\n'
 
-startsWith str val =
+startsWith str =
   do string str
      satisfy lineSpace
      restOfLine
-     return val
 
-instanceDef = startsWith "instance" Instance
-classDef    = startsWith "class" Class
-packageDef  = startsWith "@package" Package
-versionDef  = startsWith "@version" Version
-typeDef     = startsWith "type" Type
-dataDef     = startsWith "data" Data
-moduleDef   = startsWith "module" Module
-newTypeDef  = startsWith "newtype" Newtype
+instanceDef = fmap Instance $ startsWith "instance" 
+classDef    = fmap Class $ startsWith "class"
+packageDef  = fmap Package $ startsWith "@package" 
+versionDef  = fmap Version $ startsWith "@version"
+moduleDef   = fmap Module $ startsWith "module"
+typeDef     = startsWith "type" >> return Type
+dataDef     = startsWith "data" >> return Data
+newTypeDef  = startsWith "newtype" >> return Newtype
 
 lexeme      = Token.lexeme haskell
 identStart  = letter <|> oneOf "_"
