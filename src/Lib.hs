@@ -95,12 +95,11 @@ oneLineComment =
      return $ Comment comment
 
 constraint = do
-  manyTill anyChar (symbol " =>")
-  return ()
+  manyTill anyChar (try (symbol " =>"))
 
 newTypeDef = do
   symbol "newtype"
-  option () (try constraint)
+  option "" (try constraint)
   name <- identOrOp
   params <- restOfLine
   return $ Newtype name params
