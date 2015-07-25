@@ -30,15 +30,15 @@ data HoogleLine = BlankLine
                 | Comment String             -- comment line (begins with "--"
                 | Package String             -- @package declaration
                 | Version String             -- @version declaration
+                | Module String              -- module ...
+                | Type String String String  -- type <name> <params> = ...
+                | Newtype String String      -- newtype <name> <params>
+                | FunctionDecl String String -- <name> :: <sig>   -- function signature
+                | DataDecl String            -- data <name>
+                | BracketDecl                -- [a] :: ...
                 | Instance String            -- instance (...) => ...
                 | Class String               -- class (...) => ...
-                | Type String String String  -- type <name> <params> = ...
-                | Data                       -- data <name> <params>
-                | Module String              -- module ...
-                | Decl                       -- function signature
-                | Newtype String String      -- newtype <name> <params>
                 | MultiDecl                  -- (a,b,c) :: ...
-                | BracketDecl                -- [a] :: ...
                 | DataType                   -- dataType[...] :: DataType
                 | Constr                     -- constr[...] :: Constr
   deriving (Show)
@@ -55,21 +55,28 @@ symbol name = lexeme (string name)
 identStart  = letter <|> char '_'
 identLetter = alphaNum <|> oneOf "_'" <|> satisfy (\c -> ord c > 127)
 
-ident = lexeme $ try $ 
-          (do { c <- identStart
-             ; cs <- many identLetter
-             ; hash <- option False $ do { satisfy (== '#'); return True }
-             ; return (c:cs)
-             } <?> "identifier")
+ident = lexeme $ ((try ident') <?> "identifier")
+
+-- an identifer without consuming following whitespace
+ident' = do { c <- identStart
+            ; cs <- many identLetter
+            ; hash <- option False $ do { satisfy (== '#'); return True }
+            ; return (c:cs)
+            }
 
 opLetter = oneOf ":!#$%&*+./<=>?@\\^|-~" <|> satisfy (\c -> ord c > 127)
-operator = lexeme $ (many1 opLetter)
-                    <|> do { symbol "("; commas <- many (symbol ","); symbol ")"; return $ "(" ++ map (const ',') commas ++ ")" }
+
+operator = lexeme $ (many1 opLetter) <|> tupleOp
 
 parenOp = do char '('
              name <- many1 opLetter
              char ')'
              return name
+
+tupleOp = do char '('
+             commas <- many (symbol ",")
+             char ')'
+             return $ "(" ++ concat commas ++ ")"
 
 identOrOp = ident <|> parenOp <|> operator
 
@@ -77,12 +84,11 @@ startsWith str =
   do symbol str
      restOfLine
 
-instanceDef = fmap Instance $ startsWith "instance" 
+instanceDef = fmap Instance $ startsWith "instance"
 classDef    = fmap Class $ startsWith "class"
-packageDef  = fmap Package $ startsWith "@package" 
+packageDef  = fmap Package $ startsWith "@package"
 versionDef  = fmap Version $ startsWith "@version"
 moduleDef   = fmap Module $ startsWith "module"
-dataDef     = startsWith "data" >> return Data
 
 blankLine =
   do skipMany lineSpace
@@ -112,14 +118,50 @@ typeDef     = do
   sig <- restOfLine
   return $ Type name lhs sig
 
+functionDecl = do
+  name <- ident
+  symbol "::"
+  sig <- restOfLine
+  return $ FunctionDecl name sig
 
-decl = do i <- ident
-          symbol "::"
-          restOfLine
-          return $ Decl
+-- data declarations examples:
+--
+--     data Scenario
+--     data Lit s
+--     data AbList a b
+--     data SatResult :: *
+--     data Network (l :: * -> *) (g :: * -> *) :: (* -> *) -> (* -> *) -> *
+--     data (:=:) a b
+--     data ATuple20 s[am5Q] a[am5R]
+--     data DebuggerM (m :: * -> *) (past :: [*]) (current :: *) (future :: [*])
+dataDef     = do
+  symbol "data"
+  try d1 <|> try d2 <|> d3
+  where
+    d1 = do name <- dataName
+            params <- many dataParam
+            kindsig <- (do char '\n'; return "") <|> (do symbol "::"; restOfLine)
+            return $ DataDecl name
+    d2 = do skipMany1 ident
+            symbol "=>"
+            d1
+    d3 = do lexeme $ do { char '('; many balancedParens; char ')' }
+            symbol "=>"
+            d1
+
+dataName = lexeme $ try ident <|> try parenOp <|> tupleOp
+dataParam = lexeme $ (try simpleParam <|> parenParam <|> dollarParam)
+  where
+    simpleParam = do i <- ident'; optional (do char '['; ident'; char ']'); return i
+    parenParam = do char '('; many balancedParens; char ')'; return ""
+    dollarParam = do char '$'; i <- ident'; return $ "$" ++ i
+
+balancedParens =
+  do { satisfy (\ch -> ch /= '(' && ch /= ')'); return () }
+    <|> do { char '('; many balancedParens; char ')'; return () }
 
 multiDecl1 =
-  do symbol "(" 
+  do symbol "("
      sepBy (try ident <|> operator) (symbol ",")
      symbol ")"
      symbol "::"
@@ -167,7 +209,7 @@ anyLine = try oneLineComment
           <|> try dataDef
           <|> try moduleDef
           <|> try newTypeDef
-          <|> try decl
+          <|> try functionDecl
           <|> try multiDecl1
           <|> try multiDecl2
           <|> try bracketDecl
@@ -177,6 +219,18 @@ anyLine = try oneLineComment
 
 -- e.g.: testFile anyLine "hoogle-data/abacate/0.0.0.0/doc/html/abacate.txt"
 
+-- test a parser against the lines in a file - do not skip preamble
+testFile' parser path = do
+  lns <- fmap LBS.lines $ LBS.readFile path
+  forM_ (zip [(1::Int)..] lns) $ \(i,ln) -> do
+    let source = path ++ " line " ++ show i
+        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
+    case parse parser source ln' of
+      Left e  -> -- do putStrLn $ "error: " ++ show e; putStr ln'
+                 do putStr ln'
+      Right x -> return ()
+
+-- test a parser against the lines in a file - skip lines before @package
 testFile parser path = do
   lns <- fmap LBS.lines $ LBS.readFile path
   -- Lines before @package may not be properly UTF-8 encoded

@@ -40,22 +40,28 @@ fixupComments :: [String] -> String
 fixupComments xs = unlines $ map go xs
   where go x = dropWhile (\ch -> isSpace ch || ch == '|') x
 
-processLine BlankLine   = return ()
-processLine (Comment s) = addComment s
-processLine (Package s) = setPackage s
-processLine (Version s) = return ()
-processLine (Module s)  = setModuleName s
-processLine (Instance s) = return ()
-processLine (Type name lhs sig) = do
-  comments <- liftM (fixupComments . reverse . h_comments) get
+makeFunctionInfo kind name signature = do
   hs <- get
-  let fi = mkFunctionInfo (h_moduleName hs)
-                          sig
-                          (h_package hs)
-                          ""                     -- sourceURI
-                          comments
-                          "type"
+  let comments = fixupComments . reverse . h_comments $ hs
+      fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) "" comments kind
+  clearComments
+  return fi
+
+emitFunctionInfo kind name signature = do
+  fi <- makeFunctionInfo kind name signature
   liftIO $ putStrLn $ ppShow (name, fi)
+
+processLine BlankLine    = return ()
+processLine (Comment s)  = addComment s
+processLine (Package s)  = setPackage s
+processLine (Version s)  = return ()
+processLine (Module s)   = setModuleName s
+processLine (Instance s) = return ()
+
+processLine (Type name lhs sig)     = emitFunctionInfo "type" name sig
+processLine (Newtype name _)        = emitFunctionInfo "newtype" name ""
+processLine (FunctionDecl name sig) = emitFunctionInfo "function" name sig
+processLine (DataDecl name)         = emitFunctionInfo "data" name ""
 
 processLine _           = return ()
 
