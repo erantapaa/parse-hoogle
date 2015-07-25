@@ -62,6 +62,7 @@ processLine (Type name lhs sig)     = emitFunctionInfo "type" name sig
 processLine (Newtype name _)        = emitFunctionInfo "newtype" name ""
 processLine (FunctionDecl name sig) = emitFunctionInfo "function" name sig
 processLine (DataDecl name)         = emitFunctionInfo "data" name ""
+processLine (MultiDecl names sig)   = forM_ names $ \name -> emitFunctionInfo "function" name sig
 
 processLine _           = return ()
 

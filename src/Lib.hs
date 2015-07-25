@@ -35,10 +35,10 @@ data HoogleLine = BlankLine
                 | Newtype String String      -- newtype <name> <params>
                 | FunctionDecl String String -- <name> :: <sig>   -- function signature
                 | DataDecl String            -- data <name>
+                | MultiDecl [String] String  -- (a,b,c) :: ...
                 | BracketDecl                -- [a] :: ...
                 | Instance String            -- instance (...) => ...
                 | Class String               -- class (...) => ...
-                | MultiDecl                  -- (a,b,c) :: ...
                 | DataType                   -- dataType[...] :: DataType
                 | Constr                     -- constr[...] :: Constr
   deriving (Show)
@@ -160,19 +160,15 @@ balancedParens =
   do { satisfy (\ch -> ch /= '(' && ch /= ')'); return () }
     <|> do { char '('; many balancedParens; char ')'; return () }
 
-multiDecl1 =
+multiDecl =
   do symbol "("
-     sepBy (try ident <|> operator) (symbol ",")
+     names <- sepBy (nakedOp <|> ident') (symbol ",")
      symbol ")"
      symbol "::"
-     restOfLine
-     return $ MultiDecl
-
-multiDecl2 =
-  do sepBy (try ident <|> operator) (symbol ",")
-     symbol "::"
-     restOfLine
-     return $ MultiDecl
+     sig <- restOfLine
+     return $ MultiDecl names sig
+  where
+    nakedOp = many1 opLetter
 
 bracketDecl =
   do symbol "["
@@ -210,8 +206,7 @@ anyLine = try oneLineComment
           <|> try moduleDef
           <|> try newTypeDef
           <|> try functionDecl
-          <|> try multiDecl1
-          <|> try multiDecl2
+          <|> try multiDecl
           <|> try bracketDecl
           <|> try dataTypeDecl
           <|> constrDecl
