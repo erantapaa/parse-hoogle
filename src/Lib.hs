@@ -27,20 +27,20 @@ someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
 data HoogleLine = BlankLine
-                | Comment String             -- comment line (begins with "--"
-                | Package String             -- @package declaration
-                | Version String             -- @version declaration
-                | Module String              -- module ...
-                | Type String String String  -- type <name> <params> = ...
-                | Newtype String String      -- newtype <name> <params>
-                | FunctionDecl String String -- <name> :: <sig>   -- function signature
-                | DataDecl String            -- data <name>
-                | MultiDecl [String] String  -- (a,b,c) :: ...
-                | BracketDecl                -- [a] :: ...
-                | Instance String            -- instance (...) => ...
-                | Class String               -- class (...) => ...
-                | DataType                   -- dataType[...] :: DataType
-                | Constr                     -- constr[...] :: Constr
+                | Comment String               -- comment line (begins with "--"
+                | Package String               -- @package declaration
+                | Version String               -- @version declaration
+                | Module String                -- module ...
+                | Type String String String    -- type <name> <params> = ...
+                | Newtype String String        -- newtype <name> <params>
+                | FunctionDecl String String   -- <name> :: <sig>   -- function signature
+                | DataDecl String              -- data <name>
+                | MultiDecl [String] String    -- (a,b,c) :: ...
+                | BracketDecl [String] String  -- [a] :: ...
+                | Instance String              -- instance (...) => ...
+                | Class String                 -- class (...) => ...
+                | DataType String String       -- dataType[...] :: DataType
+                | Constr String String         -- constr[...] :: Constr
   deriving (Show)
 
 isLineSpace c = isSpace c && c /= '\n'
@@ -161,40 +161,47 @@ balancedParens =
     <|> do { char '('; many balancedParens; char ')'; return () }
 
 multiDecl =
-  do symbol "("
-     names <- sepBy (nakedOp <|> ident') (symbol ",")
-     symbol ")"
+  do names <- parenNames <|> (sepBy1 multiName (symbol ","))
      symbol "::"
      sig <- restOfLine
      return $ MultiDecl names sig
   where
     nakedOp = many1 opLetter
+    multiName = lexeme (nakedOp <|> ident')
+    parenNames = do
+      symbol "("
+      names <- sepBy multiName (symbol ",")
+      symbol ")"
+      return names
 
 bracketDecl =
   do symbol "["
-     sepBy1 (try ident <|> operator) (symbol ",")
+     names <- sepBy1 bracketName (symbol ",")
      symbol "]"
      symbol "::"
-     restOfLine
-     return $ BracketDecl
+     sig <- restOfLine
+     return $ BracketDecl names sig
+  where
+    bracketName = lexeme $ try ident <|> try parenOp <|> try tupleOp <|> nakedOp
+    nakedOp = many1 opLetter
 
 dataTypeDecl =
   do string "dataType"
      symbol "["
-     ident
+     name <- ident
      symbol "]"
      symbol "::"
-     restOfLine
-     return $ DataType
+     sig <- restOfLine
+     return $ DataType name sig
 
 constrDecl =
   do string "constr"
      symbol "["
-     ident
+     name <- ident
      symbol "]"
      symbol "::"
-     restOfLine
-     return $ Constr
+     sig <- restOfLine
+     return $ Constr name sig
 
 anyLine = try oneLineComment
           <|> try instanceDef
