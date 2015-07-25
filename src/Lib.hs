@@ -71,7 +71,7 @@ parenOp = do char '('
              char ')'
              return name
 
-identOrOp = ident <|> parenOp
+identOrOp = ident <|> parenOp <|> operator
 
 startsWith str =
   do symbol str
@@ -94,15 +94,20 @@ oneLineComment =
      comment <- restOfLine
      return $ Comment comment
 
+constraint = do
+  manyTill anyChar (symbol " =>")
+  return ()
+
 newTypeDef = do
   symbol "newtype"
+  option () (try constraint)
   name <- identOrOp
   params <- restOfLine
   return $ Newtype name params
 
 typeDef     = do
   symbol "type"
-  name <- ident
+  name <- identOrOp
   lhs <- many (satisfy (/= '='))
   symbol "="
   sig <- restOfLine
