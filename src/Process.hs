@@ -19,6 +19,8 @@ import Data.Text.Lazy.Encoding (decodeUtf8)
 import Hayoo.FunctionInfo
 import Text.Show.Pretty (ppShow)
 
+import Data.Char (isSpace)
+
 data HState = HState { h_moduleName :: String    -- current module
                      , h_package    :: String    -- current package
                      , h_comments   :: [String]  -- comment lines preceding a definition
@@ -34,21 +36,28 @@ processFile path lines startLN =
       Left e  -> return ()
       Right x -> processLine x
 
+fixupComments :: [String] -> String
+fixupComments xs = unlines $ map go xs
+  where go x = dropWhile (\ch -> isSpace ch || ch == '|') x
+
 processLine BlankLine   = return ()
 processLine (Comment s) = addComment s
 processLine (Package s) = setPackage s
 processLine (Version s) = return ()
 processLine (Module s)  = setModuleName s
-processLine _           = do
-  comments <- liftM (reverse . h_comments) get
+processLine (Instance s) = return ()
+processLine (Type name lhs sig) = do
+  comments <- liftM (fixupComments . reverse . h_comments) get
   hs <- get
   let fi = mkFunctionInfo (h_moduleName hs)
-                          "<sig>"
+                          sig
                           (h_package hs)
                           ""                     -- sourceURI
-                          "<fctDesc>"
-                          "function"
-  liftIO $ putStrLn $ ppShow fi
+                          comments
+                          "type"
+  liftIO $ putStrLn $ ppShow (name, fi)
+
+processLine _           = return ()
 
 addComment s = modify (\hs -> hs { h_comments = (s:(h_comments hs)) } )
 setPackage s = modify (\hs -> hs { h_package = s })

@@ -27,52 +27,32 @@ someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
 data HoogleLine = BlankLine
-                | Comment String       -- comment line (begins with "--"
-                | Package String       -- @package declaration
-                | Version String       -- @version declaration
-                | Instance String      -- instance (...) => ...
-                | Class String         -- class (...) => ...
-                | Type                 -- type ... = ...
-                | Data                 -- data ...
-                | Module String        -- module ...
-                | Decl                 -- function signature
-                | Newtype              -- newtype ...
-                | MultiDecl            -- (a,b,c) :: ...
-                | BracketDecl          -- [a] :: ...
-                | DataType             -- dataType[...] :: DataType
-                | Constr               -- constr[...] :: Constr
+                | Comment String             -- comment line (begins with "--"
+                | Package String             -- @package declaration
+                | Version String             -- @version declaration
+                | Instance String            -- instance (...) => ...
+                | Class String               -- class (...) => ...
+                | Type String String String  -- type <name> <params> = ...
+                | Data                       -- data <name> <params>
+                | Module String              -- module ...
+                | Decl                       -- function signature
+                | Newtype String String      -- newtype <name> <params>
+                | MultiDecl                  -- (a,b,c) :: ...
+                | BracketDecl                -- [a] :: ...
+                | DataType                   -- dataType[...] :: DataType
+                | Constr                     -- constr[...] :: Constr
   deriving (Show)
 
-restOfLine = manyTill anyChar (char '\n');
+isLineSpace c = isSpace c && c /= '\n'
+lineSpace   = satisfy isLineSpace
 
-oneLineComment =
-  do string "--";
-     comment <- restOfLine
-     return $ Comment comment
+lexeme p    = do{ x <- p; skipMany lineSpace; return x }
 
-blankLine =
-  do skipMany (satisfy (\c -> isSpace c && c /= '\n'))
-     char '\n'
-     return BlankLine
+restOfLine  = manyTill anyChar (char '\n');
 
-lineSpace c = isSpace c && c /= '\n'
+symbol name = lexeme (string name)
 
-startsWith str =
-  do string str
-     satisfy lineSpace
-     restOfLine
-
-instanceDef = fmap Instance $ startsWith "instance" 
-classDef    = fmap Class $ startsWith "class"
-packageDef  = fmap Package $ startsWith "@package" 
-versionDef  = fmap Version $ startsWith "@version"
-moduleDef   = fmap Module $ startsWith "module"
-typeDef     = startsWith "type" >> return Type
-dataDef     = startsWith "data" >> return Data
-newTypeDef  = startsWith "newtype" >> return Newtype
-
-lexeme      = Token.lexeme haskell
-identStart  = letter <|> oneOf "_"
+identStart  = letter <|> char '_'
 identLetter = alphaNum <|> oneOf "_'" <|> satisfy (\c -> ord c > 127)
 
 ident = lexeme $ try $ 
@@ -82,18 +62,55 @@ ident = lexeme $ try $
              ; return (c:cs)
              } <?> "identifier")
 
-isSimpleSpace ch = isSpace ch && ch /= '\n'
-symbol name = do { string name; skipMany (satisfy isSimpleSpace) }
-
 opLetter = oneOf ":!#$%&*+./<=>?@\\^|-~" <|> satisfy (\c -> ord c > 127)
-operator = do { op <- many1 opLetter; whitespace; return op }
-           <|> do { symbol "("; commas <- many (symbol ","); symbol ")"; return $ "(" ++ map (const ',') commas ++ ")" }
+operator = lexeme $ (many1 opLetter)
+                    <|> do { symbol "("; commas <- many (symbol ","); symbol ")"; return $ "(" ++ map (const ',') commas ++ ")" }
 
-reservedOp = symbol
-whitespace = skipMany (satisfy isSimpleSpace)
+parenOp = do char '('
+             name <- many1 opLetter
+             char ')'
+             return name
+
+identOrOp = ident <|> parenOp
+
+startsWith str =
+  do symbol str
+     restOfLine
+
+instanceDef = fmap Instance $ startsWith "instance" 
+classDef    = fmap Class $ startsWith "class"
+packageDef  = fmap Package $ startsWith "@package" 
+versionDef  = fmap Version $ startsWith "@version"
+moduleDef   = fmap Module $ startsWith "module"
+dataDef     = startsWith "data" >> return Data
+
+blankLine =
+  do skipMany lineSpace
+     char '\n'
+     return BlankLine
+
+oneLineComment =
+  do symbol "--";
+     comment <- restOfLine
+     return $ Comment comment
+
+newTypeDef = do
+  symbol "newtype"
+  name <- identOrOp
+  params <- restOfLine
+  return $ Newtype name params
+
+typeDef     = do
+  symbol "type"
+  name <- ident
+  lhs <- many (satisfy (/= '='))
+  symbol "="
+  sig <- restOfLine
+  return $ Type name lhs sig
+
 
 decl = do i <- ident
-          reservedOp "::"
+          symbol "::"
           restOfLine
           return $ Decl
 
@@ -101,21 +118,21 @@ multiDecl1 =
   do symbol "(" 
      sepBy (try ident <|> operator) (symbol ",")
      symbol ")"
-     reservedOp "::"
+     symbol "::"
      restOfLine
      return $ MultiDecl
 
 multiDecl2 =
   do sepBy (try ident <|> operator) (symbol ",")
-     reservedOp "::"
+     symbol "::"
      restOfLine
      return $ MultiDecl
 
 bracketDecl =
   do symbol "["
-     sepBy (try ident <|> operator) (symbol ",")
+     sepBy1 (try ident <|> operator) (symbol ",")
      symbol "]"
-     reservedOp "::"
+     symbol "::"
      restOfLine
      return $ BracketDecl
 
@@ -124,7 +141,7 @@ dataTypeDecl =
      symbol "["
      ident
      symbol "]"
-     reservedOp "::"
+     symbol "::"
      restOfLine
      return $ DataType
 
@@ -133,7 +150,7 @@ constrDecl =
      symbol "["
      ident
      symbol "]"
-     reservedOp "::"
+     symbol "::"
      restOfLine
      return $ Constr
 
