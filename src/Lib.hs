@@ -23,9 +23,6 @@ import qualified Data.ByteString.Lazy as LBS hiding (readFile, pack, snoc)
 import qualified Data.Text.Lazy as Text
 import Data.Text.Lazy.Encoding (decodeUtf8)
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
-
 data HoogleLine = BlankLine
                 | Comment String               -- comment line (begins with "--"
                 | Package String               -- @package declaration
@@ -48,7 +45,7 @@ lineSpace   = satisfy isLineSpace
 
 lexeme p    = do{ x <- p; skipMany lineSpace; return x }
 
-restOfLine  = manyTill anyChar (char '\n');
+restOfLine  = many anyChar -- manyTill anyChar (char '\n');
 
 symbol name = lexeme (string name)
 
@@ -92,7 +89,7 @@ moduleDef   = fmap Module $ startsWith "module"
 
 blankLine =
   do skipMany lineSpace
-     char '\n'
+     eof
      return BlankLine
 
 oneLineComment =
@@ -140,7 +137,7 @@ dataDef     = do
   where
     d1 = do name <- dataName
             params <- many dataParam
-            kindsig <- (do char '\n'; return "") <|> (do symbol "::"; restOfLine)
+            kindsig <- (do eof; return "") <|> (do symbol "::"; restOfLine)
             return $ DataDecl name
     d2 = do skipMany1 ident
             symbol "=>"
@@ -219,6 +216,8 @@ anyLine = try oneLineComment
           <|> constrDecl
           <|> blankLine
 
+hoogleLine = anyLine
+
 -- e.g.: testFile anyLine "hoogle-data/abacate/0.0.0.0/doc/html/abacate.txt"
 
 -- test a parser against the lines in a file - do not skip preamble
@@ -226,7 +225,7 @@ testFile' parser path = do
   lns <- fmap LBS.lines $ LBS.readFile path
   forM_ (zip [(1::Int)..] lns) $ \(i,ln) -> do
     let source = path ++ " line " ++ show i
-        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
+        ln' = Text.unpack $ (decodeUtf8 ln)
     case parse parser source ln' of
       Left e  -> -- do putStrLn $ "error: " ++ show e; putStr ln'
                  do putStr ln'
@@ -241,7 +240,7 @@ testFile parser path = do
       i0 = 1+length ignored
   forM_ (zip [(i0::Int)..] lns') $ \(i,ln) -> do
     let source = path ++ " line " ++ show i
-        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
+        ln' = Text.unpack $ (decodeUtf8 ln)
     case parse parser source ln' of
       Left e  -> do putStrLn $ "error: " ++ show e
                     putStr ln'
