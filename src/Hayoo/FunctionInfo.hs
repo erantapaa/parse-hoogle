@@ -8,6 +8,7 @@ module Hayoo.FunctionInfo
     ( FunctionInfo(..)
     , Fct'Type(..)
     , mkFunctionInfo
+    , fromFct'Type
     )
 where
 import           Control.Applicative ((<$>), (<*>))
