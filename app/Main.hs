@@ -1,6 +1,63 @@
 module Main where
 
-import Lib
+import qualified Lib
+import qualified Test
+import System.Environment
+import Data.List
+import System.Exit
+
+data Action = Error String
+            | Usage
+            | TestHoogleAll
+            | TestHoogle String
+            | EmitFunctionInfo String
+            | TestSigParser String
+  deriving (Show)
+
+verbs = [ "test-hoogle-parser", "emit-function-info", "test-sig-parser" ]
+
+complete :: [String] -> String -> String
+complete words arg =
+  case matches of
+    [w] -> w
+    _   -> arg
+  where
+    matches = [ w | w <- words, arg `isPrefixOf` w ]
+
+parseOpts :: [String] -> Action
+parseOpts (arg1:args) = go cmd args
+  where
+    cmd = complete verbs arg1
+    go "test-hoogle-parser" ("--all":_) = TestHoogleAll
+    go "test-hoogle-parser" (path:_)    = TestHoogle path
+    go "test-hoogle-parser" _           = Error "path required for 'test-hoogle-parser'"
+    go "emit-function-info" (path:_)    = EmitFunctionInfo path
+    go "emit-function-info" _           = Error "path required for 'emit-function-info'"
+    go "test-sig-parser"    (path:_)    = TestSigParser path
+    go "test-sig-parser"    _           = Error "path required for 'test-sig-parser'"
+    go cmd                  _           = Error $ "unknown command: " ++ cmd
+parseOpts [] = Usage
+
+usage name = do
+  putStr $ unlines
+     [ "Usage:"
+     , "  app test-hoogle-parser --all  -- test the hoogle parser on all files"
+     , "  app test-hoogle-parser file   -- test the hoogle parser on a specific file"
+     , "  app emit-function-info file   -- emit the FunctionInfo records for a hoogle file"
+     , "  app test-sig-parser file      -- test the signature parser on a hoogle file"
+     ]
 
 main :: IO ()
-main = testAllFiles
+main = do
+  args <- getArgs
+  let action = parseOpts args
+  case action of
+    Usage                 -> usage "app"
+    Error e               -> do putStrLn $ "error: " ++ e; exitFailure
+    TestHoogleAll         -> Test.testAllFiles
+    TestHoogle path       -> Test.testFile Lib.hoogleLine path
+    EmitFunctionInfo path -> Test.testFunctionInfo path >> return ()
+    TestSigParser path    -> Test.testParseSignature path
+  exitSuccess
+    
+

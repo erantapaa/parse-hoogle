@@ -1,0 +1,8273 @@
+newtype GiaVar
+newtype GiaLit
+newtype Chord
+newtype Duration
+newtype Tempo
+newtype Octave
+newtype Pitch
+newtype Key
+newtype Directive
+newtype AbortT r m a
+newtype M α
+newtype StepT m α
+newtype JudgeT m α
+newtype Radians x
+newtype Degrees x
+newtype Colour_sRGB
+newtype Colour8_sRGB
+newtype State
+newtype Vector1
+newtype BBox1
+newtype Plugboard
+newtype Reflector
+newtype RotorMapping
+newtype Contrarian a
+newtype LuckySortOrder a
+newtype Perverse a
+newtype Fiendish a
+newtype WrappedSchoenfinkel cat a b
+newtype QCInt
+newtype QCNat
+newtype QCBool
+newtype Id a
+newtype Tower a
+newtype AD s a
+newtype Index
+newtype Tape
+newtype On t
+newtype Kahn a
+newtype ContsT r w m a
+newtype AdjointT f g w a
+newtype Co f a
+newtype AdjointT f g w a
+newtype AdjointT f g m a
+newtype ReaderT f m b
+newtype StateT g m a
+newtype Split (uId :: Symbol) (splitType :: SplitType) synVar
+newtype RAThin ira
+newtype RAConsistent ira
+newtype RADirected ira
+newtype BGran20 b
+newtype BGran100 b
+newtype BGran1000 b
+newtype FBSize10 fb
+newtype FBSize10Small fb
+newtype FBSize10Degree3 fb
+newtype FBEnclThinSize10 fb
+newtype FBEnclThinSize10Small fb
+newtype FBEnclThinSize10Degree3 fb
+newtype FBEnclParalSize10 fb
+newtype FBEnclParalSize10Small fb
+newtype FBEnclParalSize10Degree3 fb
+newtype FBEnclThickSize10 fb
+newtype FBEnclThickSize10Small fb
+newtype FBEnclThickSize10Degree3 fb
+newtype DotNetTime
+newtype DotNetTime
+newtype ParseT err m a
+newtype DotNetTime
+newtype DotNetTime
+newtype CodeGenM s a
+newtype List2 a
+newtype Pointwise a
+newtype Inclusion a
+newtype ISet
+newtype Rigid
+newtype Flex
+newtype Graph n e
+newtype Favorites a
+newtype Bag a
+newtype Graph s t e
+newtype Str
+newtype CPUTime
+newtype Range' a
+newtype Ranges
+newtype Constr a
+newtype InteractionId
+newtype TopLevelModuleName
+newtype LocalId
+newtype GlobalId
+newtype MemberId
+newtype Distance
+newtype CallMatrix' a
+newtype CMSet cinfo
+newtype CallGraph cinfo
+newtype ModuleName
+newtype AmbiguousQName
+newtype CName
+newtype Tel
+newtype ExprInfo
+newtype LetInfo
+newtype LHSInfo
+newtype Level
+newtype MetaId
+newtype CompressedFile
+newtype ProblemId
+newtype MetaPriority
+newtype Fields
+newtype MutualId
+newtype CtxId
+newtype ReduceM a
+newtype TCMT m a
+newtype YesType a
+newtype NoType a
+newtype VarName
+newtype DefName
+newtype ConName
+newtype ProjName
+newtype SizedList a
+newtype ExceptionT err m a
+newtype NewModuleQName
+newtype OldName
+newtype Wrap a
+newtype PrettyContext
+newtype TerM a
+newtype CallPath
+newtype Nat
+newtype Lvl
+newtype Unify a
+newtype Update
+newtype Client
+newtype Update
+newtype Equation
+newtype LitTree
+newtype TraceLit l s
+newtype (:->) s x
+newtype PlainShowWrapper a
+newtype DisposableEvent
+newtype Transform a b
+newtype Stream a
+newtype Processor a b
+newtype Circuit a b
+newtype Net a b
+newtype SamplingStats
+newtype TimingStats
+newtype SamplingCounter
+newtype TimingCounter
+newtype Queue
+newtype ArrivalTimer
+newtype Server
+newtype Activity
+newtype Resource
+newtype DisposableEvent m
+newtype Transform m a b
+newtype Stream m a
+newtype Processor m a b
+newtype Circuit m a b
+newtype Net m a b
+newtype ContextEither a
+newtype Info
+newtype EnumSet a
+newtype EnumMap k v
+newtype IntjectionSet a
+newtype IntjectionMap k v
+newtype Rel a b
+newtype EnumBitSet a
+newtype Properties
+newtype Number
+newtype ExtType
+newtype Requires
+newtype Requires
+newtype TyEnv
+newtype Var
+newtype Module
+newtype Rules
+newtype UnVarOpt
+newtype InstanceEnv
+newtype DataTable
+newtype Morphism a
+newtype Covector r a
+newtype Covector r a
+newtype BasisCoblade m
+newtype Euclidean
+newtype Exp r
+newtype Log r
+newtype Map r b a
+newtype End a
+newtype Opposite r
+newtype ZeroRng r
+newtype Match o p e a
+newtype Key
+newtype DescrCol
+newtype PayloadCol
+newtype Cluster
+newtype Pcm
+newtype PcmHwParams
+newtype PcmSwParams
+newtype T
+newtype TickTime
+newtype ClientId
+newtype Port
+newtype Queue
+newtype EnumBitPos a
+newtype ReturnCode
+newtype Tempo
+newtype FlagSet word enum
+newtype Port
+newtype T
+newtype T
+newtype Tag
+newtype Tempo
+newtype Parameter
+newtype Value
+newtype Channel
+newtype Pitch
+newtype Velocity
+newtype Duration
+newtype HundredthInch
+newtype HundredthPound
+newtype AmazonT a
+newtype Base64
+newtype Nat
+newtype Sensitive a
+newtype List (e :: Symbol) a
+newtype List1 (e :: Symbol) a
+newtype Map k v
+newtype EMap (e :: Symbol) (i :: Symbol) (j :: Symbol) k v
+newtype AccessKey
+newtype SecretKey
+newtype SecurityToken
+newtype Action
+newtype ErrorCode
+newtype BucketName
+newtype ObjectKey
+newtype ObjectVersionId
+newtype ETag
+newtype PMeaning
+newtype ShortString
+newtype LongString
+newtype Fix fT
+newtype Nav
+newtype BotT m a
+newtype Packciv a
+newtype OutPlexT m a
+newtype Optional a
+newtype Which a
+newtype PrintlArgW
+newtype PlayerId
+newtype WrappedAQResult q
+newtype VocabT m a
+newtype HandlerBox
+newtype PrerequisiteBox
+newtype PredicateBox
+newtype RoomT m a
+newtype ObjectT m a
+newtype PlayerId
+newtype PlayerT m a
+newtype DungeonT m a
+newtype ActionAfter
+newtype ActionBefore
+newtype Condition
+newtype StereoBuilderT m a
+newtype Gate
+newtype CommonToken
+newtype InputStream
+newtype Lexer
+newtype AntlrString
+newtype Salt
+newtype JSONResponse a
+newtype Questions
+newtype TypeName
+newtype FieldName
+newtype Binary
+newtype RegularExpression
+newtype TypeRef
+newtype StrategyRep
+newtype QueryKey (key :: Symbol)
+newtype DefaultConfig
+newtype GetSetting
+newtype Backwards t a
+newtype (:+:) f g a
+newtype FailT e m a
+newtype BNF
+newtype AbsolutelyApproximateValue absolute_tolerance value
+newtype RelativelyApproximateValue zero_tolerance relative_tolerance value
+newtype ArchList a
+newtype ArchDep
+newtype IOURef a
+newtype STURef s a
+newtype SeqT m a
+newtype ListTArrow m a b
+newtype SeqTArrow m a b
+newtype ArrowAsMonad a c
+newtype CoStateArrow s a b c
+newtype Automaton a b c
+newtype ErrorArrow ex a b c
+newtype StateArrow s a b c
+newtype StaticArrow f a b c
+newtype StreamArrow a b c
+newtype WriterArrow w a b c
+newtype ReaderArrow r a b c
+newtype Artery m i o
+newtype SHDAT
+newtype SHDAT
+newtype Arse
+newtype Concurrently a
+newtype Promise (b :: * -> *) m a
+newtype Promise a
+newtype Concurrently a
+newtype ReaderT r s a b
+newtype AbortT v r a b
+newtype StateT s r a b
+newtype WriterT w r a b
+newtype ConnectURI
+newtype ConnectSecond
+newtype Timeout
+newtype Parser i a
+newtype Pos
+newtype ParserT i m r
+newtype T time label
+newtype AugFlag
+newtype AugRet
+newtype AugBefore
+newtype AugErrCode
+newtype Identifier
+newtype Document
+newtype Average a
+newtype Path
+newtype ObjId
+newtype RevId
+newtype SecretId
+newtype BlobId
+newtype SessionId
+newtype Avers a
+newtype Path
+newtype ObjId
+newtype RevId
+newtype SessionId
+newtype BlobId
+newtype SecretId
+newtype XInt
+newtype XmlException
+newtype HeaderException
+newtype FormException
+newtype NoCredentialsException
+newtype Bin a
+newtype DynBinary
+newtype DynNumber
+newtype DynString
+newtype Parser a
+newtype CreateTableResult
+newtype DescribeTableResult
+newtype UpdateTableResult
+newtype DeleteTableResult
+newtype ListTablesResult
+newtype ReceiptHandle
+newtype MessageId
+newtype XmlException
+newtype HeaderException
+newtype FormException
+newtype JobId
+newtype PresetId
+newtype PageToken
+newtype JobSingle
+newtype PipelineName
+newtype PipelineId
+newtype PipelineSingle
+newtype PresetName
+newtype PresetSingle
+newtype BitRate
+newtype KeyFrameRate
+newtype FixedGOP
+newtype Interval
+newtype SUCCESS
+newtype EtsServiceError
+newtype ListPipelinesResponse
+newtype ListPresetsResponse
+newtype AccountId
+newtype CanonicalUserId
+newtype CanonicalUri
+newtype CanonicalHeaders
+newtype CanonicalRequest
+newtype StringToSign
+newtype SigningKey
+newtype Signature
+newtype NoShardsFoundException
+newtype LambdaDateTime
+newtype AddEventSourceResponse
+newtype GetEventSourceResponse
+newtype UpdateFunctionConfigurationResponse
+newtype Domain
+newtype HostedZoneId
+newtype ResourceRecord
+newtype ChangeId
+newtype GetDateResponse
+newtype Empty
+newtype MessageId
+newtype SharedImageName
+newtype SharedImageDate
+newtype SharedImageBuildId
+newtype UUID
+newtype RepoCache
+newtype SshPrivKey
+newtype SshRemoteHost
+newtype SshRemoteUser
+newtype InstanceId
+newtype CGParser a
+newtype CGError
+newtype BackwardStateT s m a
+newtype Cur
+newtype MatchPolicy
+newtype Intervals a
+newtype RunTime
+newtype Ratio
+newtype Color
+newtype BarrierT f b m t
+newtype Down a
+newtype Par1 p
+newtype Rec1 f p
+newtype K1 i c p
+newtype M1 i c f p
+newtype (:.:) f g p
+newtype Dual a
+newtype Endo a
+newtype All
+newtype Any
+newtype Sum a
+newtype Product a
+newtype First a
+newtype Last a
+newtype Alt f a
+newtype CChar
+newtype CSChar
+newtype CUChar
+newtype CShort
+newtype CUShort
+newtype CInt
+newtype CUInt
+newtype CLong
+newtype CULong
+newtype CPtrdiff
+newtype CSize
+newtype CWchar
+newtype CSigAtomic
+newtype CLLong
+newtype CULLong
+newtype CIntPtr
+newtype CUIntPtr
+newtype CIntMax
+newtype CUIntMax
+newtype CClock
+newtype CTime
+newtype CUSeconds
+newtype CSUSeconds
+newtype CFloat
+newtype CDouble
+newtype Errno
+newtype CDev
+newtype CIno
+newtype CMode
+newtype COff
+newtype CPid
+newtype CSsize
+newtype CGid
+newtype CNlink
+newtype CUid
+newtype CCc
+newtype CSpeed
+newtype CTcflag
+newtype CRLim
+newtype Fd
+newtype STM a
+newtype ErrorCall
+newtype ErrorCall
+newtype STM a
+newtype Kleisli m a b
+newtype ArrowMonad a b
+newtype Const a b
+newtype WrappedMonad m a
+newtype WrappedArrow a b c
+newtype ZipList a
+newtype Down a
+newtype Fixed a
+newtype Identity a
+newtype Alphabet
+newtype Alphabet
+newtype Identifier
+newtype FileDescriptor
+newtype FileDescriptor
+newtype Down a :: * -> *
+newtype WoWClassInfoId
+newtype TypeSign
+newtype TimeStamp
+newtype GCStatistics
+newtype Child i n
+newtype SpecParser s e a
+newtype Biff p f g a b
+newtype Clown f a b
+newtype Flip p a b
+newtype Join p a
+newtype Joker g a b
+newtype Tannen f p a b
+newtype WrappedBifunctor p a b
+newtype TimeSig
+newtype PutM a
+newtype Hash32
+newtype Hash64
+newtype Defer x
+newtype StaticMemAction buffer_iter_tag size a
+newtype HappyAbsSyn
+newtype HappyIdentity a
+newtype GoTerm
+newtype KO
+newtype Loc
+newtype Energy
+newtype Score
+newtype Partition
+newtype Kelvin
+newtype Nucleotide
+newtype ViennaPair
+newtype Accession t
+newtype Identification t
+newtype BitScore
+newtype Classification
+newtype NegLogProb
+newtype NodeID
+newtype StateID
+newtype Energy
+newtype Strand
+newtype DLO
+newtype Index (t :: Nat)
+newtype DeltaGibbs
+newtype DeltaDekaGibbs
+newtype Accession t
+newtype Deka
+newtype Letter t
+newtype ViennaPair
+newtype HashedPrimary t
+newtype Edge
+newtype CTisomerism
+newtype D1Secondary
+newtype D2Secondary
+newtype Constraint
+newtype Qual
+newtype Offset
+newtype SeqData
+newtype SeqLabel
+newtype QualData
+newtype BitArray a
+newtype VarInt
+newtype PixelRGB
+newtype PixelBGR
+newtype PixelRGBA
+newtype PixelBGRA
+newtype CompleteEncoder bmp
+newtype CompleteDecoder bmp
+newtype ImageEncoder bmp
+newtype ImageDecoder bmp
+newtype GenericBitmapSerializer s
+newtype BitmapArray
+newtype BitmapForeign
+newtype Coding m a
+newtype Unary n
+newtype Elias c n
+newtype BitSet c a
+newtype FasterInteger
+newtype Poke
+newtype JSON
+newtype EncodeConfig
+newtype EncodeConfig
+newtype Delay
+newtype PatternStep
+newtype LED
+newtype Delay
+newtype BytecodeSeq
+newtype Existence
+newtype NullValue
+newtype Server
+newtype ExternalDocVersion
+newtype From
+newtype Size
+newtype LessThan
+newtype LessThanEq
+newtype GreaterThan
+newtype GreaterThanEq
+newtype LessThanD
+newtype LessThanEqD
+newtype GreaterThanD
+newtype GreaterThanEqD
+newtype Regexp
+newtype FieldName
+newtype IndexName
+newtype MappingName
+newtype DocId
+newtype CacheName
+newtype CacheKey
+newtype ReplicaCount
+newtype ShardCount
+newtype Boost
+newtype QueryString
+newtype CutoffFrequency
+newtype Analyzer
+newtype MaxExpansions
+newtype Lenient
+newtype Tiebreaker
+newtype MinimumMatch
+newtype DisableCoord
+newtype PrefixLength
+newtype Fuzziness
+newtype IgnoreTermFrequency
+newtype MaxQueryTerms
+newtype TypeName
+newtype BoostTerms
+newtype MaxWordLength
+newtype MinWordLength
+newtype MaxDocFrequency
+newtype MinDocFrequency
+newtype PhraseSlop
+newtype StopWord
+newtype QueryPath
+newtype MinimumTermFrequency
+newtype PercentMatch
+newtype AllowLeadingWildcard
+newtype LowercaseExpanded
+newtype GeneratePhraseQueries
+newtype Locale
+newtype AnalyzeWildcard
+newtype EnablePositionIncrements
+newtype O f g a
+newtype PrintPlain
+newtype PrintPlain
+newtype Ident
+newtype DNF a
+newtype CNF a
+newtype DNF a
+newtype CNF a
+newtype CNF a
+newtype Conj a
+newtype Disj a
+newtype DNF a
+newtype Parser e tok a
+newtype Scope b f a
+newtype Scope b f a
+newtype Scope b f a
+newtype Version
+newtype VersionRange
+newtype BrainFuck a
+newtype ProgramCounter
+newtype Tag
+newtype Binary
+newtype Function
+newtype UUID
+newtype MD5
+newtype UserDefined
+newtype Symbol
+newtype MongoStamp
+newtype ObjectKey
+newtype FilesKV a
+newtype CacheSTM m k v a
+newtype Ref a
+newtype BTreeM m st k v a
+newtype Chunked a
+newtype ChunkedBuilder a
+newtype BigEndian a
+newtype LittleEndian a
+newtype Dec a
+newtype Hex a
+newtype HexFixed a
+newtype Char7 a
+newtype Char8 a
+newtype Utf8 a
+newtype Utf16 a
+newtype Utf32 a
+newtype BtSoftBody_AJoint
+newtype BtCollisionWorld_AllHitsRayResultCallback
+newtype BtSoftBody_Anchor
+newtype BT_BOX_BOX_TRANSFORM_CACHE
+newtype BT_QUANTIZED_BVH_NODE
+newtype BtSoftBody_Body
+newtype BtSoftBody_CJoint
+newtype CProfileIterator
+newtype CProfileManager
+newtype CProfileNode
+newtype CProfileSample
+newtype BtCollisionWorld_ClosestConvexResultCallback
+newtype BtDiscreteCollisionDetectorInterface_ClosestPointInput
+newtype BtCollisionWorld_ClosestRayResultCallback
+newtype BtSoftBody_Cluster
+newtype BtGImpactCompoundShape_CompoundPrimitiveManager
+newtype BtSoftBody_Config
+newtype BtCollisionWorld_ContactResultCallback
+newtype BtCollisionWorld_ConvexResultCallback
+newtype BtGImpactCollisionAlgorithm_CreateFunc
+newtype BtSphereSphereCollisionAlgorithm_CreateFunc
+newtype BtConvexConvexAlgorithm_CreateFunc
+newtype BtSoftBody_Element
+newtype BtSoftBody_Face
+newtype BtSoftBody_Feature
+newtype GIM_BVH_DATA
+newtype GIM_BVH_DATA_ARRAY
+newtype GIM_BVH_TREE_NODE
+newtype GIM_BVH_TREE_NODE_ARRAY
+newtype GIM_PAIR
+newtype GIM_QUANTIZED_BVH_NODE_ARRAY
+newtype GIM_TRIANGLE_CONTACT
+newtype BtDbvt_IClone
+newtype BtDbvt_ICollide
+newtype BtSoftBody_AJoint_IControl
+newtype BtDbvt_IWriter
+newtype BtSoftBody_ImplicitFn
+newtype BtSoftBody_Impulse
+newtype BtSoftBody_Joint
+newtype BtSoftBody_LJoint
+newtype BtSoftBody_Link
+newtype BtCollisionWorld_LocalConvexResult
+newtype BtCollisionWorld_LocalRayResult
+newtype BtCollisionWorld_LocalShapeInfo
+newtype BtSoftBody_Material
+newtype BtSoftBody_Node
+newtype BtSoftBody_Note
+newtype BtSoftBody_Pose
+newtype BtSoftBody_RContact
+newtype BtSoftBody_RayFromToCaster
+newtype BtCollisionWorld_RayResultCallback
+newtype BtWheelInfo_RaycastInfo
+newtype BtDiscreteCollisionDetectorInterface_Result
+newtype BtSoftBody_SContact
+newtype BtSoftBody_SolverState
+newtype BtSoftBody_Joint_Specs
+newtype BtSoftBody_LJoint_Specs
+newtype BtSoftBody_AJoint_Specs
+newtype BtSoftBody_Tetra
+newtype BtGImpactMeshShapePart_TrimeshPrimitiveManager
+newtype Bt32BitAxisSweep3
+newtype BtAABB
+newtype BtActionInterface
+newtype BtActivatingCollisionAlgorithm
+newtype BtAlignedAllocator_BT_QUANTIZED_BVH_NODE_16u_
+newtype BtAlignedAllocator_GIM_BVH_DATA_16u_
+newtype BtAlignedAllocator_GIM_BVH_TREE_NODE_16u_
+newtype BtAlignedAllocator_GIM_PAIR_16u_
+newtype BtAlignedAllocator_bool_16u_
+newtype BtAlignedAllocator_btActionInterface_ptr_16u_
+newtype BtAlignedAllocator_btBroadphaseInterface_ptr_16u_
+newtype BtAlignedAllocator_btBroadphasePair_16u_
+newtype BtAlignedAllocator_btBvhSubtreeInfo_16u_
+newtype BtAlignedAllocator_btChunk_ptr_16u_
+newtype BtAlignedAllocator_btCollisionObject_ptr_16u_
+newtype BtAlignedAllocator_btCollisionShape_ptr_16u_
+newtype BtAlignedAllocator_btCompoundShapeChild_16u_
+newtype BtAlignedAllocator_btDbvt_sStkNN_16u_
+newtype BtAlignedAllocator_btDbvt_sStkNP_16u_
+newtype BtAlignedAllocator_btDbvt_sStkNPS_16u_
+newtype BtAlignedAllocator_btDbvtNodeconst_ptr_16u_
+newtype BtAlignedAllocator_btGImpactMeshShapePart_ptr_16u_
+newtype BtAlignedAllocator_btHashInt_16u_
+newtype BtAlignedAllocator_btHashPtr_16u_
+newtype BtAlignedAllocator_btHashString_16u_
+newtype BtAlignedAllocator_btIndexedMesh_16u_
+newtype BtAlignedAllocator_btMultiSapBroadphase_btBridgeProxy_ptr_16u_
+newtype BtAlignedAllocator_btMultiSapBroadphase_btMultiSapProxy_ptr_16u_
+newtype BtAlignedAllocator_btOptimizedBvhNode_16u_
+newtype BtAlignedAllocator_btPersistentManifold_ptr_16u_
+newtype BtAlignedAllocator_btPointerUid_16u_
+newtype BtAlignedAllocator_btQuantizedBvhNode_16u_
+newtype BtAlignedAllocator_btRigidBody_ptr_16u_
+newtype BtAlignedAllocator_btSoftBody_ptr_16u_
+newtype BtAlignedAllocator_btSoftBody_Anchor_16u_
+newtype BtAlignedAllocator_btSoftBody_Cluster_ptr_16u_
+newtype BtAlignedAllocator_btSoftBody_Face_16u_
+newtype BtAlignedAllocator_btSoftBody_Joint_ptr_16u_
+newtype BtAlignedAllocator_btSoftBody_Link_16u_
+newtype BtAlignedAllocator_btSoftBody_Material_ptr_16u_
+newtype BtAlignedAllocator_btSoftBody_Node_ptr_16u_
+newtype BtAlignedAllocator_btSoftBody_Node_16u_
+newtype BtAlignedAllocator_btSoftBody_Note_16u_
+newtype BtAlignedAllocator_btSoftBody_RContact_16u_
+newtype BtAlignedAllocator_btSoftBody_SContact_16u_
+newtype BtAlignedAllocator_btSoftBody_Tetra_16u_
+newtype BtAlignedAllocator_btSoftBody_ePSolver___16u_
+newtype BtAlignedAllocator_btSoftBody_eVSolver___16u_
+newtype BtAlignedAllocator_btSolverConstraint_16u_
+newtype BtAlignedAllocator_btSparseSdf_3__Cell_ptr_16u_
+newtype BtAlignedAllocator_btTransform_16u_
+newtype BtAlignedAllocator_btTriangleInfo_16u_
+newtype BtAlignedAllocator_btTypedConstraint_ptr_16u_
+newtype BtAlignedAllocator_btTypedConstraint_btConstraintInfo1_16u_
+newtype BtAlignedAllocator_btVector3_16u_
+newtype BtAlignedAllocator_btWheelInfo_16u_
+newtype BtAlignedAllocator_charconst_ptr_16u_
+newtype BtAlignedAllocator_char_ptr_16u_
+newtype BtAlignedAllocator_float_16u_
+newtype BtAlignedAllocator_int_16u_
+newtype BtAlignedAllocator_short_ptr_16u_
+newtype BtAlignedAllocator_short_16u_
+newtype BtAlignedAllocator_unsignedint_16u_
+newtype BtAlignedAllocator_unsignedshort_16u_
+newtype BtAlignedAllocator_void_ptr_16u_
+newtype BtAlignedObjectArray_BT_QUANTIZED_BVH_NODE_
+newtype BtAlignedObjectArray_GIM_BVH_DATA_
+newtype BtAlignedObjectArray_GIM_BVH_TREE_NODE_
+newtype BtAlignedObjectArray_GIM_PAIR_
+newtype BtAlignedObjectArray_bool_
+newtype BtAlignedObjectArray_btActionInterface_ptr_
+newtype BtAlignedObjectArray_btBroadphaseInterface_ptr_
+newtype BtAlignedObjectArray_btBroadphasePair_
+newtype BtAlignedObjectArray_btBvhSubtreeInfo_
+newtype BtAlignedObjectArray_btChunk_ptr_
+newtype BtAlignedObjectArray_btCollisionObject_ptr_
+newtype BtAlignedObjectArray_btCollisionShape_ptr_
+newtype BtAlignedObjectArray_btCompoundShapeChild_
+newtype BtAlignedObjectArray_btDbvt_sStkNN_
+newtype BtAlignedObjectArray_btDbvt_sStkNP_
+newtype BtAlignedObjectArray_btDbvt_sStkNPS_
+newtype BtAlignedObjectArray_btDbvtNodeconst_ptr_
+newtype BtAlignedObjectArray_btGImpactMeshShapePart_ptr_
+newtype BtAlignedObjectArray_btHashInt_
+newtype BtAlignedObjectArray_btHashPtr_
+newtype BtAlignedObjectArray_btHashString_
+newtype BtAlignedObjectArray_btIndexedMesh_
+newtype BtAlignedObjectArray_btMultiSapBroadphase_btBridgeProxy_ptr_
+newtype BtAlignedObjectArray_btMultiSapBroadphase_btMultiSapProxy_ptr_
+newtype BtAlignedObjectArray_btOptimizedBvhNode_
+newtype BtAlignedObjectArray_btPersistentManifold_ptr_
+newtype BtAlignedObjectArray_btPointerUid_
+newtype BtAlignedObjectArray_btQuantizedBvhNode_
+newtype BtAlignedObjectArray_btRigidBody_ptr_
+newtype BtAlignedObjectArray_btSoftBody_ptr_
+newtype BtAlignedObjectArray_btSoftBody_Anchor_
+newtype BtAlignedObjectArray_btSoftBody_Cluster_ptr_
+newtype BtAlignedObjectArray_btSoftBody_Face_
+newtype BtAlignedObjectArray_btSoftBody_Joint_ptr_
+newtype BtAlignedObjectArray_btSoftBody_Link_
+newtype BtAlignedObjectArray_btSoftBody_Material_ptr_
+newtype BtAlignedObjectArray_btSoftBody_Node_ptr_
+newtype BtAlignedObjectArray_btSoftBody_Node_
+newtype BtAlignedObjectArray_btSoftBody_Note_
+newtype BtAlignedObjectArray_btSoftBody_RContact_
+newtype BtAlignedObjectArray_btSoftBody_SContact_
+newtype BtAlignedObjectArray_btSoftBody_Tetra_
+newtype BtAlignedObjectArray_btSoftBody_ePSolver___
+newtype BtAlignedObjectArray_btSoftBody_eVSolver___
+newtype BtAlignedObjectArray_btSolverConstraint_
+newtype BtAlignedObjectArray_btSparseSdf_3__Cell_ptr_
+newtype BtAlignedObjectArray_btTransform_
+newtype BtAlignedObjectArray_btTriangleInfo_
+newtype BtAlignedObjectArray_btTypedConstraint_ptr_
+newtype BtAlignedObjectArray_btTypedConstraint_btConstraintInfo1_
+newtype BtAlignedObjectArray_btVector3_
+newtype BtAlignedObjectArray_btWheelInfo_
+newtype BtAlignedObjectArray_charconst_ptr_
+newtype BtAlignedObjectArray_char_ptr_
+newtype BtAlignedObjectArray_float_
+newtype BtAlignedObjectArray_int_
+newtype BtAlignedObjectArray_short_ptr_
+newtype BtAlignedObjectArray_short_
+newtype BtAlignedObjectArray_unsignedint_
+newtype BtAlignedObjectArray_unsignedshort_
+newtype BtAlignedObjectArray_void_ptr_
+newtype BtAngularLimit
+newtype BtAxisSweep3
+newtype BtAxisSweep3Internal_unsignedint_
+newtype BtAxisSweep3Internal_unsignedshort_
+newtype BtBU_Simplex1to4
+newtype BtBlock
+newtype BtBoxShape
+newtype BtMultiSapBroadphase_btBridgeProxy
+newtype BtBroadphaseAabbCallback
+newtype BtBroadphaseInterface
+newtype BtBroadphasePair
+newtype BtBroadphasePairSortPredicate
+newtype BtBroadphaseProxy
+newtype BtBroadphaseRayCallback
+newtype BtBvhSubtreeInfo
+newtype BtBvhSubtreeInfoData
+newtype BtBvhTree
+newtype BtBvhTriangleMeshShape
+newtype BtCapsuleShape
+newtype BtCapsuleShapeData
+newtype BtCapsuleShapeX
+newtype BtCapsuleShapeZ
+newtype BtCharIndexTripletData
+newtype BtChunk
+newtype BtClock
+newtype BtCollisionAlgorithm
+newtype BtCollisionAlgorithmConstructionInfo
+newtype BtCollisionAlgorithmCreateFunc
+newtype BtCollisionConfiguration
+newtype BtCollisionDispatcher
+newtype BtCollisionObject
+newtype BtCollisionObjectDoubleData
+newtype BtCollisionObjectFloatData
+newtype BtCollisionShape
+newtype BtCollisionShapeData
+newtype BtCollisionWorld
+newtype BtCompoundShape
+newtype BtCompoundShapeChild
+newtype BtCompoundShapeChildData
+newtype BtCompoundShapeData
+newtype BtConcaveShape
+newtype BtConeShape
+newtype BtConeShapeX
+newtype BtConeShapeZ
+newtype BtConeTwistConstraint
+newtype BtConeTwistConstraintData
+newtype BtTypedConstraint_btConstraintInfo1
+newtype BtTypedConstraint_btConstraintInfo2
+newtype BtConstraintRow
+newtype BtConstraintSetting
+newtype BtConstraintSolver
+newtype BtContactConstraint
+newtype BtContactSolverInfo
+newtype BtContactSolverInfoData
+newtype BtConvexConvexAlgorithm
+newtype BtConvexHullShape
+newtype BtConvexHullShapeData
+newtype BtConvexInternalAabbCachingShape
+newtype BtConvexInternalShape
+newtype BtConvexInternalShapeData
+newtype BtConvexSeparatingDistanceUtil
+newtype BtConvexShape
+newtype BtConvexTriangleMeshShape
+newtype BtCylinderShape
+newtype BtCylinderShapeData
+newtype BtCylinderShapeX
+newtype BtCylinderShapeZ
+newtype BtDbvt
+newtype BtDbvtAabbMm
+newtype BtDbvtBroadphase
+newtype BtDbvtNode
+newtype BtDbvtProxy
+newtype BtDefaultCollisionConfiguration
+newtype BtDefaultCollisionConstructionInfo
+newtype BtDefaultMotionState
+newtype BtDefaultSerializer
+newtype BtDefaultVehicleRaycaster
+newtype BtDiscreteCollisionDetectorInterface
+newtype BtDiscreteDynamicsWorld
+newtype BtDispatcher
+newtype BtDispatcherInfo
+newtype BtDynamicsWorld
+newtype BtEmptyShape
+newtype BtGImpactBvh
+newtype BtGImpactCollisionAlgorithm
+newtype BtGImpactCompoundShape
+newtype BtGImpactMeshShape
+newtype BtGImpactMeshShapeData
+newtype BtGImpactMeshShapePart
+newtype BtGImpactQuantizedBvh
+newtype BtGImpactShapeInterface
+newtype BtGLDebugDrawer
+newtype BtGeneric6DofConstraint
+newtype BtGeneric6DofConstraintData
+newtype BtGeneric6DofSpringConstraint
+newtype BtGeneric6DofSpringConstraintData
+newtype BtGeometryUtil
+newtype BtGhostObject
+newtype BtGhostPairCallback
+newtype BtGjkEpaSolver2
+newtype BtGjkPairDetector
+newtype BtHashInt
+newtype BtHashMap_btHashInt_btTriangleInfo_
+newtype BtHashMap_btHashInt_int_
+newtype BtHashMap_btHashPtr_btPointerUid_
+newtype BtHashMap_btHashPtr_charconst_ptr_
+newtype BtHashMap_btHashPtr_void_ptr_
+newtype BtHashMap_btHashString_int_
+newtype BtHashPtr
+newtype BtHashString
+newtype BtHashedOverlappingPairCache
+newtype BtHinge2Constraint
+newtype BtHingeConstraint
+newtype BtHingeConstraintDoubleData
+newtype BtHingeConstraintFloatData
+newtype BtIDebugDraw
+newtype BtIndexedMesh
+newtype BtIntIndexData
+newtype BtInternalTriangleIndexCallback
+newtype BtJacobianEntry
+newtype BtManifoldPoint
+newtype BtManifoldResult
+newtype BtMatrix3x3DoubleData
+newtype BtMatrix3x3FloatData
+newtype BtMeshPartData
+newtype BtMotionState
+newtype BtMultiSapBroadphase
+newtype BtMultiSapBroadphase_btMultiSapProxy
+newtype BtMultiSphereShape
+newtype BtMultiSphereShapeData
+newtype BtNodeOverlapCallback
+newtype BtNullPairCache
+newtype BtOptimizedBvh
+newtype BtOptimizedBvhNode
+newtype BtOptimizedBvhNodeDoubleData
+newtype BtOptimizedBvhNodeFloatData
+newtype BtOverlapCallback
+newtype BtOverlapFilterCallback
+newtype BtOverlappingPairCache
+newtype BtOverlappingPairCallback
+newtype BtPairCachingGhostObject
+newtype BtPairSet
+newtype BtPersistentManifold
+newtype BtPoint2PointConstraint
+newtype BtPoint2PointConstraintDoubleData
+newtype BtPoint2PointConstraintFloatData
+newtype BtPointerUid
+newtype BtPolyhedralConvexAabbCachingShape
+newtype BtPolyhedralConvexShape
+newtype BtPositionAndRadius
+newtype BtPrimitiveManagerBase
+newtype BtPrimitiveTriangle
+newtype BtQuadWord
+newtype BtQuantizedBvh
+newtype BtQuantizedBvhDoubleData
+newtype BtQuantizedBvhFloatData
+newtype BtQuantizedBvhNode
+newtype BtQuantizedBvhNodeData
+newtype BtQuantizedBvhTree
+newtype BtRaycastVehicle
+newtype BtRigidBody
+newtype BtRigidBody_btRigidBodyConstructionInfo
+newtype BtRigidBodyDoubleData
+newtype BtRigidBodyFloatData
+newtype BtRotationalLimitMotor
+newtype BtScaledBvhTriangleMeshShape
+newtype BtScaledTriangleMeshShapeData
+newtype BtSequentialImpulseConstraintSolver
+newtype BtSerializer
+newtype BtShortIntIndexData
+newtype BtShortIntIndexTripletData
+newtype BtSimpleBroadphase
+newtype BtSimpleBroadphaseProxy
+newtype BtSimpleDynamicsWorld
+newtype BtSliderConstraint
+newtype BtSliderConstraintData
+newtype BtSoftBody
+newtype BtSoftBodyHelpers
+newtype BtSoftBodyRigidBodyCollisionConfiguration
+newtype BtSoftBodyWorldInfo
+newtype BtSoftRigidDynamicsWorld
+newtype BtSolverBodyObsolete
+newtype BtSolverConstraint
+newtype BtSortedOverlappingPairCache
+newtype BtSparseSdf_3_
+newtype BtSphereShape
+newtype BtSphereSphereCollisionAlgorithm
+newtype BtStackAlloc
+newtype BtStaticPlaneShape
+newtype BtStaticPlaneShapeData
+newtype BtStorageResult
+newtype BtStridingMeshInterface
+newtype BtStridingMeshInterfaceData
+newtype BtSubSimplexClosestResult
+newtype BtTetrahedronShapeEx
+newtype BtTransformDoubleData
+newtype BtTransformFloatData
+newtype BtTransformUtil
+newtype BtTranslationalLimitMotor
+newtype BtTriangleCallback
+newtype BtTriangleIndexVertexArray
+newtype BtTriangleInfo
+newtype BtTriangleInfoData
+newtype BtTriangleInfoMap
+newtype BtTriangleInfoMapData
+newtype BtTriangleMesh
+newtype BtTriangleMeshShape
+newtype BtTriangleMeshShapeData
+newtype BtTriangleShape
+newtype BtTriangleShapeEx
+newtype BtTypedConstraint
+newtype BtTypedConstraintData
+newtype BtTypedObject
+newtype BtUniformScalingShape
+newtype BtUniversalConstraint
+newtype BtUsageBitfield
+newtype BtVector3DoubleData
+newtype BtVector3FloatData
+newtype BtVehicleRaycaster
+newtype BtVehicleRaycaster_btVehicleRaycasterResult
+newtype BtRaycastVehicle_btVehicleTuning
+newtype BtVoronoiSimplexSolver
+newtype BtWheelInfo
+newtype BtWheelInfoConstructionInfo
+newtype BtSoftBody_eAeroModel
+newtype BtSoftBody_eFeature
+newtype BtSoftBody_ePSolver
+newtype BtSoftBody_eSolverPresets
+newtype BtSoftBody_Joint_eType
+newtype BtSoftBody_eVSolver
+newtype BtSoftBody_fCollision
+newtype FDrawFlags
+newtype BtSoftBody_fMaterial
+newtype BtSoftBody_sCti
+newtype BtSoftBody_sMedium
+newtype BtSoftBody_sRayCast
+newtype BtGjkEpaSolver2_sResults
+newtype BtDbvt_sStkCLN
+newtype BtDbvt_sStkNN
+newtype BtDbvt_sStkNP
+newtype BtDbvt_sStkNPS
+newtype VarInt n
+newtype Hex a
+newtype List a
+newtype Hex a
+newtype PutM a :: * -> *
+newtype StorableWrap a
+newtype Program
+newtype VariableDeclaration
+newtype StatementSequence
+newtype Program
+newtype VariableDeclaration
+newtype StatementSequence
+newtype PackageName
+newtype InstalledPackageId
+newtype FlagName
+newtype ReadE a
+newtype DebBase
+newtype ChModuleName
+newtype PackageName
+newtype InstalledPackageId
+newtype FlagName
+newtype ReadE a
+newtype PackageName :: *
+newtype LS
+newtype Torch a
+newtype FileT a
+newtype Make' m a
+newtype A' m a
+newtype CommandGen' m
+newtype CakeString
+newtype CommandGen' m
+newtype UWLib
+newtype UWExe
+newtype UrpGen m a
+newtype AnimationId
+newtype MeshId
+newtype MaterialId
+newtype Name
+newtype Dims
+newtype CampfireM a
+newtype RoomWithRoot
+newtype Rooms
+newtype Messages
+newtype UserWithRoot
+newtype Uploads
+newtype UploadWithRoot
+newtype CampfireTime
+newtype Argument
+newtype CAES
+newtype ProofStandardNamed
+newtype Betsy m a
+newtype OrEqualTo
+newtype Flags
+newtype MediaType
+newtype PropName
+newtype PropValue
+newtype Selector
+newtype CssString a
+newtype CssUrl a
+newtype Cased a b
+newtype Keyspace
+newtype Blob
+newtype Counter
+newtype TimeUUID
+newtype Table
+newtype PreparedQueryID
+newtype Only a
+newtype Sym a b
+newtype TAscii
+newtype TBytes
+newtype TCounter
+newtype TInt32
+newtype TInt64
+newtype TUtf8
+newtype TUUID
+newtype TLong
+newtype TTimeStamp
+newtype Exclusive a
+newtype Single a
+newtype SliceStart a
+newtype WrappedMonadError m a
+newtype WrappedMonadCatch m a
+newtype LiftedFunctor f a
+newtype LoweredFunctor f a
+newtype Span ~> x y z
+newtype Cospan ~> x y z
+newtype ContraF a b
+newtype Cocone f n
+newtype BiKleisli w m a b
+newtype CoKleisli w a b
+newtype ContextT s w a
+newtype FixH f a
+newtype LowerH h :: ((* -> *) -> * -> *) f :: (* -> *) a
+newtype CompH f :: ((* -> *) -> * -> *) g :: ((* -> *) -> * -> *) a :: (* -> *) b
+newtype EitherT a m b
+newtype IxContT m r o a
+newtype IxCont r o a
+newtype DiKleisli w m ~> a b
+newtype CoreaderT w r a
+newtype Lift p f g a
+newtype Join p a
+newtype FixF f
+newtype Fix s a
+newtype IxStateT m i j a
+newtype IxState i j a
+newtype PHyper h a b
+newtype Biff p f g a b
+newtype CompF f g a
+newtype ACompF f g a
+newtype Ran g h a
+newtype PointedCompF f g a
+newtype PostCompF mw f a
+newtype PreCompF f mw a
+newtype DistCompF f g a
+newtype Of f p a b
+newtype Mutual p m n a
+newtype Mutual p m n a
+newtype Const2 t a b
+newtype Yoneda f a
+newtype Flip p a b
+newtype HalfFloat
+newtype PRSimple
+newtype PDCPU
+newtype PDDiskRead
+newtype PDDiskWrite
+newtype PDNeutronTx
+newtype PDNeutronRx
+newtype PDImagePollster
+newtype PutM a
+newtype ParseError
+newtype DistinguishedName
+newtype DistinguishedName
+newtype CF' a
+newtype Context cs
+newtype HeaderName :: *
+newtype CGIT m a
+newtype Charset
+newtype ContentEncoding
+newtype Language
+newtype Signal a
+newtype Symbol
+newtype Property
+newtype ByteSet
+newtype FillStyle
+newtype FillStyle
+newtype Percent
+newtype LogValue
+newtype PlotIndex
+newtype LayoutDDD
+newtype RawChunk
+newtype RawTag
+newtype Class
+newtype Feature
+newtype HandleCloserT m a
+newtype HereStringT m a
+newtype QuietT m a
+newtype InRedirT m a
+newtype ScannerBufferT m a
+newtype DeafT m a
+newtype OutRedirT m a
+newtype RecorderT m a
+newtype Replayable
+newtype SpawnOverlayT m a
+newtype ArchiverT c m a
+newtype FilterT c m a
+newtype JoinerT m a
+newtype Path
+newtype NullFsT m a
+newtype NullExpanderT m a
+newtype ExpanderT m a
+newtype HistoryT m a
+newtype HtmlPrinterT m a
+newtype AnsiPrinterT m a
+newtype StrictBuilderT i m a
+newtype LazyBuilderT i m a
+newtype FailT e m a
+newtype CounterT m a
+newtype NodeId
+newtype Container
+newtype AtomStoreT m a
+newtype Redundant m a b
+newtype Home
+newtype Work
+newtype CSPTrace u
+newtype StructuralTrace u
+newtype VCRTrace u
+newtype DRef a env
+newtype DLNontDefs a env
+newtype DProductions a env
+newtype Productions a env
+newtype DT env1 env2
+newtype ListDR a s
+newtype DMapping o n
+newtype MapA_X env a env'
+newtype Mapping old new
+newtype ChuchuParser a
+newtype List a
+newtype Ctx
+newtype DB
+newtype DB
+newtype CNum
+newtype KangXiRadical
+newtype PosInteger
+newtype PosDouble
+newtype PosString
+newtype PosIdent
+newtype HappyAbsSyn
+newtype AlloyIGT m a
+newtype ClaferIGT m a
+newtype State s
+newtype NetlistMonad a
+newtype RewriteEnv
+newtype R m a
+newtype Index (n :: Nat)
+newtype BitVector (n :: Nat)
+newtype Signed (n :: Nat)
+newtype Unsigned (n :: Nat)
+newtype Fixed (rep :: Nat -> *) (int :: Nat) (frac :: Nat)
+newtype Partial a
+newtype State s a
+newtype SS s a
+newtype Identity a :: * -> *
+newtype ReaderT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype Refinement
+newtype Fix f
+newtype Key a
+newtype Value
+newtype Literal
+newtype MediaType
+newtype StyleM a
+newtype NoEscape a
+newtype Prefix
+newtype NavBar
+newtype NavBarLinks
+newtype SetNavBar
+newtype Username
+newtype SetProfileData
+newtype GetProfileData
+newtype NewProfileData
+newtype GetUsername
+newtype GetRoles
+newtype UsernameForId
+newtype SetUACCT
+newtype SetRootRedirect
+newtype SetLoginRedirect
+newtype SetSiteName
+newtype SetCoreState
+newtype ClckT url m a
+newtype ThemeStyleId
+newtype NavBarUpdate
+newtype BugId
+newtype BugTag
+newtype MilestoneId
+newtype TargetDate
+newtype GetBugById
+newtype PutBug
+newtype AllBugMeta
+newtype GetMilestoneTitle
+newtype SetMilestones
+newtype BugsForMilestones
+newtype MilestoneCompletion
+newtype SetIrcConfig
+newtype MediumId
+newtype GetMediumById
+newtype PutMedium
+newtype PageId
+newtype Slug
+newtype PageById
+newtype GetPageTitle
+newtype IsPublishedPage
+newtype UpdatePage
+newtype SetFeedConfig
+newtype PageId
+newtype Endo k a
+newtype Dual m
+newtype OrdList a
+newtype Interleave a
+newtype Id a
+newtype Const a b
+newtype Flip f a b
+newtype Compose f g a
+newtype ZipList a
+newtype ZipTree a
+newtype Backwards f a
+newtype StateT s m a
+newtype ReaderT r m a
+newtype WriterT w m a
+newtype ContT r m a
+newtype Kleisli m a b
+newtype Nick
+newtype Equation
+newtype Code
+newtype Build r f x y
+newtype Mbox s
+newtype Workspace
+newtype StateT s m a
+newtype RevFun b a
+newtype Sum a b e
+newtype ST s a :: * -> * -> *
+newtype ProductId
+newtype Price
+newtype Size
+newtype OrderId
+newtype Aggregate
+newtype TradeId
+newtype CurrencyId
+newtype ClientOrderId
+newtype CoinScientific
+newtype CoinbaseTime
+newtype Sequence
+newtype Low
+newtype High
+newtype Open
+newtype Close
+newtype Volume
+newtype AccountId
+newtype EntryId
+newtype HoldId
+newtype TransferId
+newtype CoinbaseAccountId
+newtype XInt
+newtype KeysView m k v
+newtype ElemsView m k v
+newtype AssocList s k v
+newtype SetList s
+newtype KeysView m k v
+newtype ElemsView m k v
+newtype AssocList s k v
+newtype SetList s
+newtype Partition
+newtype Tri
+newtype PlanePart
+newtype SetPartition
+newtype NonCrossing
+newtype FP
+newtype Stdout
+newtype Stderr
+newtype Exit
+newtype IdentityT (f :: * -> *) a :: (* -> *) -> * -> *
+newtype Cokleisli w a b
+newtype TracedT m w a
+newtype TracedT m w a
+newtype Coproduct f g a
+newtype Coproduct f g a
+newtype IdentityT (m :: * -> *) a :: (* -> *) -> * -> *
+newtype TracedT m w a
+newtype TracedT m (w :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype CompactString a
+newtype CompactString a
+newtype I a
+newtype K a i
+newtype I a :: * -> *
+newtype K a i :: * -> * -> *
+newtype Term f i
+newtype Compose (f :: * -> *) (g :: * -> *) a :: (* -> *) -> (* -> *) -> * -> *
+newtype Term f
+newtype (:$) t m :: (* -> *) a
+newtype (:.) t2 t1 m a
+newtype RLE a
+newtype OrderedMonomial (ordering :: *) n
+newtype Property a b v
+newtype Concatenative a b c d
+newtype Conceit e a
+newtype Request t
+newtype Config
+newtype ConcurrentialAp t
+newtype Bitwise a
+newtype ConduitM i o m r
+newtype ZipSource m o
+newtype ZipSink i m r
+newtype ZipConduit i o m r
+newtype ZipSource m o
+newtype ZipSink i m r
+newtype ZipConduit i o m r
+newtype Identity a :: * -> *
+newtype Atom
+newtype VerboseTlsException
+newtype ConfigValidationFunction α λ
+newtype SV a
+newtype SM a
+newtype ConnectionPool a
+newtype ConstrainedCategory (k :: * -> * -> *) (o :: * -> Constraint) (a :: *) (b :: *)
+newtype Kleisli m k a b
+newtype (:-) a b
+newtype Vector r
+newtype Matrix r
+newtype GCDDomain a => FieldOfFractions a
+newtype Zn n
+newtype CommutativeRing r => UPoly r x
+newtype EllipticCurve
+newtype ZSqrt5
+newtype Consumer c a
+newtype ConsumerT c m a
+newtype ContArrow e a b c
+newtype Grammar t nt
+newtype ContinueT e f m a
+newtype Predicate a
+newtype Comparison a
+newtype Equivalence a
+newtype Op a b
+newtype Compose f g a
+newtype ComposeFC f g a
+newtype ComposeCF f g a
+newtype AttemptT m v
+newtype CheckedException l
+newtype EMT l m a
+newtype EMT l m a
+newtype EMT l m a
+newtype FreeT f m a
+newtype C mu a
+newtype LoopT c e m a
+newtype PassS cont m
+newtype PassZ f
+newtype NumThreads
+newtype On a
+newtype MonoidTC a
+newtype LabelName
+newtype Register
+newtype Node
+newtype Node
+newtype PureST2 a
+newtype ReadOnlyST2 r a
+newtype IdentityT m :: (* -> *) a :: (* -> *) -> * -> *
+newtype ContT r m a
+newtype ChoiceT r i m a
+newtype EitherT r e m a
+newtype MaybeT r m a
+newtype StateT r s m a
+newtype Iteration
+newtype IxCont s x y a
+newtype WM m x y a
+newtype Session x y a
+newtype Awt a x
+newtype Ways
+newtype Entries
+newtype LineSize
+newtype MuOps
+newtype BytesPerSector
+newtype Keyspace
+newtype Table
+newtype PagingState
+newtype QueryId k a b
+newtype QueryString k a b
+newtype Ascii
+newtype Blob
+newtype Counter
+newtype TimeUuid
+newtype Set a
+newtype Map a b
+newtype Tagged a b
+newtype Length
+newtype AuthResponse
+newtype Register
+newtype Prepare k a b
+newtype Authenticate
+newtype AuthChallenge
+newtype AuthSuccess
+newtype Keyspace
+newtype Table
+newtype PagingState
+newtype QueryId k a b
+newtype QueryString k a b
+newtype Ascii
+newtype Blob
+newtype Counter
+newtype TimeUuid
+newtype Set a
+newtype Map a b
+newtype Tagged a b
+newtype Length
+newtype AuthResponse
+newtype Register
+newtype Prepare k a b
+newtype Authenticate
+newtype AuthChallenge
+newtype AuthSuccess
+newtype InetAddr
+newtype InternalError
+newtype Timeout
+newtype Ob
+newtype Lb
+newtype X
+newtype Y
+newtype FeatIx
+newtype Ob
+newtype Lb
+newtype Y
+newtype FeatIx
+newtype FeatIx
+newtype FeatMap f
+newtype Ob
+newtype Lb1
+newtype Lb2
+newtype Ob
+newtype Lb1
+newtype Lb2
+newtype Ob
+newtype Lb
+newtype FeatIx
+newtype Cb
+newtype Benchmarkable
+newtype Crontab
+newtype ScheduleT m a
+newtype Crontab
+newtype ScheduleT m a
+newtype MacKey c d
+newtype AuthTag
+newtype Affine a
+newtype Caesar a
+newtype Enigma a
+newtype Stream a
+newtype Substitution a
+newtype Vigenère a
+newtype SharedKey :: *
+newtype PublicNumber
+newtype PrivateNumber
+newtype SharedKey
+newtype KeyPair
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Ctx
+newtype Context a
+newtype Digest a
+newtype HMAC a
+newtype HMAC a
+newtype ModName
+newtype Program
+newtype ModName
+newtype TValue
+newtype Goals
+newtype InferM a
+newtype KindM a
+newtype LoadedModules
+newtype ModuleT m a
+newtype REPL a
+newtype Auth
+newtype HMAC a
+newtype KeyPair
+newtype PublicNumber
+newtype PrivateNumber
+newtype SharedKey
+newtype SharedKey
+newtype AuthTag
+newtype CryptsyTime
+newtype CryptsyNum
+newtype GMarketData p q dt t
+newtype GOrderData p q t
+newtype PrimOr a
+newtype DepT m a
+newtype Str
+newtype Spec
+newtype Wspec
+newtype Unit
+newtype SE a
+newtype SERef a
+newtype GuiHandle
+newtype Gui
+newtype Sample a
+newtype TokenId
+newtype NodeId
+newtype EM x
+newtype CSSM x a
+newtype Only a
+newtype Named a
+newtype CTPL0 a
+newtype Device
+newtype Context
+newtype DevicePtr a
+newtype HostPtr a
+newtype Event
+newtype Stream
+newtype Stream
+newtype Event
+newtype Stream
+newtype Fun
+newtype DevicePtr a
+newtype HostPtr a
+newtype Texture
+newtype MtrNode s
+newtype DDManager s u
+newtype DDNode s u
+newtype DDManager
+newtype DDNode
+newtype SrcRef
+newtype Image channels depth
+newtype BareImage
+newtype ImageOperation c d
+newtype IOP a b
+newtype GaborMask
+newtype HistogramData a
+newtype Capture
+newtype VideoWriter
+newtype CypherVal a
+newtype CypherVals a
+newtype CypherCol a
+newtype CypherCols a
+newtype SASL a
+newtype Signature
+newtype Flags
+newtype Signature
+newtype Name
+newtype AnchoredPath
+newtype Noun
+newtype BSWrapper
+newtype Poly a
+newtype Stepped (f :: (* -> *) -> *) a wX
+newtype FreeLeft p
+newtype FreeRight p
+newtype UUID
+newtype Doc
+newtype Cache
+newtype RepoFormat
+newtype InternalChecker p
+newtype PatchId
+newtype WrappedCommuteFunction
+newtype UUID
+newtype RecontextRebase1 p
+newtype RecontextRebase2 p wY wZ
+newtype TreeFilter m
+newtype Cache
+newtype UUID
+newtype Noun
+newtype Doc
+newtype RepoFormat
+newtype WrappedCommuteFunction
+newtype UUID
+newtype Cache
+newtype TreeFilter m
+newtype Cache
+newtype PatchAuthor
+newtype PatchDate
+newtype PatchLocalDate
+newtype PatchInverted
+newtype PatchHash
+newtype PatchContents
+newtype DPText a
+newtype DPText a
+newtype Parser s r
+newtype Com f g z
+newtype Fix f a b
+newtype FField
+newtype Fin s (n :: Nat)
+newtype Fix f
+newtype FreshT v m a
+newtype FreshT v m a
+newtype Lens a b
+newtype PartialLens a b
+newtype Lens a b
+newtype Timeout
+newtype DeptNo
+newtype EmpNo
+newtype MetricName
+newtype CustomHandler
+newtype DAVT m a
+newtype Object
+newtype Interface
+newtype Disj
+newtype Conj
+newtype Principal
+newtype SLabel
+newtype ILabel
+newtype Disj
+newtype Conj
+newtype Disj
+newtype Conj
+newtype Principal
+newtype SLabel
+newtype ILabel
+newtype UG a
+newtype DG a
+newtype Tree a
+newtype JSON
+newtype DeadpanApp a
+newtype PP a
+newtype Section
+newtype Control' a
+newtype Paragraph' a
+newtype Control' a
+newtype Paragraph' a
+newtype ChangeLog
+newtype SrcPkgName
+newtype BinPkgName
+newtype SrcPkgName
+newtype BinPkgName
+newtype Control' a
+newtype Paragraph' a
+newtype Control' a
+newtype Paragraph' a
+newtype Control' a
+newtype Paragraph' a
+newtype Endo k a
+newtype StrictEndo a
+newtype Dual m
+newtype Product a
+newtype OrdList a
+newtype Interleave a
+newtype Accum a
+newtype Max a
+newtype Min a
+newtype Id a
+newtype Range a
+newtype Strict a
+newtype Id a
+newtype Const a b
+newtype Flip f a b
+newtype (:.:) f g a
+newtype (:++:) f g a
+newtype Increasing k a
+newtype Zip f a
+newtype Backwards f a
+newtype Kleisli m a b
+newtype Compose' f g a
+newtype RWST r w s m a
+newtype StateA m s a
+newtype ContT m a
+newtype TreeT m a
+newtype MaybeT m a
+newtype StrictT m a
+newtype ContC k a b
+newtype LogicT m a
+newtype Kleisli m a b
+newtype ListA k a b
+newtype Bimap a b
+newtype Relation a b
+newtype DeQue a
+newtype Queue push pop a
+newtype ProbT t m a
+newtype FS a
+newtype Lambda n m
+newtype SyntaxT n m a
+newtype ThunkT n m a
+newtype ParserT s m a
+newtype ParserA m s a
+newtype Coefficient
+newtype Exponent
+newtype Diagnostic
+newtype AdjustedExp
+newtype Coefficient
+newtype Exponent
+newtype Diagnostic
+newtype DekaT
+newtype FileInfo
+newtype Demarcate t m a
+newtype Dequeue a
+newtype TeX
+newtype TeX
+newtype Q a
+newtype S s a
+newtype Description
+newtype Tag
+newtype SearchTags
+newtype SearchTextPrompt
+newtype DescribeKeys
+newtype Gadget
+newtype RTSP b c
+newtype DGS a
+newtype DiaRenderM a
+newtype Polygon
+newtype Point (f :: * -> *) a :: (* -> *) -> * -> *
+newtype Measured n a
+newtype TransInv t
+newtype Name
+newtype Query v n m
+newtype Style v n
+newtype Trace v n
+newtype Envelope v n
+newtype QDiagram b v n m
+newtype SubMap b v n m
+newtype TransInv t
+newtype SubMap b v n m
+newtype Envelope v n
+newtype Trace v n
+newtype Query v n m
+newtype CollectErrors a
+newtype DiagramObj a
+newtype SurfaceColor
+newtype Diffuse
+newtype Ambient
+newtype Highlight
+newtype Query v m :: * -> * -> *
+newtype SegCount
+newtype ArcLength v
+newtype TotalOffset v
+newtype SegTree v
+newtype GetSegment t
+newtype Tangent t
+newtype Path v
+newtype FillRuleA
+newtype Clip
+newtype LineMiterLimit
+newtype LineTexture
+newtype FillTexture
+newtype Font
+newtype FontSize
+newtype PSWriter m
+newtype RubiksCube a
+newtype Dimensional v d a
+newtype Dimensional v d a
+newtype CError
+newtype CColumnType
+newtype ParamIndex
+newtype ColumnIndex
+newtype CParamIndex
+newtype CColumnIndex
+newtype CNumBytes
+newtype ArgCount
+newtype CArgCount
+newtype Database
+newtype Statement
+newtype FuncContext
+newtype Utf8
+newtype ParamIndex
+newtype ColumnIndex
+newtype ArgCount
+newtype ParamIndex
+newtype ColumnIndex
+newtype ArgCount
+newtype Layout a
+newtype UUIRI
+newtype Group a
+newtype Sort a
+newtype Group a
+newtype Sort a
+newtype StrictMVar a
+newtype NodeId
+newtype Process a
+newtype SendPort a
+newtype ReceivePort a
+newtype DidUnmonitor
+newtype DidUnlinkProcess
+newtype DidUnlinkNode
+newtype DidUnlinkPort
+newtype SpawnRef
+newtype MxAgentId
+newtype MxAgent s a
+newtype MxAgentId
+newtype NodeId
+newtype Priority a
+newtype PriorityQ k a
+newtype MaxSolutions
+newtype Symbol
+newtype StreamHook
+newtype SHA1
+newtype DockerImage
+newtype DockerImageId
+newtype BuildFileId
+newtype Dozenal
+newtype DeleteZone
+newtype GetRecords
+newtype DeleteRecord
+newtype ST s a :: * -> * -> *
+newtype Wrap a
+newtype Wrap a :: * -> *
+newtype Sig e a b
+newtype FolderHash
+newtype FileRevision
+newtype DUALTreeU d u a l
+newtype DUALTree d u a l
+newtype Dwarf
+newtype Object u
+newtype Table
+newtype ViewXCenter
+newtype ViewYCenter
+newtype ViewWidth
+newtype ViewHeight
+newtype ViewXResolution
+newtype ViewYResolution
+newtype DynamicState
+newtype DynamicState
+newtype Milliseconds
+newtype Ebeats
+newtype PublicKey
+newtype SecretKey
+newtype Signature
+newtype Signature
+newtype Signature
+newtype Unit x
+newtype Retag x y
+newtype Reader w a
+newtype Exception m a
+newtype Layer e m a
+newtype Base m a
+newtype Pure a
+newtype Lift m a
+newtype EgisonM a
+newtype FreshT m a
+newtype IndividualAddress
+newtype GroupAddress
+newtype DPTF16
+newtype EitherT e m a
+newtype EitherT l m a
+newtype Gondola (f :: k -> *) (g :: k -> *) :: (k -> *) -> (k -> *) -> *
+newtype Union (xs :: [k -> *]) (a :: k) :: [k -> *] -> k -> *
+newtype Name
+newtype Address
+newtype MessageID
+newtype LblDescr
+newtype Collect f b a
+newtype Compare a
+newtype Crush b a
+newtype Enum a
+newtype Everywhere a b
+newtype Everywhere' a b
+newtype Map a b
+newtype Con a
+newtype Lbls a
+newtype Read a
+newtype Show a
+newtype UnzipWith m a b c
+newtype ZipWith m a b c
+newtype Monad m => Transpose m f c b a
+newtype LblDescr
+newtype Standard s a
+newtype Extend e s a
+Binary file ./hoogle-data/encoding/0.8/doc/html/encoding.txt matches
+newtype WrappedFoldable f a
+newtype Endo a :: * -> *
+newtype Payload
+newtype Partial a
+newtype Iteratee a m b
+newtype Iteratee a m b
+newtype S k
+newtype K k
+newtype K k
+newtype EnumSet k
+newtype EnumMap k v
+newtype EnumMap k v
+newtype T word a
+newtype Mask w a b
+newtype Value w b
+newtype T word index
+newtype Manifest
+newtype EquivT s c v m a
+newtype MaybeContT a m r
+newtype EitherContT a l m r
+newtype ErrorMessage
+newtype EitherR r e
+newtype EitherRT r m e
+newtype AllE e r
+newtype AnyE e r
+newtype Literal
+newtype Clause
+newtype Formula
+newtype Bit1
+newtype Bits
+newtype BitChar
+newtype Ess (x :: * -> * -> *) (y :: * -> *) (z :: *)
+newtype NED a
+newtype XYZ a
+newtype EKFProcess state var
+newtype EKFMeasurement state var
+newtype SmoothTrie map letter holder
+newtype WrappedEther tag m a
+newtype SHAPtr
+newtype Currency
+newtype Euro
+newtype DEuro
+newtype EventID
+newtype DeleteResult
+newtype ExceptionT m a
+newtype CatchT m a
+newtype Exists c
+newtype Exists1 c a
+newtype PreProductionsTrafo l env a b
+newtype TestSequenceState b
+newtype TestSequence b a
+newtype TestSVar a
+newtype ECM a b s m k v
+newtype CacheState s m k v
+newtype ExceptionalT e m a
+newtype ExceptionalT e m a
+newtype ExceptionalT e m a
+newtype Vdef
+newtype AnMname
+newtype Pname
+newtype Const' a x
+newtype Comp (f :: j -> *) (g :: i -> j) (a :: i)
+newtype Match h r x
+newtype Field (h :: v -> *) (kv :: Assoc k v)
+newtype Handler f g
+newtype Nullable h x
+newtype K1 a f
+newtype Union xs a
+newtype Gondola f g
+newtype Exc e v
+newtype Fresh i v
+newtype Reader e v
+newtype Reader e v
+newtype IOThread a b
+newtype Latitude
+newtype Longitude
+newtype Compile a
+newtype Printer
+newtype FbUTCTime
+newtype FQLTime
+newtype FQLList a
+newtype FQLObject a
+newtype Id
+newtype Cid
+newtype Action
+newtype Accept
+newtype WordN
+newtype IntN
+newtype FVal a
+newtype FeldDomain a
+newtype Data a
+newtype Future a
+newtype M a
+newtype Ref a
+newtype P a
+newtype IVar a
+newtype Board
+newtype FFm a
+newtype PackageName
+newtype ClassName
+newtype HeaderName
+newtype TypeMacro
+newtype ProtectedMethod
+newtype Namespace
+newtype Flag
+newtype LPath a
+newtype SGr a b
+newtype GT m g a
+newtype FileSystem
+newtype FST m a
+newtype FSTree
+newtype CondT a m b
+newtype CondEitherT a m b
+newtype Pattern vars a
+newtype WithArch (a :: Arch) b
+newtype LocalMessageType
+newtype TimeOffset
+newtype Timestamp
+newtype Definitions
+newtype Messages
+newtype Messages
+newtype Fixed
+newtype Wrap list a
+newtype WrapPos list
+newtype Fixed r p
+newtype Fun n a b
+newtype ContVec n a
+newtype Fun n a b
+newtype Only a
+newtype Fun n a b
+newtype MVec n s a
+newtype Fun (as :: [*]) b
+newtype TFun f as b
+newtype ContVec xs
+newtype ContVecF xs f
+newtype Fun (as :: [*]) b
+newtype TFun f as b
+newtype ContVec xs
+newtype ContVecF xs f
+newtype HVecF xs f
+newtype BigInt a
+newtype ListOfValues a
+newtype Mu f
+newtype Attrib f a
+newtype CoAttrib f a
+newtype Attrib f a
+newtype FNV32
+newtype FNV64
+newtype WrapFmap f
+newtype FlexiWrap s a
+newtype WrapLift t
+newtype WrapMZero m
+newtype WrapMPlus m
+newtype WrapReturn m
+newtype WrapBind m
+newtype FlexiWrapCTC s o f :: (* -> *) g :: (* -> *) a
+newtype FlipT *. f :: (* -> *) g :: (* -> *) a
+newtype (:.) f g a
+newtype WrapPure f
+newtype WrapCombine f
+newtype FlexiWrapT s f a
+newtype Identity a
+newtype Double7
+newtype FullDouble
+newtype Float7
+newtype FullFloat
+newtype Push
+newtype User
+newtype MessageId
+newtype Alignments
+newtype Font
+newtype Color
+newtype MenuItemFlags
+newtype GLUTIdleFunction
+newtype GLUTMenuStateFunction
+newtype GLUTMenuStatusFunction
+newtype GlutBitmapFontPtr
+newtype GlutStrokeVertexPtr
+newtype GlutStrokeStripPtr
+newtype GlutStrokeFontPtr
+newtype Width
+newtype Height
+newtype Depth
+newtype LineSize
+newtype X
+newtype Y
+newtype ByX
+newtype ByY
+newtype Angle
+newtype TextDisplayStyle
+newtype BufferOffset
+newtype FontSize
+newtype PixmapHs
+newtype Hour
+newtype Minute
+newtype Second
+newtype MenuItemIndex
+newtype MenuItemName
+newtype TreeItemIndex
+newtype TreeItemName
+newtype Channel
+newtype Key
+newtype Velocity
+newtype Program
+newtype FMList a
+newtype EndoM m a
+newtype N a s
+newtype An a
+newtype FWord
+newtype PointSize
+newtype OpT f a b
+newtype Yoneda f x
+newtype FreeT f m r
+newtype Codensity f x
+newtype CoT w m a
+newtype CodensityAsk w x
+newtype CodensityAskT w m x
+newtype Op a b :: * -> * -> *
+newtype Endo a :: * -> *
+newtype Const a b :: * -> * -> *
+newtype Store a
+newtype SettableVar a
+newtype IndexName
+newtype SymbolName
+newtype Tape
+newtype Symbol
+newtype AttributeFunction
+newtype GrammarParser m a
+newtype Format r a
+newtype ByteString64
+newtype WrappedUTCTime
+newtype ProjectId
+newtype RunConfigId
+newtype JobId
+newtype CompileId
+newtype ProcId
+newtype GitShellId
+newtype FormattedTime
+newtype ModuleName
+newtype FileName
+newtype SessionId
+newtype MailboxId
+newtype TutorialConcurrentToken
+newtype StatusHash
+newtype Approot
+newtype VirtualHost
+newtype Port
+newtype BlobSHA
+newtype CommitSHA
+newtype BranchName
+newtype CanFailT m a
+newtype StCFR m a
+newtype ModuleName
+newtype CryptoBinary
+newtype DigestValueType
+newtype HMACOutputLengthType
+newtype CorrelationValue
+newtype HourMinuteTime
+newtype NonNegativeDecimal
+newtype PositiveDecimal
+newtype RestrictedPercentage
+newtype Scheme
+newtype Token60
+newtype Initial
+newtype PointValue
+newtype QueryParameterValue
+newtype (:->) (s :: Symbol) a
+newtype Col' s a
+newtype Op b a
+newtype Handler b a
+newtype IterT m a
+newtype FreeT f m a
+newtype FT f m a
+newtype F f a
+newtype CofreeT f w a
+newtype CoiterT w a
+newtype Alt f a
+newtype Alt f a
+newtype ApT f g a
+newtype Ap f a
+newtype HFree c f a
+newtype Free c a
+newtype FinalizerT m a
+newtype ProgramAp instr a
+newtype ProgramAlt instr a
+newtype ProgramT instr m a
+newtype Program instr a
+newtype ProgramP instr a
+newtype Identifier
+newtype TypeClass
+newtype TypeVariable
+newtype FixedTypeExpression
+newtype ValidSignature
+newtype TermVariable
+newtype RelationVariable
+newtype TypeClass
+newtype TypeVariable
+newtype FixedTypeExpression
+newtype Identifier
+newtype Sample
+newtype Sample
+newtype FT_Render_Mode
+newtype FT_Encoding
+newtype FT_FACE_FLAG
+newtype FT_OPEN
+newtype FT_Size_Request_Type
+newtype FT_Kerning_Mode
+newtype FT_SUBGLYPH_FLAG
+newtype FT_Glyph_Format
+newtype FT_OUTLINE_FLAGS
+newtype FT_Orientation
+newtype GreyPixel
+newtype Kernel src init acc
+newtype (:.) f g x
+newtype DestinationSet
+newtype Action
+newtype Word sy
+newtype BaudRate α
+newtype WrappedApplicative f a
+newtype MaybeApply f a
+newtype WrappedApplicative f a
+newtype MaybeApply f a
+newtype Static f a b
+newtype Const a b :: * -> * -> *
+newtype Id a :: * -> *
+newtype (:.) (g :: * -> *) (f :: * -> *) a :: (* -> *) -> (* -> *) -> * -> *
+newtype Table a
+newtype Var
+newtype Lit
+newtype VarOrder s
+newtype FrozenVarOrder
+newtype Shared v
+newtype Eval v
+newtype ShowWrapped
+newtype Future a b
+newtype Fuzz a
+newtype Float
+newtype Sampler2D
+newtype VertexShaderOutput
+newtype FragmentShaderOutput
+newtype ActiveTexture
+newtype VertexShaderOutput
+newtype FragmentShaderOutput
+newtype Image
+newtype Depth
+newtype Transform2
+newtype View2
+newtype Position2
+newtype UV
+newtype Texture2
+newtype Transform3
+newtype View3
+newtype Position3
+newtype Normal3
+newtype UV
+newtype Draw a
+newtype UniformLocation
+newtype AceLowRank
+newtype LBS
+newtype FontId
+newtype TextureName
+newtype FontName
+newtype Coroutine i o
+newtype CoroutineM m i o
+newtype BagT r m a
+newtype PCREOption
+newtype HTMLText
+newtype URIEscapedText
+newtype GeneratorT v m a
+newtype StorableWrapper a
+newtype Trie k a
+newtype OrdKey k
+newtype OrdKey k
+newtype K (a :: *) (b :: k)
+newtype I (a :: *)
+newtype (:.:) (f :: l -> *) (g :: k -> l) (p :: k)
+newtype (-.->) f g a
+newtype POP (f :: k -> *) (xss :: [[k]])
+newtype SOP (f :: k -> *) (xss :: [[k]])
+newtype SOP (f :: k -> *) (xss :: [[k]])
+newtype POP (f :: k -> *) (xss :: [[k]])
+newtype (-.->) f g a
+newtype K (a :: *) (b :: k)
+newtype I (a :: *)
+newtype (:.:) (f :: l -> *) (g :: k -> l) (p :: k)
+newtype BitVector
+newtype FullList a
+newtype SchemaVal
+newtype SchemaVal
+newtype BatchDirFlg
+newtype DisableGuiFlg
+newtype DetectPolaritiesFlg
+newtype DumpDerivationFlg
+newtype EarlyDeathFlg
+newtype FromStdinFlg
+newtype HelpFlg
+newtype InstructionsFileFlg
+newtype LexiconFlg
+newtype MacrosFlg
+newtype TracesFlg
+newtype MaxStepsFlg
+newtype MaxResultsFlg
+newtype MetricsFlg
+newtype MorphCmdFlg
+newtype MorphInfoFlg
+newtype OptimisationsFlg
+newtype OutputFileFlg
+newtype PartialFlg
+newtype RankingConstraintsFlg
+newtype RootFeatureFlg
+newtype NoLoadTestSuiteFlg
+newtype StatsFileFlg
+newtype TestCaseFlg
+newtype TestInstructionsFlg
+newtype TestSuiteFlg
+newtype TimeoutFlg
+newtype VerboseModeFlg
+newtype VersionFlg
+newtype ViewCmdFlg
+newtype BuilderFlg
+newtype GrammarTypeFlg
+newtype WeirdFlg
+newtype GeniWarnings
+newtype GeoPoint
+newtype GeoMultiPoint
+newtype GeoPolygon
+newtype GeoMultiPolygon
+newtype GeoLine
+newtype GeoMultiLine
+newtype Dump
+newtype ModuleName
+newtype Header
+newtype KernelThreadId
+newtype Header
+newtype KernelThreadId
+newtype HeapGraph a
+newtype GhcOptions
+newtype GhcPkgOptions
+newtype LineSeparator
+newtype LineSeparator
+newtype IO a
+newtype Product v c
+newtype SOP v c
+newtype WebView :: *
+newtype DisplayResult
+newtype Observer
+newtype ObserverM a
+newtype VolumeMonitor
+newtype ThemedIcon
+newtype Icon
+newtype FileIcon
+newtype EmblemedIcon
+newtype Emblem
+newtype MountOperation
+newtype FileMonitor
+newtype FileInfo
+newtype Cancellable
+newtype File
+newtype FileEnumerator
+newtype Drive
+newtype Mount
+newtype Volume
+newtype SHA1
+newtype PluginName
+newtype GithubDate
+newtype SHA
+newtype TreeT r m a
+newtype CliRepo
+newtype Joystick
+newtype Joystick
+newtype GValue
+newtype GParameter
+newtype GObject
+newtype Signal object handler
+newtype Source
+newtype GDate
+newtype UDEmpty u a
+newtype Pcount
+newtype Var
+newtype ShortString
+newtype AList k a
+newtype SList map :: (* -> *) k a
+newtype Error
+newtype T a
+newtype ColumnCount a
+newtype CollectionWithDeepEquality
+newtype NodeWithDeepEquality
+newtype GooglePlusM a
+newtype GotoT r m a
+newtype NonBranchingRule phi r t v
+newtype WrapLookaheadNBR phi r t ix
+newtype RealLL1Table phi t
+newtype PBEHProductionRule p (phi :: * -> *) (unusedR :: * -> *) (r :: * -> *) t v
+newtype IsJustApp v
+newtype EnumerateProductionRule phi ixT (r :: * -> *) t v
+newtype UnfoldDepthFirstRule p (phi :: * -> *) (r :: * -> *) t (rr :: * -> *) v
+newtype WrapUR p r ix
+newtype Add a
+newtype Linear a
+newtype PolySignalFun shape
+newtype Consumer signal val
+newtype Producer signal val
+newtype Monolithic val
+newtype ExtenderPiece thing record name sort
+newtype TransformerPiece style style' sort
+newtype Rotation
+newtype Position
+newtype Any :: *
+newtype AdjacencyMatrix arr i a
+newtype Dual g a
+newtype AdjacencyList i a
+newtype Img
+newtype Paths
+newtype PortName
+newtype ArrowType
+newtype LayerSep
+newtype LayerListSep
+newtype LayerList
+newtype Size
+newtype ForceDefault
+newtype ZT
+newtype Utf8
+newtype SubField db v (c :: (* -> *) -> *) a
+newtype Expr db r a
+newtype OtherTypeDef' str
+newtype DbPersist conn m a
+newtype Utf8
+newtype RenderConfig
+newtype Snippet db r
+newtype DbPersist conn m a
+newtype MySQL
+newtype Postgresql
+newtype Array a
+newtype RoutePattern
+newtype HandlerT m a
+newtype StHandlerT a
+newtype GrowlerT m a
+newtype RoutePattern
+newtype RoutePattern
+newtype Mechanism
+newtype QRNG
+newtype RNG
+newtype PaperSize
+newtype Region
+newtype Cursor
+newtype TextAttributes
+newtype PaperSize
+newtype Cursor
+newtype TextAttributes
+newtype ParseFailure
+newtype E
+newtype HackErrors
+newtype ItemId
+newtype CommentId
+newtype PollId
+newtype PollOptId
+newtype StoryId
+newtype UserId
+newtype JobId
+newtype MaxItem
+newtype TopStories
+newtype Body
+newtype FlatEmail
+newtype MaildirEmail
+newtype Filter a
+newtype Meta
+newtype Parser a
+newtype MD5
+newtype Hdfs a
+newtype HailgunTime
+newtype Binary
+newtype Binary
+newtype DBAction a
+newtype PMAction a
+newtype ConfigM a
+newtype Mixture k
+newtype Maple a
+newtype Measure a
+newtype Measure a
+newtype CopyFile
+newtype TmpFile
+newtype Biblio
+newtype Context a
+newtype Half
+newtype HamletRT
+newtype Lifetime
+newtype Layer i a
+newtype Ident
+newtype IP4Protocol
+newtype UdpPort
+newtype PreferenceLevel
+newtype Identifier
+newtype SequenceNumber
+newtype TcpPort
+newtype TcpSeqNum
+newtype EtherType
+newtype SubnetMask
+newtype NVTAsciiString
+newtype Xid
+newtype Sock a
+newtype Id
+newtype Published
+newtype Updated
+newtype Summary
+newtype Content
+newtype Word
+newtype Email
+newtype SetCheckpointState
+newtype SaltedHash
+newtype SessionKey
+newtype UserId
+newtype Username
+newtype UserId
+newtype Username
+newtype Email
+newtype SharedSecret
+newtype SetDefaultSessionTimeout
+newtype GetSharedSecret
+newtype SetNewAccountMode
+newtype CreateUser
+newtype UpdateUser
+newtype DeleteUser
+newtype GetUserByUsername
+newtype GetUserByUserId
+newtype GetUserByEmail
+newtype AuthenticationMethod
+newtype HashedPass
+newtype DeletePassword
+newtype IdentifierToUserId
+newtype SetOpenIdRealm
+newtype ClientSessionT sessionData m a
+newtype FacebookT s m a
+newtype ApiKey
+newtype AppSecret
+newtype AppId
+newtype CallId
+newtype Flid
+newtype User
+newtype PhotoId
+newtype AlbumId
+newtype FbXML
+newtype BundleId
+newtype HtmlString
+newtype HtmlText
+newtype Salt
+newtype PasswordHash
+newtype UACCT
+newtype SURI
+newtype RqBody
+newtype RqBody
+newtype ServerPartT m a
+newtype FilterT a m b
+newtype WebT m a
+newtype Errors a
+newtype SetCheckpointState
+newtype HappybaraT sess m a
+newtype PName
+newtype XMMReg
+newtype Mem
+newtype Reg8
+newtype Reg16
+newtype Reg32
+newtype Addr
+newtype Ind
+newtype Disp
+newtype FPReg
+newtype XMMReg
+newtype Port
+newtype ServerRoot
+newtype IncludePath
+newtype PkgConfFile
+newtype AppController
+newtype Name
+newtype Description
+newtype Root
+newtype Code
+newtype ContextPath
+newtype InitTimeout
+newtype RespondTimeout
+newtype DoneTimeout
+newtype FNV32
+newtype FNV64
+newtype Name
+newtype AnchoredPath
+newtype (:-) (a :: Constraint) (b :: Constraint) :: Constraint -> Constraint -> *
+newtype Yoneda (p :: i -> i -> *) (a :: i) (b :: i)
+newtype Fix (f :: * -> * -> *) (a :: *)
+newtype RunIO m
+newtype HawkIO a
+newtype Identifier
+newtype PackageName
+newtype Identifier
+newtype PackageName
+newtype Expression t
+newtype Generate a
+newtype ModuleM a
+newtype Alg w
+newtype NamesDB
+newtype NodeUrl
+newtype NodePath
+newtype RelUrl
+newtype RelPath
+newtype Neo4j a
+newtype BatchFuture a
+newtype Neo4j a
+newtype NodePath
+newtype RelPath
+newtype Module
+newtype ModuleName
+newtype ABCD
+newtype Str
+newtype BoolList
+newtype WordList
+newtype Errno :: *
+newtype Expr a
+newtype ExprAggr a
+newtype ExprDefault a
+newtype Vect k b
+newtype Dual b
+newtype SetCoalgebra b
+newtype MonoidCoalgebra m
+newtype SGen
+newtype Q
+newtype Fp n
+newtype UPoly a
+newtype Monomial v
+newtype NPoly r v
+newtype SL2 v
+newtype LaurentMonomial
+newtype LaurentMPoly r
+newtype Aq20 v
+newtype Aq02 v
+newtype M2q v
+newtype SL2q v
+newtype Q
+newtype F2
+newtype F3
+newtype F5
+newtype F7
+newtype F11
+newtype F13
+newtype F17
+newtype F19
+newtype F23
+newtype F4
+newtype F8
+newtype F9
+newtype F16
+newtype F25
+newtype Lex v
+newtype Glex v
+newtype Grevlex v
+newtype Permutation a
+newtype Poset t
+newtype Shuffle a
+newtype SSymF
+newtype SSymM
+newtype YSymF a
+newtype YSymM
+newtype QSymM
+newtype QSymF
+newtype SymM
+newtype SymE
+newtype SymH
+newtype NSym
+newtype XVar
+newtype Octonion k
+newtype HOLException
+newtype FilterLoad
+newtype FilterAdd
+newtype VarInt
+newtype VarString
+newtype Ping
+newtype Pong
+newtype MasterKey
+newtype AccPrvKey
+newtype AccPubKey
+newtype AddrPrvKey
+newtype AddrPubKey
+newtype BigWord n
+newtype MasterKey
+newtype AccPrvKey
+newtype AccPubKey
+newtype AddrPrvKey
+newtype AddrPubKey
+newtype FilterLoad
+newtype FilterAdd
+newtype Ping
+newtype Pong
+newtype VarInt
+newtype VarString
+newtype VarInt
+newtype VarString
+newtype Ping
+newtype Pong
+newtype BuildT m a
+newtype RqAccessM a
+newtype WebIdT m a
+newtype ReqHandlerT m a
+newtype Instrument
+newtype T
+newtype ChannelMap drum instr
+newtype Environment a
+newtype Environment a
+newtype Unknown
+newtype Elem
+newtype JSFun a
+newtype PerchM a
+newtype PerchM a
+newtype Fun a b
+newtype Fun a b
+newtype Var
+newtype Stats
+newtype ResultVar a
+newtype GenHaxl u a
+newtype Id :: *
+newtype NDataDecl
+newtype PublicID
+newtype EncodingDecl
+newtype PubidLiteral
+newtype SystemLiteral
+newtype XName
+newtype HName
+newtype XsdString
+newtype NormalizedString
+newtype Token
+newtype Language
+newtype Name
+newtype NCName
+newtype ID
+newtype IDREF
+newtype IDREFS
+newtype ENTITY
+newtype ENTITIES
+newtype NMTOKEN
+newtype NMTOKENS
+newtype NonPositiveInteger
+newtype NegativeInteger
+newtype Long
+newtype Short
+newtype Byte
+newtype NonNegativeInteger
+newtype UnsignedLong
+newtype UnsignedInt
+newtype UnsignedShort
+newtype UnsignedByte
+newtype PositiveInteger
+newtype I4
+newtype I8
+newtype AInt
+newtype Boolean
+newtype AString
+newtype ADouble
+newtype DateTime_iso8601
+newtype Base64
+newtype Data
+newtype Array
+newtype Name
+newtype Struct
+newtype Value
+newtype Param
+newtype Params
+newtype MethodName
+newtype Fault
+newtype CInterface
+newtype Display
+newtype Registry
+newtype Callback
+newtype Compositor
+newtype ShmPool
+newtype Shm
+newtype Buffer
+newtype DataOffer
+newtype DataSource
+newtype DataDevice
+newtype DataDeviceManager
+newtype Shell
+newtype ShellSurface
+newtype Surface
+newtype Seat
+newtype Pointer
+newtype Keyboard
+newtype Touch
+newtype Output
+newtype Region
+newtype Subcompositor
+newtype Subsurface
+newtype DisplayError
+newtype ShmError
+newtype ShmFormat
+newtype ShellSurfaceResize
+newtype ShellSurfaceTransient
+newtype ShellSurfaceFullscreenMethod
+newtype SeatCapability
+newtype PointerButtonState
+newtype PointerAxis
+newtype KeyboardKeymapFormat
+newtype KeyboardKeyState
+newtype OutputSubpixel
+newtype OutputTransform
+newtype OutputMode
+newtype SubcompositorError
+newtype SubsurfaceError
+newtype ClientState
+newtype Display
+newtype Registry
+newtype Callback
+newtype Compositor
+newtype ShmPool
+newtype Shm
+newtype Buffer
+newtype DataOffer
+newtype DataSource
+newtype DataDevice
+newtype DataDeviceManager
+newtype Shell
+newtype ShellSurface
+newtype Surface
+newtype Seat
+newtype Pointer
+newtype Keyboard
+newtype Touch
+newtype Output
+newtype Region
+newtype Subcompositor
+newtype Subsurface
+newtype DisplayError
+newtype ShmError
+newtype ShmFormat
+newtype ShellSurfaceResize
+newtype ShellSurfaceTransient
+newtype ShellSurfaceFullscreenMethod
+newtype SeatCapability
+newtype PointerButtonState
+newtype PointerAxis
+newtype KeyboardKeymapFormat
+newtype KeyboardKeyState
+newtype OutputSubpixel
+newtype OutputTransform
+newtype OutputMode
+newtype SubcompositorError
+newtype SubsurfaceError
+newtype Client
+newtype Vertex
+newtype DVSet s
+newtype Fact_C
+newtype Trans_C
+newtype Stride_C
+newtype Equilib_C
+newtype JobTy
+newtype UploTy
+newtype Info
+newtype CBLAS_INDEX
+newtype CBLAS_ORDERT
+newtype CBLAS_TRANSPOSET
+newtype CBLAS_UPLOT
+newtype CBLAS_DIAGT
+newtype CBLAS_SIDET
+newtype KT m a
+newtype Deck s i
+newtype Hand s i
+newtype HClTest w a
+newtype CWiidBtnFlag
+newtype CWiidAcc
+newtype BitField
+newtype Query
+newtype (Monad m) => UndoT s m a
+newtype RedisConfig
+newtype RedisReaderT m a
+newtype RuntimeSplice m a
+newtype HeistT n m a
+newtype NameWithRange
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_Judgement
+newtype T_Judgement_s83
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s86
+newtype T_Literal
+newtype T_Literal_s89
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s92
+newtype T_MaybeExports
+newtype T_MaybeExports_s95
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s98
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s101
+newtype T_MaybeInt
+newtype T_MaybeInt_s104
+newtype T_MaybeName
+newtype T_MaybeName_s107
+newtype T_MaybeNames
+newtype T_MaybeNames_s110
+newtype T_Module
+newtype T_Module_s113
+newtype T_Name
+newtype T_Name_s116
+newtype T_Names
+newtype T_Names_s119
+newtype T_Pattern
+newtype T_Pattern_s122
+newtype T_Patterns
+newtype T_Patterns_s125
+newtype T_Position
+newtype T_Position_s128
+newtype T_Qualifier
+newtype T_Qualifier_s131
+newtype T_Qualifiers
+newtype T_Qualifiers_s134
+newtype T_Range
+newtype T_Range_s137
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s140
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s143
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s146
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s149
+newtype T_RightHandSide
+newtype T_RightHandSide_s152
+newtype T_SimpleJudgement
+newtype T_SimpleJudgement_s155
+newtype T_SimpleJudgements
+newtype T_SimpleJudgements_s158
+newtype T_SimpleType
+newtype T_SimpleType_s161
+newtype T_Statement
+newtype T_Statement_s164
+newtype T_Statements
+newtype T_Statements_s167
+newtype T_Strings
+newtype T_Strings_s170
+newtype T_Type
+newtype T_Type_s173
+newtype T_TypeRule
+newtype T_TypeRule_s176
+newtype T_Types
+newtype T_Types_s179
+newtype T_TypingStrategies
+newtype T_TypingStrategies_s182
+newtype T_TypingStrategy
+newtype T_TypingStrategy_s185
+newtype T_UserStatement
+newtype T_UserStatement_s188
+newtype T_UserStatements
+newtype T_UserStatements_s191
+newtype T_Alternative
+newtype T_Alternative_s2
+newtype T_Alternatives
+newtype T_Alternatives_s5
+newtype T_AnnotatedType
+newtype T_AnnotatedType_s8
+newtype T_AnnotatedTypes
+newtype T_AnnotatedTypes_s11
+newtype T_Body
+newtype T_Body_s14
+newtype T_Constructor
+newtype T_Constructor_s17
+newtype T_Constructors
+newtype T_Constructors_s20
+newtype T_ContextItem
+newtype T_ContextItem_s23
+newtype T_ContextItems
+newtype T_ContextItems_s26
+newtype T_Declaration
+newtype T_Declaration_s29
+newtype T_Declarations
+newtype T_Declarations_s32
+newtype T_Export
+newtype T_Export_s35
+newtype T_Exports
+newtype T_Exports_s38
+newtype T_Expression
+newtype T_Expression_s41
+newtype T_Expressions
+newtype T_Expressions_s44
+newtype T_FieldDeclaration
+newtype T_FieldDeclaration_s47
+newtype T_FieldDeclarations
+newtype T_FieldDeclarations_s50
+newtype T_Fixity
+newtype T_Fixity_s53
+newtype T_FunctionBinding
+newtype T_FunctionBinding_s56
+newtype T_FunctionBindings
+newtype T_FunctionBindings_s59
+newtype T_GuardedExpression
+newtype T_GuardedExpression_s62
+newtype T_GuardedExpressions
+newtype T_GuardedExpressions_s65
+newtype T_Import
+newtype T_Import_s68
+newtype T_ImportDeclaration
+newtype T_ImportDeclaration_s71
+newtype T_ImportDeclarations
+newtype T_ImportDeclarations_s74
+newtype T_ImportSpecification
+newtype T_ImportSpecification_s77
+newtype T_Imports
+newtype T_Imports_s80
+newtype T_LeftHandSide
+newtype T_LeftHandSide_s83
+newtype T_Literal
+newtype T_Literal_s86
+newtype T_MaybeDeclarations
+newtype T_MaybeDeclarations_s89
+newtype T_MaybeExports
+newtype T_MaybeExports_s92
+newtype T_MaybeExpression
+newtype T_MaybeExpression_s95
+newtype T_MaybeImportSpecification
+newtype T_MaybeImportSpecification_s98
+newtype T_MaybeInt
+newtype T_MaybeInt_s101
+newtype T_MaybeName
+newtype T_MaybeName_s104
+newtype T_MaybeNames
+newtype T_MaybeNames_s107
+newtype T_Module
+newtype T_Module_s110
+newtype T_Name
+newtype T_Name_s113
+newtype T_Names
+newtype T_Names_s116
+newtype T_Pattern
+newtype T_Pattern_s119
+newtype T_Patterns
+newtype T_Patterns_s122
+newtype T_Position
+newtype T_Position_s125
+newtype T_Qualifier
+newtype T_Qualifier_s128
+newtype T_Qualifiers
+newtype T_Qualifiers_s131
+newtype T_Range
+newtype T_Range_s134
+newtype T_RecordExpressionBinding
+newtype T_RecordExpressionBinding_s137
+newtype T_RecordExpressionBindings
+newtype T_RecordExpressionBindings_s140
+newtype T_RecordPatternBinding
+newtype T_RecordPatternBinding_s143
+newtype T_RecordPatternBindings
+newtype T_RecordPatternBindings_s146
+newtype T_RightHandSide
+newtype T_RightHandSide_s149
+newtype T_SimpleType
+newtype T_SimpleType_s152
+newtype T_Statement
+newtype T_Statement_s155
+newtype T_Statements
+newtype T_Statements_s158
+newtype T_Strings
+newtype T_Strings_s161
+newtype T_Type
+newtype T_Type_s164
+newtype T_Types
+newtype T_Types_s167
+newtype Hell a
+newtype Animation
+newtype EmotivRawData
+newtype BitMask
+newtype XcHandle
+newtype DomId
+newtype XenT m a
+newtype DomId
+newtype P t x
+newtype LemmaName
+newtype CoreString
+newtype OccurrenceName
+newtype OccurrenceNameListBox
+newtype BindingName
+newtype RhsOfName
+newtype HTML
+newtype ASCII
+newtype Unicode
+newtype RuleName
+newtype RuleNameListBox
+newtype PluginT m a
+newtype PSBox
+newtype UnicodeTerminal
+newtype CLT m a
+newtype CLSBox
+newtype PPM a
+newtype PPs
+newtype LogicalPath
+newtype Vector3
+newtype Vector2
+newtype Quat
+newtype Vector3
+newtype Vector2
+newtype Quat
+newtype Vector3f
+newtype Stack
+newtype Contour
+newtype Polygon
+newtype Strip
+newtype Vec3 a
+newtype Matrix3 a
+newtype Line2' a
+newtype Polyline2' a
+newtype Disc2' a
+newtype GraphStorageT m a
+newtype Cluster a
+newtype Printer s a
+newtype GhcError
+newtype AbsoluteURI
+newtype StaticShape
+newtype WordForm
+newtype Lemma
+newtype Definition
+newtype Context
+newtype BinEnum a
+newtype MaybeBin bin
+newtype HBuilder a b
+newtype ModePerm
+newtype RefName
+newtype Zipped
+newtype Config
+newtype RefName
+newtype RefName
+newtype ModePerm
+newtype List a
+newtype Object a
+newtype LaxObject a
+newtype JsonPointer
+newtype Spec
+newtype Schema
+newtype Percentage
+newtype MathDcl
+newtype PackageName
+newtype Key
+newtype SaveBin
+newtype LatexM a
+newtype AnyItem
+newtype MathItem
+newtype Encoding
+newtype Spaces
+newtype FreeModule r a
+newtype NaiveNN container label dp
+newtype FiniteBoost params
+newtype Categorical prob label
+newtype KDE kernel (h :: Nat) prob dp
+newtype MultiNormal prob (xs :: [*])
+newtype Binomial prob dp
+newtype Normal prob dp
+newtype Unital prob
+newtype Ignore' (label :: *) (basedist :: *) (prob :: *)
+newtype MixedAmount
+newtype FastTree a
+newtype MultiBalanceReport
+newtype HSeq x
+newtype HFmap f
+newtype LiftA2 f
+newtype HJust x
+newtype HMap f
+newtype HMapL f
+newtype MapCar f
+newtype Mapcar f
+newtype FHLookupByHNat (l :: [*])
+newtype Record (r :: [*])
+newtype HMapR f
+newtype TIP (l :: [*])
+newtype HMapV f
+newtype TIC (l :: [*])
+newtype HListFlat a
+newtype Arg arg_types arg_values
+newtype HMapV f
+newtype Doc
+newtype UpperMatrix a
+newtype SymmetricMatrix a
+newtype STVector n s t
+newtype STMatrix mn s t
+newtype Ref t a u f
+newtype KeyRef i u f
+newtype (:**:) crts a toks z
+newtype State
+newtype Discrete prob symbol
+newtype DiscreteTrained prob symbol
+newtype Gaussian a
+newtype GaussianTrained a
+newtype Z12
+newtype MetaId a
+newtype LHS f a
+newtype RHS f a
+newtype VAR a
+newtype Realm
+newtype Nonce
+newtype Timestamp
+newtype Event
+newtype Event
+newtype Name a
+newtype Cl a
+newtype Observer
+newtype Granulerate
+newtype Granulepos
+newtype HoleyMonoid m r a
+newtype DocId
+newtype CompressedDoc a
+newtype SmallDocuments a
+newtype Inverted occ
+newtype Documents a
+newtype CompressedDoc a
+newtype Inverted
+newtype ReaderStateIO env state res
+newtype CacheState
+Binary file ./hoogle-data/hommage/0.0.5/doc/html/hommage.txt matches
+newtype BeepFd
+newtype Observer
+newtype Observer
+newtype Clipboard
+newtype PageNum
+newtype ScreenCoordinate
+newtype CanvasCoordinate
+newtype DesktopCoordinate
+newtype PageCoordinate
+newtype ScreenDimension
+newtype CanvasDimension
+newtype CanvasOrigin
+newtype PageOrigin
+newtype PageDimension
+newtype DesktopDimension
+newtype ViewPortBBox
+newtype SinglePageDraw a
+newtype ContPageDraw a
+newtype CmpBBox a
+newtype LyBuf
+newtype InBBox a
+newtype InBBoxBkgBuf a
+newtype NotHitted a
+newtype Hitted a
+newtype TEitherAlterHitted a
+newtype SeqZipper a
+newtype IntersectBBox
+newtype UnionBBox
+newtype OldFact a
+newtype NewFact a
+newtype FwdTransfer n f
+newtype FwdRewrite m n f
+newtype BwdTransfer n f
+newtype BwdRewrite m n f
+newtype OldFact a
+newtype NewFact a
+newtype FwdTransfer n f
+newtype FwdRewrite m n f
+newtype BwdTransfer n f
+newtype BwdRewrite m n f
+newtype DPath
+newtype Depth
+newtype LoadImageColor
+newtype HaarDetectFlag
+newtype MPI
+newtype Block a
+newtype EightOctetKeyId
+newtype TwentyOctetFingerprint
+newtype SpacedFingerprint
+newtype DigestState
+newtype NanoSeconds
+newtype Seconds
+newtype Minutes
+newtype Hours
+newtype TimezoneOffset
+newtype Elapsed
+newtype ElapsedSince epoch
+newtype Elapsed
+newtype TimeFormatString
+newtype TimezoneMinutes
+newtype ATID
+newtype RESID
+newtype GoToURL
+newtype Polygon
+newtype View v m a
+newtype ConnStatusType
+newtype ResultFormat
+newtype ExecStatusType
+newtype ErrorField
+newtype TypeClass
+newtype PGerror
+newtype QueryError
+newtype HPQTypesError
+newtype LibPQError
+newtype Connection
+newtype ConnectionSource
+newtype JSON json
+newtype JSONB jsonb
+newtype XML
+newtype Channel
+newtype Composite a
+newtype Binary b
+newtype Array1 a
+newtype CompositeArray1 a
+newtype Array2 a
+newtype CompositeArray2 a
+newtype Channel
+newtype Savepoint
+newtype DBT m a
+newtype QueryError
+newtype HPQTypesError
+newtype LibPQError
+newtype LocalFP
+newtype CanonFP
+newtype LocalFP
+newtype CanonFP
+newtype EqNode
+newtype HReaderT els m a
+newtype Request
+newtype TVirtualPad
+newtype TSeqCollection
+newtype TQObject
+newtype TObject
+newtype TObjArray
+newtype TNamed
+newtype TKey
+newtype TGlobal
+newtype TDirectory
+newtype TCollection
+newtype TClass
+newtype TAttText
+newtype TAttPad
+newtype TAttMarker
+newtype TAttLine
+newtype TAttFill
+newtype TAttCanvas
+newtype TAttBBox
+newtype TAttAxis
+newtype TAtt3D
+newtype TArrayS
+newtype TArrayL64
+newtype TArrayL
+newtype TArrayI
+newtype TArrayF
+newtype TArrayD
+newtype TArrayC
+newtype TArray
+newtype TApplication
+newtype TSystem
+newtype TROOT
+newtype TVirtualPad
+newtype TSystem
+newtype TSeqCollection
+newtype TROOT
+newtype TQObject
+newtype TObject
+newtype TObjArray
+newtype TNamed
+newtype TKey
+newtype TGlobal
+newtype TDirectory
+newtype TCollection
+newtype TClass
+newtype TAttText
+newtype TAttPad
+newtype TAttMarker
+newtype TAttLine
+newtype TAttFill
+newtype TAttCanvas
+newtype TAttBBox
+newtype TAttAxis
+newtype TAtt3D
+newtype TArrayS
+newtype TArrayL64
+newtype TArrayL
+newtype TArrayI
+newtype TArrayF
+newtype TArrayD
+newtype TArrayC
+newtype TArray
+newtype TApplication
+newtype TTUBE
+newtype TSPHE
+newtype TShape
+newtype TPCON
+newtype TPad
+newtype TLine
+newtype TGraphQQ
+newtype TGraphPolar
+newtype TGaxis
+newtype TEllipse
+newtype TCutG
+newtype TCrown
+newtype TCanvas
+newtype TBRIK
+newtype TAttImage
+newtype TArrow
+newtype TArc
+newtype TTUBE
+newtype TSPHE
+newtype TShape
+newtype TPCON
+newtype TPad
+newtype TLine
+newtype TGraphQQ
+newtype TGraphPolar
+newtype TGaxis
+newtype TEllipse
+newtype TCutG
+newtype TCrown
+newtype TCanvas
+newtype TBRIK
+newtype TAttImage
+newtype TArrow
+newtype TArc
+newtype THStack
+newtype TH3S
+newtype TH3I
+newtype TH3F
+newtype TH3D
+newtype TH3C
+newtype TH3
+newtype TH2S
+newtype TH2Poly
+newtype TH2I
+newtype TH2F
+newtype TH2D
+newtype TH2C
+newtype TH2
+newtype TH1S
+newtype TH1K
+newtype TH1I
+newtype TH1F
+newtype TH1D
+newtype TH1C
+newtype TH1
+newtype TGraphErrors
+newtype TGraphBentErrors
+newtype TGraphAsymmErrors
+newtype TGraph
+newtype TFormula
+newtype TF1
+newtype TAxis
+newtype THStack
+newtype TH3S
+newtype TH3I
+newtype TH3F
+newtype TH3D
+newtype TH3C
+newtype TH3
+newtype TH2S
+newtype TH2Poly
+newtype TH2I
+newtype TH2F
+newtype TH2D
+newtype TH2C
+newtype TH2
+newtype TH1S
+newtype TH1K
+newtype TH1I
+newtype TH1F
+newtype TH1D
+newtype TH1C
+newtype TH1
+newtype TGraphErrors
+newtype TGraphBentErrors
+newtype TGraphAsymmErrors
+newtype TGraph
+newtype TFormula
+newtype TF1
+newtype TAxis
+newtype TFile
+newtype TDirectoryFile
+newtype TFile
+newtype TDirectoryFile
+newtype TRandom
+newtype TRandom
+newtype Filters
+newtype FrameworkID
+newtype SlaveID
+newtype OfferID
+newtype TaskID
+newtype ExecutorID
+newtype ContainerID
+newtype Resources
+newtype Environment
+newtype Parameters
+newtype StdString
+newtype ExecutorDriver
+newtype SchedulerDriver
+newtype Template
+newtype RelevantDate
+newtype UserID
+newtype Pure a
+newtype Pure a
+newtype UserOptions
+newtype LineHarvester
+newtype Special
+newtype Event_Seq
+newtype P_Event
+newtype Notification a
+newtype Synth
+newtype Group
+newtype AnnMap
+newtype Loc
+newtype Pair
+newtype Color
+newtype Opts a
+newtype Map
+newtype EditM s a
+newtype ResolveM a
+newtype Status
+newtype RRAddr
+newtype ItemFilter
+newtype Labeled (label :: k) (typ :: *)
+newtype PureInput
+newtype SysUser
+newtype SysGroup
+newtype SysShell
+newtype SysHomedir
+newtype Recurse
+newtype (Stringable k, Refeable a) => Hash k a
+newtype (ReversibleHashIO k, Refeable a) => IntMap k a
+newtype (Stringable k, Refeable a) => StrMap k a
+newtype HashIO a => BitSet a
+newtype LuaState
+newtype PixMap
+newtype SmartyError
+newtype Cipher
+newtype CipherCtx
+newtype Digest
+newtype DigestCtx
+newtype VaguePKey
+newtype WaveFile
+newtype Attribute
+newtype XMLGenT m a
+newtype HSPT xml m a
+newtype SpecM a r
+newtype WaiSession a
+newtype ParserToken
+newtype StFirst a
+newtype CSvmType
+newtype CKernelType
+newtype Model
+newtype XMLGenT m a
+newtype JMacroT m a
+newtype XMLToInnerHTML
+newtype XMLToDOM
+newtype GTHandle
+newtype DomId
+newtype XCHandle
+newtype XCEHandle
+newtype EventChannelPort
+newtype DomId
+newtype ZNoticeKind
+newtype ColorString
+newtype Html
+newtype HtmlTable
+newtype Context
+newtype CookieJar
+newtype ResponseClose
+newtype ProxyOverride
+newtype WgetException
+newtype DocId
+newtype DocIdSet
+newtype DocDesc
+newtype Score
+newtype Positions
+newtype DocIdMap v
+newtype IntermediateValue
+newtype Documents e
+newtype KeyProxyIndex toType impl
+newtype DmPrefixTree v
+newtype SimplePrefixTreeIndex
+newtype PrefixTreeIndexInt
+newtype PrefixTreeIndexDate
+newtype DmPrefixTree v
+newtype InvertedIndex
+newtype InvertedIndex2Dim
+newtype RTreeIndex v
+newtype SimpleRTreeIndex
+newtype ContextMap
+newtype RankedDoc
+newtype CmdRes a
+newtype CmdRes a
+newtype HuntT dt m a
+newtype MF a
+newtype Dual a :: * -> *
+newtype Endo a :: * -> *
+newtype All :: *
+newtype Any :: *
+newtype Sum a :: * -> *
+newtype Product a :: * -> *
+newtype First a :: * -> *
+newtype Last a :: * -> *
+newtype Const a b :: * -> * -> *
+newtype WrappedMonad (m :: * -> *) a :: (* -> *) -> * -> *
+newtype WrappedArrow (a :: * -> * -> *) b c :: (* -> * -> *) -> * -> * -> *
+newtype ZipList a :: * -> *
+newtype Kleisli (m :: * -> *) a b :: (* -> *) -> * -> * -> *
+newtype ArrowMonad (a :: * -> * -> *) b :: (* -> * -> *) -> * -> *
+newtype LA a b
+newtype SLA s a b
+newtype IOLA a b
+newtype IOSLA s a b
+newtype Unpickler a
+newtype SelectorsGroup
+newtype SimpleSelectorSeq
+newtype StateIO state res
+newtype NodeSet
+newtype UsedAttribSets
+newtype SelectExpr
+newtype TestExpr
+newtype StringExpr
+newtype MatchExpr
+newtype PropSymbol
+newtype RelSymbol
+newtype PropSymbol
+newtype NomSymbol
+newtype RelSymbol
+newtype Hyper a b
+newtype HyperLogLog p
+newtype BatchFuture a
+newtype Neo4j a
+newtype NodePath
+newtype RelPath
+newtype Msgid
+newtype Locale
+newtype Msgid
+newtype Locale
+newtype Language
+newtype StrictStateT s m a
+newtype Response
+newtype IncBS
+newtype FilePathPtr
+newtype IdPropPtr
+newtype IdMap
+newtype ExpMap
+newtype Additive a
+newtype Multiplicative a
+newtype And a
+newtype Or a
+newtype Smart a
+newtype SmartZero a
+newtype SmartGroup a
+newtype SmartField a
+newtype Min x
+newtype Max x
+newtype FC'
+newtype WkEnvTT n
+newtype SyntaxRules
+newtype IdrisInnerParser a
+newtype IEEE a
+newtype V a
+newtype NonLinearTransform a
+newtype AccessToken
+newtype ColorspaceType
+newtype AlphaChannelType
+newtype FilterTypes
+newtype MagickFunction
+newtype MagickEvaluateOperator
+newtype PaintMethod
+newtype ImageLayerMethod
+newtype ImageType
+newtype GravityType
+newtype NoiseType
+newtype ExceptionType
+newtype DistortImageMethod
+newtype SparseColorMethod
+newtype StorageType
+newtype CompressionType
+newtype CompositeOperator
+newtype VirtualPixelMethod
+newtype ChannelType
+newtype LogEventType
+newtype MagickBooleanType
+newtype ClassType
+newtype LineCap
+newtype LineJoin
+newtype FillRule
+newtype FromFormat
+newtype SubjectFormat
+newtype BodyFormat
+newtype IxStateT m i j a
+newtype IxState i j a
+newtype IxContT m r o a
+newtype IxCont r o a
+newtype IxFreeT f m i j a
+newtype Fix f
+newtype Source
+newtype TypeId
+newtype Fix f
+newtype RowTVar
+newtype ClassName
+newtype VarId
+newtype Database
+newtype Admin
+newtype Ping
+newtype Database
+newtype Admin
+newtype Ping
+newtype Ini
+newtype Template
+newtype Cache t
+newtype Parser alpha
+newtype Printer alpha
+newtype CompressionLevel
+newtype BotPartT m a
+newtype Dif a
+newtype IReal
+newtype Frac
+newtype Dif a
+newtype Rounded p
+newtype Errno :: *
+newtype Iteratee s m a
+newtype Errno :: *
+newtype Iteratee s m a
+newtype Iter t m a
+newtype IterStateT s m a
+newtype SslConnection
+newtype HttpRoute m s
+newtype ActionRoute b m s
+newtype Term
+newtype T (i :: Morph * *) a
+newtype NFrames
+newtype TyVar
+newtype TyVar
+newtype ApiKey
+newtype C b a
+newtype TMonad a
+newtype Ident
+newtype IdentSupply a
+newtype SaneDouble
+newtype Base64Integer
+newtype Base64UrlString
+newtype Base64Octets
+newtype Base64SHA1
+newtype Base64SHA256
+newtype Base64X509
+newtype JWKSet
+newtype ValidationAlgorithms
+newtype JWK'
+newtype NumericDate
+newtype Jwt
+newtype Number
+newtype JSString
+newtype JSObject e
+newtype Dict
+newtype Dict
+newtype Json
+newtype Object
+newtype Array
+newtype Escaped
+newtype StringMap a
+newtype Tagged (s :: k) b :: k -> * -> *
+newtype Work
+newtype Volunteer
+newtype Elt
+newtype Parsec a b
+newtype PrefixParser a
+newtype Clause
+newtype Sat1 a b
+newtype Sat a b c
+newtype ClausifyFlags
+newtype FileSystemKVS
+newtype HT h k v
+newtype JarReader
+newtype Rectangle a
+newtype PropertyMap
+newtype Topic
+newtype Offset
+newtype Partition
+newtype Size
+newtype Count
+newtype MessageSet
+newtype Topic
+newtype Offset
+newtype Partition
+newtype Size
+newtype Count
+newtype Rift g h a
+newtype Lift g f a
+newtype Yoneda f a
+newtype Ran g h a
+newtype Yoneda f a
+newtype Codensity m a
+newtype CoT w m a
+newtype Box a
+newtype E
+newtype D a
+newtype RepValue
+newtype VCD
+newtype Ack
+newtype Ready
+newtype Key a
+newtype BijectiveFunc a b
+newtype Service
+newtype Username
+newtype Password
+newtype PasswordStoreComment
+newtype PasswordName
+newtype PasswordText
+newtype SessionName
+newtype FragmentID
+newtype REP__Pattern
+newtype Iterations
+newtype Octets
+newtype REP__Name
+newtype Identity
+newtype SettingID
+newtype TriggerID
+newtype Comment
+newtype EnvVar
+newtype ClearText
+newtype Salt
+newtype IV
+newtype HashData
+newtype AESKey
+newtype SecretData
+newtype RSAEncryptedKey
+newtype RSASecretBytes
+newtype RSASignature
+newtype EncryptionPacket
+newtype SignaturePacket
+newtype Void
+newtype Settings
+newtype PasswordName
+newtype PasswordText
+newtype SessionName
+newtype EnvVar
+newtype InfoHash
+newtype URL
+newtype ReleaseCategory
+newtype ReleaseTitle
+newtype MyQSem
+newtype ExpectDivergent
+newtype ExpectDivergent
+newtype Partitions
+newtype Cluster a
+newtype Free b r
+newtype KResponseScheme
+newtype SnocPath crumb
+newtype LogHandler m
+newtype Action m
+newtype List a
+newtype HelpDescription
+newtype Mu f
+newtype Rec a
+newtype SignalException
+newtype TimeDiff
+newtype FreenodeNick
+newtype ModuleT st m a
+newtype LB a
+newtype TimeDiff
+newtype FreenodeNick
+newtype ModuleT st m a
+newtype LB a
+newtype Mu f
+newtype Rec a
+newtype SignalException
+newtype N
+newtype Frustum
+newtype LCM w e a
+newtype AbsDepth
+newtype Delta a
+newtype PerceptionVisible
+newtype TgtMode
+newtype PerceptionReachable
+newtype PerceptionDynamicLit
+newtype TypeReference
+newtype Identifier
+newtype ValueReference
+newtype CString
+newtype ExportedSymbol
+newtype ObjectClassReference
+newtype ObjectReference
+newtype ObjectSetReference
+newtype TypeFieldReference
+newtype ValueFieldReference
+newtype ValueSetFieldReference
+newtype ObjectFieldReference
+newtype ObjectSetFieldReference
+newtype ErrorAccumT e m a
+newtype Program
+newtype Name
+newtype Flags f
+newtype Name
+newtype ParseError
+newtype InvalidASTError
+newtype BadSpecifierError
+newtype HappyAbsSyn
+newtype HappyAbsSyn
+newtype MIXChar
+newtype Index
+newtype Symbol
+newtype Flags f
+newtype Name
+newtype Name
+newtype ParseError
+newtype InvalidASTError
+newtype BadSpecifierError
+newtype Ident
+newtype PrettyError
+newtype Warning
+newtype Module annot
+newtype Ident
+newtype Code enc
+newtype Alphabet enc
+newtype Distance algo
+newtype TSTDist full sym algo
+newtype BKDist full sym algo
+newtype Enumerated a
+newtype DisplayLatex
+newtype DisplayText
+newtype CLBFGSResult
+newtype Id
+newtype AuthenticationChoice
+newtype MatchingRuleId
+newtype AttributeSelection
+newtype AttributeList
+newtype PartialAttributeList
+newtype Controls
+newtype AttributeDescription
+newtype AttributeValue
+newtype AssertionValue
+newtype LdapDn
+newtype RelativeLdapDn
+newtype ReferralUris
+newtype Uri
+newtype LdapString
+newtype LdapOid
+newtype Dn
+newtype Attr
+newtype Password
+newtype RelativeDn
+newtype Oid
+newtype Password
+newtype RelativeDn
+newtype Oid
+newtype Dn
+newtype Attr
+newtype Distro a
+newtype CandyTable
+newtype KeymapI
+newtype VCSAction a
+newtype Present alpha
+newtype Authorization
+newtype InvestorId
+newtype Authorization
+newtype InvestorId
+newtype Focusing m s a
+newtype FocusingWith w m s a
+newtype FocusingPlus w k s a
+newtype FocusingOn f k s a
+newtype FocusingMay k s a
+newtype May a
+newtype FocusingErr e k s a
+newtype Err e a
+newtype Effect m r a
+newtype EffectRWS w st m s a
+newtype Deepening i a
+newtype Flows i b a
+newtype AlongsideLeft f b a
+newtype AlongsideRight f a b
+newtype Indexed i a b
+newtype Indexing f a
+newtype Indexing64 f a
+newtype Pretext p a b t
+newtype PretextT p (g :: * -> *) a b t
+newtype Bazaar p a b t
+newtype BazaarT p (g :: * -> *) a b t
+newtype Bazaar1 p a b t
+newtype BazaarT1 p (g :: * -> *) a b t
+newtype Molten i a b t
+newtype Folding f a
+newtype Traversed a f
+newtype Sequenced a m
+newtype M a s
+newtype Identity a :: * -> *
+newtype Const a b :: * -> * -> *
+newtype Bazaar p a b t
+newtype Bazaar1 p a b t
+newtype Indexed i a b
+newtype ReifiedLens s t a b
+newtype ReifiedIndexedLens i s t a b
+newtype ReifiedIndexedTraversal i s t a b
+newtype ReifiedTraversal s t a b
+newtype ReifiedGetter s a
+newtype ReifiedIndexedGetter i s a
+newtype ReifiedFold s a
+newtype ReifiedIndexedFold i s a
+newtype ReifiedSetter s t a b
+newtype ReifiedIndexedSetter i s t a b
+newtype ReifiedIso s t a b
+newtype ReifiedPrism s t a b
+newtype Effect m r a
+newtype ReifiedMonadicFold m s a
+newtype FlexTime
+newtype MonadMonoid a
+newtype Morph m n
+newtype CompressionOpt
+newtype BloomFilter
+newtype Comparator
+newtype Snapshot
+newtype Comparator
+newtype Comparator
+newtype CompressionOpt
+newtype BloomFilter
+newtype Comparator
+newtype Snapshot
+newtype Comparator
+newtype Comparator
+newtype Lens a b :: * -> * -> *
+newtype LazyEvalMonad s a
+newtype Arg
+newtype JenkinsException
+newtype Request f a
+newtype Secret
+newtype Target
+newtype PlaylistName
+newtype Id
+newtype Errno :: *
+newtype RString
+newtype FPr a b
+newtype FSc a b
+newtype FPrIO a b
+newtype ShowT a
+newtype TQ t
+newtype EQU a b
+newtype FS b a
+newtype F1 t b a
+newtype F2 t a b
+newtype SafeCast a
+newtype Id a
+newtype R h a
+newtype S h a
+newtype CL h a
+newtype LString a
+newtype SemM r a
+newtype F a
+newtype R hi ho a
+newtype S hi ho a
+newtype G a
+newtype SName m a
+newtype SValue m a
+newtype SLazy m a
+newtype R a
+newtype S a
+newtype ExtSym repr a
+newtype Lg repr a
+newtype CPS repr w a
+newtype CPS1 repr w a
+newtype S l m a
+newtype S l m a
+newtype S t
+newtype D t
+newtype IterateeGM el m a
+newtype RBIO a
+newtype Res m a
+newtype ResP m a
+newtype Res m a
+newtype Acc a
+newtype Identity a
+newtype GFn f
+newtype GFnA n f
+newtype GFnTest n f flag
+newtype S n
+newtype V
+newtype Loc
+newtype MW m p q a
+newtype VST m si so v
+newtype MW m p q a
+newtype C a b tau
+newtype N
+newtype W
+newtype Librato a
+newtype SE (a :: Object)
+newtype Connection
+newtype Domain
+newtype Network
+newtype Document
+newtype Node
+newtype Property
+newtype Namespace
+newtype Concurrently m a
+newtype Config
+newtype Name
+newtype Pitch
+newtype Duration
+newtype Pitch
+newtype E t
+newtype V1 a
+newtype V n a
+newtype Point f a
+newtype Covector r a
+newtype User
+newtype Icon
+newtype SyncType
+newtype Key
+newtype RelAxis
+newtype AbsAxis
+newtype PID
+newtype TID
+newtype EventID
+newtype EventTypeID
+newtype ByteCount64
+newtype ByteCount32
+newtype ByteCount16
+newtype TimeStamp
+newtype SampleTypeBitMap
+newtype Length
+newtype Index
+newtype SigNo
+newtype CString
+newtype Pid
+newtype Attref
+newtype SigNo
+newtype SigNo
+newtype LIO l a
+newtype Priv a
+newtype HSCategory
+newtype HSPrivs
+newtype GenQualifierSort
+newtype UeqAllSorts
+newtype KVar
+newtype Refa
+newtype Reft
+newtype Subst
+newtype Kuts
+newtype Loc
+newtype RTyVar
+newtype World t
+newtype Predicate
+newtype REnv
+newtype AnnInfo a
+newtype EMsg
+newtype DEnv x ty
+newtype HEnv
+newtype ListT m a
+newtype ListT m a
+newtype CharString
+newtype CharStringLazy
+newtype CharString
+newtype CharStringLazy
+newtype Heap a
+newtype IntN n
+newtype WordN n
+newtype FP128
+newtype Array n a
+newtype Vector n a
+newtype Struct a
+newtype PackedStruct a
+newtype Module
+newtype ModuleProvider
+newtype PassManager
+newtype Builder
+newtype T r z a
+newtype GCOVVersion
+newtype CPUFeature
+newtype File
+newtype MetadataNodeID
+newtype PrefixScheme
+newtype MetadataNodeID
+newtype HappyAbsSyn
+newtype TQuasiQuoter a
+newtype (Pos n) => IntN n
+newtype (Pos n) => WordN n
+newtype FP128
+newtype (Nat n) => Array n a
+newtype Vector n a
+newtype Struct a
+newtype PackedStruct a
+newtype Ident
+newtype Symbol
+newtype GC
+newtype LogT m a
+newtype Log a
+newtype Log a
+newtype RecordBuilder a
+newtype Formatter a
+newtype Filter a
+newtype HandlerLogger m a
+newtype PriorityLoggerT m a
+newtype DropLoggerT m a
+newtype WriterLogger m a
+newtype BaseLoggerT l m a
+newtype ThreadedLogger' d r m a
+newtype Prop
+newtype Role
+newtype AtomicWord
+newtype V
+newtype F c
+newtype T c
+newtype Word_
+newtype TreeT m α
+newtype BoardSize
+newtype LocatableT m α
+newtype LocatableTreeT m α
+newtype WorkgroupControllerMonad inner_state exploration_mode α
+newtype Arity
+newtype Network α
+newtype WrappedPortID
+newtype LogicT m a
+newtype AtomicLRU key val
+newtype Context
+newtype Notifier
+newtype Par :: Determinism -> * -> * -> *
+newtype LVar s all delt
+newtype IVar s a
+newtype ISet s a
+newtype IMap k s v
+newtype IMap k s v
+newtype SatMap k s v
+newtype PureLVar s t
+newtype MaybeT m a
+newtype ErrorT e m a
+newtype ReaderT r m a
+newtype WriterT o m a
+newtype StateT s m a
+newtype RWST r o s m a
+newtype ContT r m a
+newtype OpaqueContT k r m a
+newtype (:.:) t u a
+newtype ListSet a
+newtype Fix f
+newtype SumOfProd a
+newtype ID a
+newtype IDT m a
+newtype AddStateT s12 s1 m a
+newtype ListT m a
+newtype ListSetT m a
+newtype ListSetWithTopT m a
+newtype SetT m a
+newtype ContFun r m a
+newtype Color256
+newtype DocM a
+newtype Parser t a
+newtype Cτ ψ
+newtype Kτ (k :: Nat) ψ
+newtype SumOfProdVal ν lτ dτ
+newtype RawName
+newtype LocNum
+newtype BdrNum
+newtype Power val lτ dτ
+newtype IsoMonadStep ς1 ς2 m a
+newtype Cτ ψ
+newtype Kτ (k :: Nat) ψ
+newtype PSΣ ν lτ dτ a
+newtype PSΣ𝒫 ν lτ dτ a
+newtype PS ν lτ dτ a
+newtype AllGC
+newtype AllCreateClo
+newtype PSΣ val lτ dτ a
+newtype PSΣ𝒫 val lτ dτ a
+newtype PS val lτ dτ a
+newtype FSΣ val lτ dτ a
+newtype FSΣ𝒫 val lτ dτ a
+newtype FS val lτ dτ a
+newtype FIΣ val lτ dτ a
+newtype FIΣ𝒫 val lτ dτ a
+newtype FI val lτ dτ a
+newtype Res l a
+newtype MAC l a
+newtype PlanT k o m a
+newtype MachineT m k o
+newtype Mealy a b
+newtype Tabbar
+newtype GWindowId
+newtype BufferList
+newtype MandrillHtml
+newtype Base64ByteString
+newtype MandrillDate
+newtype MandrillT m a
+newtype UsersPingResponse
+newtype AccessToken
+newtype S¹
+newtype Markdown
+newtype Markdown
+newtype PrettyLevel
+newtype InlineMarkupT m a
+newtype HostedMarkupT m a
+newtype LocalMarkupT m a
+newtype InlineMarkupM a
+newtype HostedMarkupM a
+newtype LocalMarkupM a
+newtype Username
+newtype Token
+newtype Message
+newtype Upload
+newtype ML a
+newtype Link
+newtype Environment
+newtype MaybeT m a
+newtype MaybeT m :: (* -> *) a :: (* -> *) -> * -> *
+newtype MaybeT m a
+newtype BlockType
+newtype BlockData
+newtype PropKind
+newtype MetaKind
+newtype ListKind
+newtype GeneratorKind
+newtype CAS
+newtype BE a
+newtype LE a
+newtype SipHash
+newtype FnvHash32
+newtype FnvHash64
+newtype Startup
+newtype WorkSearch
+newtype NoCode m
+newtype PureCode
+newtype Monad m => HsCode m
+newtype MethodCompiled m
+newtype Hamming
+newtype Levenshtein
+newtype RestrictedDamerauLevenshtein
+newtype Euclidean
+newtype Taxicab
+newtype Chebyshev
+newtype PostOffice
+newtype Hamming
+newtype Levenshtein
+newtype RestrictedDamerauLevenshtein
+newtype Euclidean
+newtype Taxicab
+newtype Chebyshev
+newtype PostOffice
+newtype Snapshot
+newtype Sup m a
+newtype FlowM v m a
+newtype View v m a
+newtype View v m a
+newtype SimpleVar
+newtype Accidentals
+newtype Beats
+newtype Seconds
+newtype BPS
+newtype ConsumerMetadataResponse
+newtype ApiKey
+newtype ApiVersion
+newtype CorrelationId
+newtype ClientId
+newtype MetadataRequest
+newtype TopicName
+newtype KafkaBytes
+newtype KafkaString
+newtype ProduceResponse
+newtype OffsetResponse
+newtype PartitionOffsets
+newtype FetchResponse
+newtype MetadataResponse
+newtype Broker
+newtype NodeId
+newtype Host
+newtype Port
+newtype TopicMetadata
+newtype PartitionMetadata
+newtype Leader
+newtype Replicas
+newtype Isr
+newtype OffsetCommitResponse
+newtype OffsetFetchResponse
+newtype OffsetRequest
+newtype Time
+newtype MaxNumberOfOffsets
+newtype FetchRequest
+newtype ReplicaId
+newtype MaxWaitTime
+newtype MinBytes
+newtype MaxBytes
+newtype ProduceRequest
+newtype RequiredAcks
+newtype Timeout
+newtype Partition
+newtype MessageSet
+newtype Offset
+newtype Message
+newtype Crc
+newtype MagicByte
+newtype Attributes
+newtype Key
+newtype Value
+newtype ConsumerMetadataRequest
+newtype OffsetCommitRequest
+newtype OffsetFetchRequest
+newtype ConsumerGroup
+newtype Metadata
+newtype Request
+newtype Boundary
+newtype VM a
+newtype Program t a
+newtype ProgramT t m a
+newtype Solver
+newtype Var
+newtype Lit
+newtype LBool
+newtype IDXLabels
+newtype ABCD
+newtype Str
+newtype BoolList
+newtype WordList
+newtype WholeFunc a b
+newtype PyObject
+newtype PyGILState
+newtype (:$~) f a input output
+newtype Monad m => MList m a
+newtype ComposeT (f :: (* -> *) -> * -> *) (g :: (* -> *) -> * -> *) m a
+newtype Identity a
+newtype ListT m a
+newtype State s a
+newtype StateT s m a
+newtype Reader r a
+newtype ReaderT r m a
+newtype State s a
+newtype StateT s m a
+newtype Writer w a
+newtype WriterT w m a
+newtype Writer w a
+newtype WriterT w m a
+newtype Cont r a
+newtype ContT r m a
+newtype Codensity f a
+newtype ErrorT e m a
+newtype Annotation
+newtype RelPath
+newtype PathKey
+newtype APath
+newtype ModuleName :: *
+newtype Mod a
+newtype ModuleName
+newtype Doc
+newtype SF a b
+newtype Quote
+newtype Example
+newtype Title
+newtype Link
+newtype Count
+newtype AbortT e μ :: (* -> *) α :: * -> (* -> *) -> * -> *
+newtype FinishT f μ :: (* -> *) α :: * -> (* -> *) -> * -> *
+newtype Proxied x m a
+newtype CustomWriterT' w n m a
+newtype ZoomT big small m a
+newtype Coroutine s m r
+newtype Await x y
+newtype AddIM m a
+newtype ContT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ExceptT e (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ReaderT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype RWST r w s (m :: * -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype RWST r w s (m :: * -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype LoggingT m a
+newtype NoLoggingT m a
+newtype StateCache c m a
+newtype ReaderCache c m a
+newtype Container arr
+newtype Container vec
+newtype Container vec
+newtype Container vec
+newtype Container s
+newtype Rand a
+newtype Op a m b
+newtype IVar a
+newtype Par a
+newtype IVar a
+newtype Product g h a
+newtype ResT m a
+newtype ReacT input output m a
+newtype AbortT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype AbortT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype (:-->) f a
+newtype TaskT e m a
+newtype TaskT e m a
+newtype UnifyT t m a
+newtype Unlift t
+newtype UnliftBase b m
+newtype Acme a
+newtype Monad m => AcmeT m a
+newtype (::+) m n t
+newtype MemoT m a
+newtype MemoReaderT r m a
+newtype VarId
+newtype Bound solver
+newtype CNodeBoundedST (solver :: * -> *) a
+newtype CDepthBoundedST (solver :: * -> *) a
+newtype CBranchBoundST (solver :: * -> *) a
+newtype CRandomST (solver :: * -> *) a
+newtype CLimitedDiscrepancyST (solver :: * -> *) a
+newtype GecodeIBFn s
+newtype GecodeIIFn s
+newtype GecodeIIIFn s
+newtype GecodeICIFn s
+newtype GecodeCBFn s
+newtype GecodeCIFn s
+newtype GecodeIntParam
+newtype GecodeBoolParam
+newtype GecodeColParam
+newtype Partial a b
+newtype ContT r m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype ErrorT e m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype ListT m :: (* -> *) a :: (* -> *) -> * -> *
+newtype ReaderT r m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype RWST r w s m :: (* -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype RWST r w s m :: (* -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype StateT s m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype StateT s m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w m :: (* -> *) a :: * -> (* -> *) -> * -> *
+newtype ErrorT e (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ListT (m :: * -> *) a :: (* -> *) -> * -> *
+newtype ReaderT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype RWST r w s (m :: * -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype RWST r w s (m :: * -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ContT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype FComp f g a
+newtype FunctorD f
+newtype Id a
+newtype StepOp f x
+newtype IdT m a
+newtype Fix f
+newtype (:>) t1 t2 :: ((* -> *) -> * -> *) m a
+newtype Endomorphism k a
+newtype SM m
+newtype Count a
+newtype Max
+newtype Min
+newtype ByteStringUTF8
+newtype Stateful a b
+newtype T m a
+newtype T m a
+newtype T r a
+newtype T s a
+newtype T f a
+newtype WrapMonoidPlus t
+newtype CatEndo c t
+newtype Possibilistic t
+newtype Lukasiewicz t
+newtype Self m
+newtype Max a
+newtype Min a
+newtype MaxPriority a
+newtype MinPriority a
+newtype Union f
+newtype UnionWith f m
+newtype Keys c
+newtype Values c
+newtype Char8 c
+newtype Traversal f
+newtype Alt f a
+newtype App f m
+newtype Action m
+newtype MonadSum m a
+newtype Mon f m
+newtype (:.:) f g a
+newtype MC m a
+newtype Tok s t
+newtype Seq s t
+newtype Tok s t
+newtype Seq s t
+newtype Pretty a
+newtype Assoc a
+newtype AsMessagePack a
+newtype AsAeson a
+newtype MethodT m a
+newtype ErrorT e (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ExceptT e (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ListT (m :: * -> *) a :: (* -> *) -> * -> *
+newtype RWST r w s (m :: * -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype ReaderT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype RWST r w s (m :: * -> *) a :: * -> * -> * -> (* -> *) -> * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype WriterT w (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype ContT r (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype StateT s m a
+newtype WriterT w m a
+newtype ReaderT r m a
+newtype ExceptT e (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype Identity a
+newtype Reader r a
+newtype ReaderT r m a
+newtype ErrorT e m a
+newtype ListT m a
+newtype RWS r w s a
+newtype RWST r w s m a
+newtype RWS r w s a
+newtype RWST r w s m a
+newtype State s a
+newtype StateT s m a
+newtype State s a
+newtype StateT s m a
+newtype Writer w a
+newtype WriterT w m a
+newtype Writer w a
+newtype WriterT w m a
+newtype Cont r a
+newtype ContT r m a
+newtype Parse a b
+newtype ParseT a m b
+newtype IdentityX ix a
+newtype ErrorTX ix e m a
+newtype ReaderX ix r a
+newtype ReaderTX ix r m a
+newtype StateX ix s a
+newtype StateTX ix s m a
+newtype StateX ix s a
+newtype StateTX ix s m a
+newtype WriterX ix w a
+newtype WriterTX ix w m a
+newtype RWSX ix r w s a
+newtype RWSTX ix r w s m a
+newtype RWSX ix r w s a
+newtype RWSTX ix r w s m a
+newtype WriterX ix w a
+newtype WriterTX ix w m a
+newtype Summary
+newtype Reference a
+newtype Sortable a
+newtype Unique a
+newtype IxKey
+newtype Property a
+newtype DateTime
+newtype Handle l
+newtype Transaction l m a
+newtype Word
+newtype OptName
+newtype OptArg
+newtype ShortTail
+newtype OptName
+newtype OptArg
+newtype ModeName
+newtype HeaderName
+newtype HeaderName
+newtype Fun k a b
+newtype I0 a
+newtype K0 a b
+newtype Multiset a
+newtype MultiStateT x m a
+newtype MultiStateT x m a
+newtype MultiStateT x m a
+newtype MultiReaderT x m a
+newtype MultiReaderT x m a
+newtype MultiReaderT x m a
+newtype MultiWriterT x m a
+newtype MultiWriterT x m a
+newtype MultiWriterT x m a
+newtype MultiReaderT x m a
+newtype MultiWriterT x m a
+newtype MultiStateT x m a
+newtype MultiRWST r w s m a
+newtype MultiRWST r w s m a
+newtype MultiRWST r w s m a
+newtype Productions l a env
+newtype PreProductions l env a
+newtype SF a
+newtype Const f a s
+newtype Const f a s
+newtype LSPair nt a t env
+newtype Amplitude
+newtype DynamicsL
+newtype Subpart
+newtype Interval
+newtype Pitch
+newtype Hertz
+newtype Intonation p
+newtype Tuning i
+newtype Clef
+newtype IntervalL
+newtype PitchL
+newtype Ctxt a
+newtype NoReverse a
+newtype Bound a
+newtype Twain b a
+newtype Couple b a
+newtype Ordered a
+newtype Past a
+newtype Future a
+newtype TieT a
+newtype PartT n a
+newtype SlideT a
+newtype TextT a
+newtype HarmonicT a
+newtype DynamicT n a
+newtype ArticulationT n a
+newtype DynamicNotation
+newtype ArticulationNotation
+newtype ColorT a
+newtype MBID
+newtype ISO3166Code
+newtype State s a
+newtype StateT m s a
+newtype Semitones
+newtype Octaves
+newtype Fifths
+newtype Line
+newtype Divs
+newtype NoteVal
+newtype Beat
+newtype BeatType
+newtype Tempo
+newtype PartList
+newtype Music
+newtype Semitones
+newtype Octaves
+newtype Fifths
+newtype Line
+newtype Divs
+newtype NoteVal
+newtype Beat
+newtype BeatType
+newtype Level
+newtype PartList
+newtype Music
+newtype Semitones
+newtype Octaves
+newtype Fifths
+newtype Line
+newtype Divs
+newtype NoteVal
+newtype Beat
+newtype BeatType
+newtype Level
+newtype MIteratee s m a
+newtype SessionKey
+newtype In a :: * -> *
+newtype Only a :: * -> *
+newtype Only a
+newtype In a
+newtype Binary a
+newtype Query
+newtype In a
+newtype Binary a
+newtype Only a
+newtype Cont r a
+newtype ContT r m a
+newtype ListT m a
+newtype RWS r w s a
+newtype RWST r w s m a
+newtype RWS r w s a
+newtype RWST r w s m a
+newtype State s a
+newtype StateT s m a
+newtype Writer w a
+newtype WriterT w m a
+newtype Writer w a
+newtype WriterT w m a
+newtype State s a
+newtype StateT s m a
+newtype Identity a
+newtype IdentityT m a
+newtype Reader r a
+newtype ReaderT r m a
+newtype ErrorT e m a
+newtype (:>) t1 (t2 :: (* -> *) -> * -> *) m a
+newtype FComp f1 f2 a
+newtype (:->) n m
+newtype MonadStateReaderT s m a
+newtype Tagged tag m a
+newtype Cell
+newtype ConName
+newtype VarName
+newtype Pair
+newtype Env
+newtype Nation a
+newtype Region a
+newtype (:~>) f g
+newtype MultiChar
+newtype IMMC
+newtype NodeId
+newtype InnoId
+newtype SpecId
+newtype TrainMethod f
+newtype MEitherT e m a
+newtype ShowIO
+newtype Verbs m r
+newtype VerbListenerT r m a
+newtype FileExts a
+newtype FileExtListenerT r m a
+newtype HandlerT x m a
+newtype TimeoutError
+newtype PbmPixel
+newtype SnmpVersion
+newtype Switch
+newtype Port
+newtype IPAddress
+newtype Session m s
+newtype Identity a :: * -> *
+newtype PortNumber
+newtype PortNumber
+newtype AddrAddress
+newtype TCPPort
+newtype UDPPort
+newtype Signature
+newtype Port
+newtype Options
+newtype Port
+newtype Port
+newtype Port
+newtype Word4
+newtype Word20
+newtype ErrorCode
+newtype IP4
+newtype IP6
+newtype InetPort
+newtype LLProtocol
+newtype HardwareType
+newtype IFIndex
+newtype PacketSocketOption
+newtype PacketMReqType
+newtype EndPointAddress
+newtype MulticastAddress
+newtype TransportInternals
+newtype Packet
+newtype ConnectionId
+newtype NF a
+newtype OutputFormat
+newtype Err
+newtype ProcessOpt
+newtype NntpT m a
+newtype NntpT m a
+newtype T f a
+newtype GParser st tok res
+newtype Pattern
+newtype ThreadID
+newtype MessageID
+newtype NotZeroOrT a f x
+newtype T a
+newtype T v a
+newtype GCD a
+newtype LCM a
+newtype Min a
+newtype Max a
+newtype T a b
+newtype Cycle i
+newtype T a
+newtype T a
+newtype T
+newtype T a b
+newtype T a
+newtype T a
+newtype T a
+newtype T a
+newtype T a
+newtype T u a
+newtype T a v
+newtype Timestamp
+newtype OAuthT ty m a
+newtype Object f g
+newtype Mortal f g a
+newtype BearerToken
+newtype OrganizationName
+newtype TeamName
+newtype GL a
+newtype PrimitiveGL a
+newtype TexCoord1 a
+newtype FogCoord1 a
+newtype Index1 a
+newtype AttribLocation
+newtype TextureUnit
+newtype ClipPlaneName
+newtype Light
+newtype BufferObject
+newtype DisplayList
+newtype Name
+newtype PassThroughValue
+newtype QueryObject
+newtype TexturePosition1D
+newtype TextureSize1D
+newtype CompressedTextureFormat
+newtype TextureObject
+newtype ComplexContour v
+newtype ComplexPolygon v
+newtype SimpleContour v
+newtype PolygonContours v
+newtype Triangulation v
+newtype SimplePolygon v
+newtype MaybeAutomaton a i o
+newtype Label
+newtype LabeledArrow a i o
+newtype FormIn
+newtype Config
+newtype Extract f
+newtype (:~>) f g
+newtype Proto a
+newtype SqlColumn
+newtype Column a
+newtype Aggregator a b
+newtype Unpackspec columns columns'
+newtype QueryArr a b
+newtype Order a
+newtype ViewColumnMaker strings columns
+newtype ColumnMaker columns columns'
+newtype TypeRep t a
+newtype Res a
+newtype Union (s :: [*])
+newtype N1
+newtype N2
+newtype N3
+newtype N4
+newtype I1
+newtype I2
+newtype I4
+newtype I8
+newtype A1
+newtype A2
+newtype A3
+newtype A4
+newtype A6
+newtype A8
+newtype A12
+newtype Buffer0
+newtype Buffer1
+newtype Buffer2
+newtype Record a
+newtype ChunkType
+newtype Unknown
+newtype ChannelOrder
+newtype ChannelType
+newtype DeviceType
+newtype ContextInfo
+newtype CommandQueueProperties
+newtype CommandQueueInfo
+newtype ErrorCode
+newtype EventInfo
+newtype ProfilingInfo
+newtype KernelInfo
+newtype KernelWorkGroupInfo
+newtype MapFlags
+newtype MemFlags
+newtype MemObjectType
+newtype MemInfo
+newtype ImageInfo
+newtype PlatformInfo
+newtype SamplerInfo
+newtype AddressingMode
+newtype FilterMode
+newtype ProgramInfo
+newtype ProgramBuildInfo
+newtype BuildStatus
+newtype DeviceInfo
+newtype DeviceFPConfig
+newtype ContextProperties
+newtype ChannelOrder
+newtype ChannelType
+newtype DeviceType
+newtype ContextInfo
+newtype CommandQueueProperties
+newtype CommandQueueInfo
+newtype ErrorCode
+newtype EventInfo
+newtype ProfilingInfo
+newtype KernelInfo
+newtype KernelWorkGroupInfo
+newtype MapFlags
+newtype MemFlags
+newtype MemObjectType
+newtype MemInfo
+newtype PlatformInfo
+newtype SamplerInfo
+newtype AddressingMode
+newtype FilterMode
+newtype ProgramInfo
+newtype ProgramBuildInfo
+newtype BuildStatus
+newtype DeviceInfo
+newtype DeviceFPConfig
+newtype CommandType
+newtype DeviceExecCapabilities
+newtype DeviceMemCacheType
+newtype DeviceLocalMemType
+newtype Vertex1 a
+newtype Vector1 a
+newtype DebugMessageID
+newtype ProgramBinaryFormat
+newtype ShaderBinaryFormat
+newtype DisplayList
+newtype Name
+newtype ClipPlaneName
+newtype TexCoord1 a
+newtype FogCoord1 a
+newtype Index1 a
+newtype AttribLocation
+newtype TextureUnit
+newtype Light
+newtype PassThroughValue
+newtype TexturePosition1D
+newtype TextureSize1D
+newtype CompressedTextureFormat
+newtype Samples
+newtype UniformLocation
+newtype TextureObject
+newtype ComplexContour v
+newtype ComplexPolygon v
+newtype SimpleContour v
+newtype PolygonContours v
+newtype Triangulation v
+newtype SimplePolygon v
+newtype EGLConfAttr
+newtype EGLSurfAttr
+newtype EGLContextAttr
+newtype HalfFloat
+newtype FixedFloat
+newtype Int2_10x3
+newtype Word2_10x3
+newtype Word4444
+newtype Word5551
+newtype Word565
+newtype Word10f11f11f
+newtype Word5999
+newtype Word24_8
+newtype FloatWord24_8
+newtype BufferUsage
+newtype BufferSlot
+newtype DrawMode
+newtype Capability
+newtype CullFace
+newtype CompFunc
+newtype StencilOp
+newtype BlendOp
+newtype BlendingFactor
+newtype Hint
+newtype Uniform p a
+newtype Attrib p a
+newtype VertexArray p
+newtype VertexPicker
+newtype BufferMask
+newtype HalfFloat
+newtype FixedFloat
+newtype Int2_10x3
+newtype Word2_10x3
+newtype Word4444
+newtype Word5551
+newtype Word565
+newtype Word10f11f11f
+newtype Word5999
+newtype Word24_8
+newtype FloatWord24_8
+newtype GLParamP
+newtype GLParam
+newtype PrecisionType
+newtype Identifier
+newtype Error
+newtype AssociationMap
+newtype Message
+newtype MPI
+newtype Plane
+newtype Position
+newtype Unicode
+newtype Parser a b
+newtype Sieve
+newtype Unicode
+newtype (Ord a, Show a, TreeOrdering t) => OperadElement a n t
+newtype OptimalBlock
+newtype Chunk a
+newtype ReadM a
+newtype ParserM r
+newtype Completer
+newtype CompletionResult
+newtype ParserFailure h
+newtype ParserFailure h
+newtype CompletionResult
+newtype A f a b
+newtype OrchestrateT m a
+newtype Ala k a
+newtype L r
+newtype Ordinal
+newtype Level
+newtype Plannings
+newtype StateKeyword
+newtype LevelDepth
+newtype YearMonthDay'
+newtype TimePart
+newtype FoldFamily
+newtype Ty
+newtype OsReleaseValue
+newtype OsReleaseKey
+newtype KeyCode
+newtype Device
+newtype TileID
+newtype TextOperation
+newtype Selection
+newtype Packet e a
+newtype LabelMap a
+newtype Label
+newtype Page
+newtype Match
+newtype BlockResult
+newtype Formatted
+newtype Abbreviations
+newtype Literal
+newtype CNum
+newtype FieldVal
+newtype Abbreviations
+newtype Meta
+newtype Format
+newtype Many a
+newtype StaticIdx
+newtype Valid g
+newtype Direct
+newtype Calc
+newtype Indirect
+newtype ArgFileOpener
+newtype AlphaNum
+newtype Unspaced m a
+newtype Unlined m a
+newtype Unhighlighted m a
+newtype STAR
+newtype STAR
+newtype PartialHandler a
+newtype PartialLens a b
+newtype Path b t
+newtype PayKey
+newtype TransactionId
+newtype HostedButtonID
+newtype Options
+newtype Password
+newtype Salt
+newtype HashedPass
+newtype RawCatalogDataReadFromDBResult
+newtype CatalogReadFromDBResult
+newtype CatalogNeedsToBeUpdated_DoesIt
+newtype Boolean
+newtype Name
+newtype Dict
+newtype Array
+newtype Str
+newtype RIS
+newtype AppendProgram a b
+newtype ParallelIO
+newtype Backend progToBack backToProg
+newtype Parser tbl str s a
+newtype SubAccount
+newtype Account
+newtype Commodity
+newtype Flag
+newtype Memo
+newtype Number
+newtype Payee
+newtype Tag
+newtype Tags
+newtype TopLineLine
+newtype TopMemoLine
+newtype Filename
+newtype PriceLine
+newtype PostingLine
+newtype GlobalPosting
+newtype FilePosting
+newtype GlobalTransaction
+newtype FileTransaction
+newtype DigitList
+newtype WholeOrFrac a
+newtype From
+newtype To
+newtype CountPerUnit
+newtype Target
+newtype Shortest
+newtype ReportWidth
+newtype Posting
+newtype Transaction
+newtype Date
+newtype UNumber
+newtype FitId
+newtype Payee
+newtype Desc
+newtype DbLocation
+newtype FitAcctName
+newtype FitAcctDesc
+newtype ParserDesc
+newtype PennyAcct
+newtype DefaultAcct
+newtype Currency
+newtype FitFileLocation
+newtype AllowNew
+newtype VisibleNum
+newtype Comment
+newtype FilteredNum
+newtype SortedNum
+newtype ListLength
+newtype ItemIndex
+newtype Width
+newtype ShowZeroBalances
+newtype SubAccountLength
+newtype VerboseFilter
+newtype ShowExpression
+newtype SubAccountLength
+newtype ReportWidth
+newtype ColorToFile
+newtype RoundTo
+newtype SubAccount
+newtype Account
+newtype Commodity
+newtype Flag
+newtype Memo
+newtype Number
+newtype Payee
+newtype Tag
+newtype Tags
+newtype TopLineLine
+newtype TopMemoLine
+newtype Filename
+newtype PriceLine
+newtype PostingLine
+newtype GlobalPosting
+newtype FilePosting
+newtype GlobalTransaction
+newtype FileTransaction
+newtype Target
+newtype Shortest
+newtype ReportWidth
+newtype NestedMap k l
+newtype DigitList
+newtype WholeOrFrac a
+newtype From
+newtype To
+newtype CountPerUnit
+newtype Posting
+newtype Transaction
+newtype Date
+newtype UNumber
+newtype FitId
+newtype Payee
+newtype Desc
+newtype DbLocation
+newtype FitAcctName
+newtype FitAcctDesc
+newtype ParserDesc
+newtype PennyAcct
+newtype DefaultAcct
+newtype Currency
+newtype FitFileLocation
+newtype AllowNew
+newtype VisibleNum
+newtype Comment
+newtype FilteredNum
+newtype SortedNum
+newtype ListLength
+newtype ItemIndex
+newtype Width
+newtype ShowZeroBalances
+newtype SubAccountLength
+newtype VerboseFilter
+newtype ShowExpression
+newtype SubAccountLength
+newtype ReportWidth
+newtype ColorToFile
+newtype IRef r t
+newtype Ref0 a
+newtype Deserializer f a
+newtype RootAddress
+newtype ReplicatedFile
+newtype HaskellName
+newtype DBName
+newtype Single a
+newtype RedisAuth
+newtype DelegatedSupportDocument
+newtype Up c b
+newtype Only a
+newtype In a
+newtype Binary a
+newtype Query
+newtype Pool
+newtype In a
+newtype Binary a
+newtype Only a
+newtype Identifier
+newtype SQL
+newtype Only a
+newtype Query
+newtype M1 mut a s
+newtype M2 mut a b s
+newtype M1 mut a s
+newtype M2 mut a b s
+newtype PHash
+newtype OneCluster a
+newtype Nullipotent m a
+newtype Pianola m l o a
+newtype Window m
+newtype ComponentW m
+newtype Component m
+newtype JsonTagMap
+newtype DoneResult
+newtype TextResult
+newtype UpdateTime
+newtype ListT m a
+newtype Input a
+newtype Output a
+newtype PipeC m r a b
+newtype PutbackPipe a b m r
+newtype Boxed
+newtype Scope
+newtype Eval e a
+newtype PrivateKey
+newtype Hour a
+newtype Minute a
+newtype Second a
+newtype Year a
+newtype Month a
+newtype Day a
+newtype Fix f
+newtype Functor f => HId (f :: * -> *) a
+newtype HConst c (f :: * -> *) a
+newtype HParam (f :: * -> *) a
+newtype Functor g => HFun (g :: * -> *) (f :: * -> *) a
+newtype HFix (f :: (* -> *) -> (* -> *)) a
+newtype BId a x
+newtype BConst t a x
+newtype BPar a x
+newtype (:@|) g h a x
+newtype BFix f
+newtype NumericalHandValue
+newtype ConsecutiveHandValue
+newtype Card
+newtype CardSet
+newtype WordForm
+newtype Lemma
+newtype Definition
+newtype Context
+newtype Parser t a
+newtype Parser t a
+newtype Parser s t a
+newtype Parser s t a
+newtype Parser s t a
+newtype Parser t a
+newtype Parser a
+newtype Parser a
+newtype Parser a
+newtype Parser s a
+newtype Parser t a
+newtype Parser s t e a
+newtype Parser a
+newtype Q a b
+newtype P a b
+newtype NonemptyText
+newtype Stream
+newtype DirType
+newtype Sigval
+newtype Clock
+newtype PGPool
+newtype Oid
+newtype Row
+newtype Column
+newtype LoFd
+newtype ValidationError
+newtype GDBRef reftype table
+newtype LookupRow a
+newtype UpdateRow a
+newtype InsertRow a
+newtype As alias row
+newtype THasOne a
+newtype THasMany a
+newtype As alias row
+newtype ValidationError
+newtype SqlBuilder
+newtype PgMonadT m a
+newtype InetText
+newtype FN
+newtype MarkedRow
+newtype Query :: *
+newtype Only a :: * -> *
+newtype In a :: * -> *
+newtype Oid :: *
+newtype PGArray a :: * -> *
+newtype HStoreList :: *
+newtype HStoreMap :: *
+newtype Only a
+newtype In a
+newtype Binary a
+newtype Identifier
+newtype Query
+newtype Oid :: *
+newtype Savepoint
+newtype PGArray a
+newtype ManyErrors
+newtype RowParser a
+newtype Conversion a
+newtype Oid :: *
+newtype Oid :: *
+newtype HStoreList
+newtype HStoreMap
+newtype In a
+newtype Binary a
+newtype Only a
+newtype PGRecord
+newtype LowerBound a
+newtype UpperBound a
+newtype Down a
+newtype QueueT q m a
+newtype QueueM q a
+newtype ExeMainPath
+newtype UnresolvedModule
+newtype PredM f a
+newtype Condition
+newtype Value
+newtype Label
+newtype Result
+newtype Lift1 f a
+newtype Lift2 f a b
+newtype CalkinWilf a
+newtype PrettyLevel
+newtype PrettyLevel
+newtype PrettyLevel
+newtype Html
+newtype PrettyLevel
+newtype Complement z
+newtype Outside z
+newtype PInt p
+newtype PointL
+newtype PointR
+newtype Interface t
+newtype BitSet
+newtype Subword
+newtype MaxThreads
+newtype MaxThreads
+newtype RGBtoXYZ
+newtype XYZtoRGB
+newtype T prob a
+newtype T a
+newtype T
+newtype Piap e a
+newtype Pump b e a
+newtype Siphon b e a
+newtype Splitter b
+newtype SiphonOp e a b
+newtype Value a
+newtype PPOfContravariant f a b
+newtype Rift p q a b
+newtype Star f d c
+newtype Costar f d c
+newtype WrappedArrow p a b
+newtype Forget r a b
+newtype Cayley f p a b
+newtype Closure p a b
+newtype Rift p q a b
+newtype Codensity p a b
+newtype Ran p q a b
+newtype Tambara p a b
+newtype Cotambara p a b
+newtype GroupName
+newtype SubGroupName
+newtype Definite a
+newtype GraphGenT m a
+newtype User
+newtype Group
+newtype Port
+newtype DockerRunParam
+newtype NamedConfMap
+newtype Context
+newtype HostContext
+newtype Propellor p
+newtype GpgKeyId
+newtype BPListHeader
+newtype Field (n :: Nat) a
+newtype Value a
+newtype Always a
+newtype Enumeration a
+newtype RequiredField a
+newtype OptionalField a
+newtype RepeatedField a
+newtype PackedField a
+newtype PackedList a
+newtype Message m
+newtype Signed a
+newtype Fixed a
+newtype Utf8
+newtype WireTag
+newtype FieldId
+newtype WireType
+newtype FieldType
+newtype EnumCode
+newtype IName a
+newtype DIName a
+newtype FIName a
+newtype MName a
+newtype FMName a
+newtype FName a
+newtype FFName a
+newtype PackedSeq a
+newtype ExtField
+newtype UnknownField
+newtype Utf8
+newtype WireTag
+newtype FieldId
+newtype WireType
+newtype FieldType
+newtype EnumCode
+newtype IName a
+newtype DIName a
+newtype FIName a
+newtype MName a
+newtype FMName a
+newtype FName a
+newtype FFName a
+newtype PackedSeq a
+newtype ExtField
+newtype UnknownField
+newtype MergeRooted t a
+newtype Timestamp
+newtype Timestamp
+newtype MinMaxQueue p a
+newtype UnifyT t m a
+newtype ProperName
+newtype SkolemScope
+newtype PrinterState
+newtype MultipleErrors
+newtype Check a
+newtype SupplyT m a
+newtype GithubUser
+newtype GithubRepo
+newtype GetPut
+newtype PutGet
+newtype TapaClue
+newtype PrimeDiag
+newtype Pyramid
+newtype PyramidSol
+newtype RowKropkiPyramid
+newtype Alpha
+newtype IntString
+newtype SpacedRect a
+newtype Either' a b
+newtype Shaded
+newtype Tight
+newtype PMarkedWord
+newtype PCompassC
+newtype RefGrid a
+newtype ParseTapaClue
+newtype M
+newtype Pickler a
+newtype Vec x a
+newtype Qbit
+newtype QInt
+newtype UnitaryC
+newtype VecEqL x a
+newtype Unitary
+newtype ContingentClaim a
+newtype ProgressBarTheme
+newtype QCGen
+newtype Str
+newtype Gen a
+newtype Capture
+newtype Blind a
+newtype Fixed a
+newtype OrderedList a
+newtype NonEmptyList a
+newtype Positive a
+newtype NonZero a
+newtype NonNegative a
+newtype Large a
+newtype Small a
+newtype Shrink2 a
+newtype A
+newtype B
+newtype C
+newtype OrdA
+newtype OrdB
+newtype OrdC
+newtype Property
+newtype Prop
+newtype PropertyM m a
+newtype Blind a
+newtype Fixed a
+newtype OrderedList a
+newtype NonEmptyList a
+newtype Positive a
+newtype NonZero a
+newtype NonNegative a
+newtype Large a
+newtype Small a
+newtype Shrink2 a
+newtype GenT m a
+newtype O f g a
+newtype Witnessed a
+newtype Variable a
+newtype Constant a
+newtype Valuation
+newtype Plug
+newtype A
+newtype B
+newtype C
+newtype Game m a
+newtype LockFlag
+newtype Color a
+newtype Height
+newtype Width
+newtype Core
+newtype Rod
+newtype Box a
+newtype Rand a
+newtype RandT m a
+newtype Bernoulli b a
+newtype Exponential a
+newtype StretchedExponential a
+newtype Erlang a b
+newtype ChiSquare b
+newtype Dirichlet a
+newtype Poisson b a
+newtype Rayleigh a
+newtype T a
+newtype GetPrim m
+newtype Stream
+newtype V1 a
+newtype PointSize :: *
+newtype PrefixMappings
+newtype PrefixMapping
+newtype BaseUrl
+newtype ParseFailure
+newtype PrefixMapping
+newtype PrefixMappings
+newtype PatriciaTreeGraph
+newtype ReactT ty m a
+newtype RenderHandle
+newtype ChangeEvent
+newtype Min a
+newtype Max a
+newtype FutureG t a
+newtype EventG t a
+newtype FutureG t a
+newtype BehaviorG tr tf a
+newtype T
+newtype Pressed
+newtype Latch
+newtype Reactor t a
+newtype PitchChannel
+newtype AddHandler a
+newtype Identity t a
+newtype FrameworksMoment a
+newtype NonGreedy m a
+newtype Mutator a
+newtype Accessor r a
+newtype Program f a
+newtype Expander thing rec name sort
+newtype Fix f
+newtype Mu f
+newtype RqHandlerT m a
+newtype InternalError
+newtype Timeout
+newtype TransactionFailure
+newtype Seconds
+newtype Timestamp
+newtype Key
+newtype Key
+newtype Count
+newtype Traversal f
+newtype Ap f m
+newtype Alternate f a
+newtype Action f
+newtype Mon f m
+newtype MonadSum f a
+newtype WithReducer m c
+newtype Union f
+newtype UnionWith f m
+newtype Trav f
+newtype App f m
+newtype Alter f a
+newtype Self m
+newtype Keys c
+newtype Values c
+newtype Char8 c
+newtype Var a
+newtype Chan a
+newtype Refcount a
+newtype Index a
+newtype Index a
+newtype StringListParse sep
+newtype MaybeCapacityParse
+newtype EventSelector t k
+newtype BehaviorM a
+newtype EventM a
+newtype EventSelector k
+newtype RootTrigger a
+newtype SpiderHost a
+newtype SpiderHostFrame a
+newtype SpiderHost a
+newtype WrappedApplicative f index a
+newtype View error v
+newtype Form m input error view proof a
+newtype AllSubmatches f b
+newtype AllTextSubmatches f b
+newtype AllMatches f b
+newtype AllTextMatches f b
+newtype Dictionary a
+newtype CompOption
+newtype ExecOption
+newtype ReturnCode
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype ReturnCode
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype Dictionary a
+newtype CompOption
+newtype ExecOption
+newtype ReturnCode
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype CompOption
+newtype ExecOption
+newtype EnumSet e
+newtype EnumMap k a
+newtype CharMap a
+newtype DoPa
+newtype PatternSetCharacterClass
+newtype PatternSetCollatingElement
+newtype PatternSetEquivalenceClass
+newtype DoPa
+newtype SetTestInfo
+newtype EnumSet e
+newtype EnumMap k a
+newtype CharMap a
+newtype DoPa
+newtype PatternSetCharacterClass
+newtype PatternSetCollatingElement
+newtype PatternSetEquivalenceClass
+newtype DoPa
+newtype SetTestInfo
+newtype Utf8
+newtype MetaChar
+newtype Alternatives m
+newtype K a r
+newtype I r
+newtype Fix f
+newtype Expr p a
+newtype Qualifier
+newtype Query p a
+newtype Update p
+newtype InsertQuery p
+newtype Delete p
+newtype Ord a => ReverseOrd a
+newtype Verbatim
+newtype GenericT'
+newtype GenericQ' r
+newtype GenericM' m
+newtype Title
+newtype AuthorName
+newtype AuthorEmail
+newtype Tags
+newtype Index
+newtype Rep f a
+newtype ReaderT f m b
+newtype StateT g m a
+newtype Nat n
+newtype Fin n
+newtype (:->:) a b
+newtype ReaderTrieT a m b
+newtype CaptureVar
+newtype RegistryT r middleware reqTypes (m :: * -> *) a
+newtype TPath (a :: ())
+newtype TAction m r (p :: [*])
+newtype TActionAppl m r
+newtype HVectElim' x ts
+newtype Acquire a
+newtype ResourceT m a
+newtype JsonParseError
+newtype TextBody
+newtype TextBodyS
+newtype Json a
+newtype JsonS a
+newtype MethodMatcher a
+newtype PathMatcher a
+newtype PathExtractor l
+newtype Natural
+newtype ApiT m a
+newtype BlogApi a
+newtype ModuleName :: *
+newtype Void
+newtype DomainReason a
+newtype Resources
+newtype Value
+newtype DBId
+newtype ResumableT scope req res m a
+newtype GeoLine
+newtype GeoPolygon
+newtype WireQuery
+newtype WireBacktrace
+newtype GeoLine
+newtype GeoPolygon
+newtype UTCTime
+newtype ZonedTime
+newtype UTCTime
+newtype ZonedTime
+newtype RetryPolicy
+newtype StateT s m a
+newtype Latitude
+newtype Longitude
+newtype City
+newtype Suburb
+newtype Street
+newtype Postcode
+newtype VClock
+newtype ResolvableMonoid a
+newtype CurrencySpecifier
+newtype PathSet
+newtype Path
+newtype Transaction
+newtype Action
+newtype Observation
+newtype SetT m a
+newtype EStem
+newtype NStem
+newtype NInte
+newtype NInteLoop
+newtype NMult
+newtype NBulg
+newtype NBulgLoop
+newtype NMbr
+newtype NMbr1
+newtype NExtn
+newtype NMultLoop
+newtype UserInput
+newtype Robot a
+newtype ApiToken
+newtype Environment
+newtype Offset
+newtype Chunk
+newtype Rope
+newtype KnuthTree a
+newtype PT t a
+newtype Round dir a
+newtype Printer m r a
+newtype AIO m a
+newtype Affine
+newtype ApplicativeWrapper f a
+newtype LightSourceLayerTransform
+newtype FactoryArrow m n i o
+newtype BoundAngle
+newtype SYMTABENTRY
+newtype RTMethodCall
+newtype ActionB i a
+newtype TorrentId
+newtype ActionB i a
+newtype ByteStringUtf8
+newtype BackgroundScheduler
+newtype S3URL
+newtype ModeID
+newtype LexStateID
+newtype LexTokenID
+newtype ParserStateID
+newtype GotoIndex
+newtype ReductionID
+newtype ErrorID
+newtype ParserTokenID
+newtype Capability d
+newtype SafeAccessT d m a
+newtype LI a
+newtype Prim a
+newtype Reverse a
+newtype SafeInt
+newtype Handler p a
+newtype CgiHandler p a
+newtype C10kHandler p a
+newtype Counter
+newtype Headers
+newtype Headers
+newtype SessionID
+newtype Sessions p
+newtype GitURI
+newtype GitRevOrRef
+newtype SBV a
+newtype SBVType
+newtype ThmResult
+newtype SatResult
+newtype AllSatResult
+newtype ThmResult
+newtype SatResult
+newtype AllSatResult
+newtype Word4
+newtype Performer m r
+newtype Consumer m x r
+newtype Producer m x r
+newtype Transducer m x y
+newtype Splitter m x
+newtype OSGStateRef
+newtype Formatted
+newtype Abbreviations
+newtype Literal
+newtype CNum
+newtype FieldVal
+newtype Abbreviations
+newtype Meta
+newtype Format
+newtype Many a
+newtype Processor m a b
+newtype ScionM a
+newtype DefSiteDB
+newtype ScreenX
+newtype ScreenY
+newtype CanvasX
+newtype CanvasY
+newtype DataX
+newtype DataY
+newtype ScottyT e m a
+newtype ActionT e m a
+newtype EncryptedPass
+newtype Pass
+newtype Salt
+newtype PassHash
+newtype Alex a
+newtype ConsistentLabelsT k l m a
+newtype UnboundedDFS c a
+newtype BoundedDFS c a
+newtype BranchAndBound c a
+newtype UnionFind a
+newtype Id
+newtype Label
+newtype TID
+newtype LocalId
+newtype Fresh
+newtype AVar
+newtype MVar
+newtype AgentId
+newtype Mapping
+newtype TaggedIdentityT t m a
+newtype Pixel
+newtype MutexStruct
+newtype MPEGStruct
+newtype InfoStruct
+newtype FilterStruct
+newtype AudioSpecStruct
+newtype Search a b
+newtype Search a b
+newtype Sec l a
+newtype SecIO l a
+newtype SessionCoordinates
+newtype FField
+newtype SednaConnectionAttr
+newtype SednaConnAttrValue
+newtype ReifiedSemiIso' s a
+newtype ReaderCT env cat a b
+newtype Max a
+newtype Min a
+newtype BoundedMax a
+newtype BoundedMin a
+newtype WrappedApplicative f a
+newtype MaybeApply f a
+newtype WrappedApplicative f a
+newtype MaybeApply f a
+newtype WrappedApplicative f a
+newtype MaybeApply f a
+newtype WrappedCategory k a b
+newtype Semi m a b
+newtype Dual k a b
+newtype Static f a b
+newtype Min a
+newtype Max a
+newtype First a
+newtype Last a
+newtype WrappedMonoid m
+newtype Dual a :: * -> *
+newtype Endo a :: * -> *
+newtype All :: *
+newtype Any :: *
+newtype Sum a :: * -> *
+newtype Product a :: * -> *
+newtype Option a
+newtype OptionSet g a
+newtype SelfAct a
+newtype Repeat a
+newtype EnumIntAct a
+newtype EnumBoundedIntAct a
+newtype Weighted semi1 semi2
+newtype Boolean
+newtype Prob
+newtype Counting
+newtype Derivation m
+newtype MultiDerivation m
+newtype SequenceIdT m a
+newtype SequenceId
+newtype Offset :: *
+newtype SeqLabel :: *
+newtype Junction
+newtype AcceptHeader
+newtype ExtraInfo layout
+newtype ExtraInfo layout
+newtype ValidateT e m a
+newtype (:~>) m n
+newtype RouteResult a
+newtype (:~>) m n
+newtype SessionId sess
+newtype SessionMap
+newtype SessionMap
+newtype AcidStorage sess
+newtype AcidStorage sess
+newtype ByteStringJ
+newtype SqlStorage sess
+newtype SqlStorage sess
+newtype RedisStorage sess
+newtype RedisStorage sess
+newtype PublicKey
+newtype SecretKey
+newtype Logger m a
+newtype SChain m x y a
+newtype SStateT s m x y a
+newtype SessionChain prog prog' from to res
+newtype InterleavedChain internalPid from to res
+newtype SessionType f t r
+newtype PackedCoords
+newtype Set bits
+newtype Map bits
+newtype Pair a
+newtype Triple a
+newtype Quad a
+newtype LinePair a
+newtype LineTriple a
+newtype Point2' a
+newtype Point3' a
+newtype SquareMatrix c a
+newtype Stdout a
+newtype Stderr a
+newtype Stdouterr a
+newtype Exit
+newtype Process
+newtype CmdTime
+newtype CmdLine
+newtype Stdout a
+newtype Stderr a
+newtype Stdouterr a
+newtype Exit
+newtype CmdTime
+newtype CmdLine
+newtype Ident
+newtype HamletRT
+newtype Javascript
+newtype RawJavascript
+newtype Javascript
+newtype RawJavascript
+newtype Shana a b
+newtype ProtOption
+newtype MmapSharedFlag
+newtype MmapOptionalFlag
+newtype MmapFlags
+newtype ShellT m a
+newtype StMShell m a
+newtype Quoted a
+newtype Val v
+newtype Output
+newtype NamedLike
+newtype File
+newtype Username
+newtype Completable compl
+newtype Name
+newtype Name
+newtype Iolet
+newtype Symbol
+newtype Functions
+newtype ExportSpec
+newtype ImportDecl
+newtype PModule
+newtype WEdge
+newtype Additive a
+newtype ControllerT s m a
+newtype ControllerT s m a
+newtype Function :: *
+newtype Behavior i
+newtype Source m a
+newtype Source m a
+newtype ShowRead a
+newtype SelectEnum a
+newtype ShowRead a
+newtype SelectEnum a
+newtype ShowRead a
+newtype SelectEnum a
+newtype Generate a
+newtype Check a
+newtype Function
+newtype Template
+newtype TUVec3
+newtype TUVec3
+newtype Endo k a
+newtype StrictEndo a
+newtype Dual m
+newtype Product a
+newtype OrdList a
+newtype Interleave a
+newtype Accum a
+newtype Max a
+newtype Id a
+newtype Const a b
+newtype Flip f a b
+newtype (:.:) f g a
+newtype (:++:) f g a
+newtype Sized f a
+newtype ZipList a
+newtype ZipTree a
+newtype Backwards f a
+newtype Kleisli m a b
+newtype RWST r w s m a
+newtype StateA m s a
+newtype ContT r m a
+newtype Kleisli m a b
+newtype ListA k a b
+newtype AList k a
+newtype ParserT w s m a
+newtype ParserA w m s a
+newtype SipHash
+newtype Matrix ix a
+newtype S
+newtype Skein256Ctx
+newtype Skein512Ctx
+newtype Skein1024Ctx
+newtype TimeStamp
+newtype Slack a
+newtype Time
+newtype Slack s a
+newtype Slack s a
+newtype Positive a
+newtype NonNegative a
+newtype Resource
+newtype Script
+newtype Name
+newtype Name
+newtype InterpolationGroup
+newtype ClauseId
+newtype Bound
+newtype Quantified
+newtype FunctionParser
+newtype PortNumber :: *
+newtype AppConfig
+newtype UserId
+newtype Controller config state a
+newtype Model config state a
+newtype Only a :: * -> *
+newtype Iteratee a (m :: * -> *) b :: * -> (* -> *) -> * -> *
+newtype SomeEnumerator
+newtype SomeEnumerator
+newtype HashableURI
+newtype HashableMethod
+newtype Acid st
+newtype AmqpState
+newtype I18NMessage
+newtype InfluxState
+newtype MandrillState
+newtype In a :: * -> *
+newtype Binary a :: * -> *
+newtype Only a :: * -> *
+newtype PersistState
+newtype In a :: * -> *
+newtype Binary a :: * -> *
+newtype Only a :: * -> *
+newtype Postmark
+newtype Only a :: * -> *
+newtype Community
+newtype ID
+newtype MaxSize
+newtype Suite
+newtype ContextEngineID
+newtype ContextName
+newtype Community
+newtype Suite
+newtype Port
+newtype Port
+newtype FlowInfo
+newtype ScopeId
+newtype Socket f t p
+newtype SocketException
+newtype AddressInfoException
+newtype MessageFlags
+newtype AddressInfoFlags
+newtype NameInfoFlags
+newtype Connect
+newtype Sim a
+newtype ReturnAddress
+newtype T a
+newtype LP a
+newtype Term a
+newtype Rot f1 f2 r
+newtype V3T f a
+newtype UUID
+newtype ConstructorName
+newtype TypeName
+newtype EGF
+newtype GF
+newtype CycleIndex
+newtype Const x a
+newtype Id a
+newtype Cycle a
+newtype Bracelet a
+newtype Set a
+newtype Id a
+newtype Const x a
+newtype Cycle a
+newtype Bracelet a
+newtype Set a
+newtype Delimiter a
+newtype SessionVault s
+newtype WorkerQueue p v
+newtype Formula
+newtype Name
+newtype Caption
+newtype Sql (l :: [*]) a
+newtype Only a
+newtype Only a
+newtype SQLite
+newtype SQLiteStmt
+newtype SQLiteValue
+newtype SQLiteContext
+newtype SQLiteBLOB
+newtype SQLiteUTF16
+newtype SQLiteContextBuffer
+newtype SQLiteCallback a
+newtype ManyErrors
+newtype Connection
+newtype RowParseRO
+newtype RowParser a
+newtype Only a
+newtype Query
+newtype Query
+newtype Connection
+newtype Only a
+newtype ColumnIndex
+newtype IOThread a b
+newtype SrcLoc
+newtype SRec
+newtype DynamicStableName
+newtype Maintainer
+newtype ExeName
+newtype IndexName
+newtype VersionRangeJSON
+newtype GetPackageFiles
+newtype GetPackageOpts
+newtype Sticky
+newtype Maintainer
+newtype ExeName
+newtype E e a
+newtype K r a
+newtype O f g a
+newtype F f g a
+newtype Fix ff a
+newtype Flip op f g a
+newtype O f g a
+newtype UnsafeModifyRef sr
+newtype Getter m a
+newtype Setter m a
+newtype Accessor m a
+newtype StateStackT s m a
+newtype SettableStateVar a
+newtype (Eq a, Ord a) => ListSimilar a
+newtype Resample
+newtype Points
+newtype StepSize
+newtype DirichletDensity
+newtype StepSize
+newtype Datagram
+newtype CFSBlkCnt
+newtype CFSFilCnt
+newtype TrueType
+newtype SExp
+newtype SExpLink
+newtype SData
+newtype SLink
+newtype TData
+newtype TLink
+newtype Transcoder e i v w
+newtype Instrs
+newtype Child i n
+newtype Selector
+newtype Selector
+newtype Children
+newtype Import
+newtype StitchT m a
+newtype Selector
+newtype SBCItem a
+newtype STT s m a
+newtype LittleEndian a
+newtype BigEndian a
+newtype Vector a
+newtype ChunkSize
+newtype Identity a :: * -> *
+newtype StateT s (m :: * -> *) a :: * -> (* -> *) -> * -> *
+newtype RenderT m a
+newtype Time
+newtype SIO a
+newtype AtomSet
+newtype AtomMap a
+newtype CustomerId
+newtype SubscriptionId
+newtype Amount
+newtype Count
+newtype Currency
+newtype Description
+newtype Offset
+newtype SecretKey
+newtype StripeT m a
+newtype PlanId
+newtype PlanTrialDays
+newtype Amount
+newtype Count
+newtype Currency
+newtype Offset
+newtype StripeT m a
+newtype CpnId
+newtype CpnPercentOff
+newtype CpnMaxRedeems
+newtype CpnRedeemBy
+newtype Count
+newtype Offset
+newtype StripeT m a
+newtype TokenId
+newtype Amount
+newtype Currency
+newtype StripeT m a
+newtype CustomerId
+newtype Email
+newtype Count
+newtype Offset
+newtype Description
+newtype StripeT m a
+newtype ChargeId
+newtype Amount
+newtype Count
+newtype Currency
+newtype Description
+newtype Offset
+newtype StripeT m a
+newtype SecretKey
+newtype SubscriptionId
+newtype SubProrate
+newtype SubTrialEnd
+newtype SubAtPeriodEnd
+newtype StripeT m a
+newtype ApplicationId
+newtype FeeId
+newtype FeeId
+newtype RefundId
+newtype BitcoinReceiverId
+newtype BitcoinTransactionId
+newtype Email
+newtype CardNumber
+newtype ExpMonth
+newtype ExpYear
+newtype CVC
+newtype AddressLine1
+newtype AddressLine2
+newtype AddressCity
+newtype AddressCountry
+newtype AddressState
+newtype AddressZip
+newtype TokenId
+newtype CardNumber
+newtype CVC
+newtype ExpMonth
+newtype ExpYear
+newtype Email
+newtype AmountOff
+newtype CouponId
+newtype DurationInMonths
+newtype MaxRedemptions
+newtype PercentOff
+newtype RedeemBy
+newtype TokenId
+newtype CardNumber
+newtype ExpMonth
+newtype ExpYear
+newtype CVC
+newtype CouponId
+newtype Email
+newtype PlanId
+newtype Quantity
+newtype TrialPeriod
+newtype SubscriptionId
+newtype Evidence
+newtype EventId
+newtype InvoiceLineItemId
+newtype SubscriptionId
+newtype PlanId
+newtype IntervalCount
+newtype TrialPeriodDays
+newtype Email
+newtype FirstName
+newtype LastName
+newtype Email
+newtype RoutingNumber
+newtype AccountNumber
+newtype Country
+newtype AddressCity
+newtype AddressCountry
+newtype AddressLine1
+newtype AddressLine2
+newtype AddressState
+newtype AddressZip
+newtype BankAccountId
+newtype RefundId
+newtype SubscriptionId
+newtype CouponId
+newtype PlanId
+newtype CardNumber
+newtype ExpMonth
+newtype ExpYear
+newtype CVC
+newtype TokenId
+newtype Country
+newtype RoutingNumber
+newtype AccountNumber
+newtype TransferId
+newtype Polyline
+newtype SObjId
+newtype Bit
+newtype MappedAddress
+newtype XorMappedAddress
+newtype Binary
+newtype SubnetMask
+newtype LogIp
+newtype Symbol a
+newtype MM
+newtype DPI
+newtype KernelFunction
+newtype KernelMatrix
+newtype Qid
+newtype FeatureIdx
+newtype LoginEndpoint
+newtype GenericT'
+newtype GenericQ' r
+newtype GenericM' m
+newtype ID x
+newtype Qr r a
+newtype SyncM m a
+newtype Full a
+newtype (:->) a sig
+newtype Name
+newtype Remon sym m a
+newtype Printer a
+newtype Consumer m a
+newtype Productions l a env
+newtype PreProductions l env a
+newtype LSPair nt a t env
+newtype Const f a s
+newtype Const f a s
+Binary file ./hoogle-data/synthesizer/0.2.0.1/doc/html/synthesizer.txt matches
+newtype ClientName
+newtype Parameter a
+newtype PieceRightSingle y
+newtype PieceRightDouble y
+newtype T t y
+newtype Piece t y sig
+newtype PieceRightSingle y
+newtype PieceRightDouble y
+newtype PrefixReader y a
+newtype MAC a v x
+newtype LazySize
+newtype Parameter a
+newtype Parameter a
+newtype PieceRightSingle y
+newtype PieceRightDouble y
+newtype Parameter a
+newtype T period
+newtype Actual rate
+newtype T s u t a
+newtype Numeric amp
+newtype T arrow sample0 sample1
+newtype Core s yv0 yv1
+newtype RateDep s ic
+newtype T s sig
+newtype T a
+newtype T p a
+newtype ParameterValue n a
+newtype Filter event s u t a
+newtype Regex c (f :: * -> *)
+newtype Fix (f :: * -> *) :: (* -> *) -> *
+newtype Fix (f :: (k -> *) -> k -> *) (ix :: k)
+newtype Par1m (xi :: k) (p :: k -> *) (ix :: k)
+newtype Rec1m (f :: * -> *) (xi :: k) (p :: k -> *) (ix :: k)
+newtype K1m i c p ix
+newtype Regex c f ix
+newtype Fix (f :: (k -> *) -> k -> *) (ix :: k)
+newtype Wrap c ix
+newtype IndexIndependent t ix
+newtype AccountKey
+newtype Signature
+newtype AuthHeader
+newtype Name ident :: * -> *
+newtype Tagged s b
+newtype Throws e m a
+newtype TL α n
+newtype ATL t α n
+newtype TaggedT s m b
+newtype TagLib a
+newtype FileId
+newtype TagLib a
+newtype Name ident :: * -> *
+newtype Contents
+newtype NameId
+newtype Subst c v
+newtype SubstVFresh c v
+newtype SplitId
+newtype PremIdx
+newtype ConcIdx
+newtype BoundedMax a
+newtype BoundedMin a
+newtype MinMax a
+newtype FreshT m a
+newtype FreshT m a
+newtype FreshT m a
+newtype DisjT m a
+newtype Conj a
+newtype Disj a
+newtype Tasks a
+newtype Quiet
+newtype HideSuccesses
+newtype ListTests
+newtype Traversal f
+newtype Ap f a
+newtype ListTests
+newtype NumThreads
+newtype AntXMLPath
+newtype AcceptTests
+newtype SmallCheckDepth :: *
+newtype QuickCheckMaxRatio :: *
+newtype QuickCheckMaxSize :: *
+newtype QuickCheckReplay :: *
+newtype QuickCheckTests :: *
+newtype HtmlPath
+newtype AssetsPath
+newtype Resource a
+newtype QuickCheckTests
+newtype QuickCheckReplay
+newtype QuickCheckShowReplay
+newtype QuickCheckMaxSize
+newtype QuickCheckMaxRatio
+newtype QC
+newtype IncludeFilters
+newtype ExcludeFilters
+newtype AcceptTests
+newtype Interactive
+newtype SmallCheckDepth
+newtype Save
+newtype IPAddr
+newtype TCPAddr
+newtype SocketID
+newtype SeqLocal
+newtype SeqForeign
+newtype Timestamp
+newtype HMonad t a
+newtype SMonad t a
+newtype Width
+newtype Height
+newtype Src
+newtype Size
+newtype Alt
+newtype ClassAttr
+newtype Name
+newtype Rows
+newtype Cols
+newtype Style
+newtype Identifier
+newtype Href
+newtype TitleAttr
+newtype Url
+newtype Action
+newtype Value
+newtype Q a
+newtype TExp a
+newtype ModName
+newtype PkgName
+newtype OccName
+newtype OkCompParam
+newtype Vertex1 a
+newtype Vector1 a
+newtype Fix f
+Binary file ./hoogle-data/terrahs/0.7/doc/html/terrahs.txt matches
+newtype K a
+newtype ValueGetter r a
+newtype Sandbox a
+newtype StMSandbox a
+newtype FreePair a b
+newtype NonEmpty a
+newtype Nat a
+newtype NonZero a
+newtype Unicode
+newtype Printable
+newtype FreePair a b
+newtype NonEmpty a
+newtype Nat a
+newtype NonZero a
+newtype Unicode
+newtype Printable
+newtype IParser t a
+newtype Only a
+newtype Shown a
+newtype Hex a
+newtype Only a
+newtype Shown a
+newtype AttrValue
+newtype StringBuilder
+newtype AsciiBuilder
+newtype Utf8Builder
+newtype LinePrinter p
+newtype Word
+newtype Register
+newtype LComp a
+newtype FromStringShow a
+newtype FromTextShow a
+newtype Singleton d
+newtype Singleton n
+newtype Singleton d
+newtype Singleton x
+newtype UDPIO a
+newtype E a
+newtype Date
+newtype SearchResults a
+newtype ChronicleT c m a
+newtype ChronicleT c m a
+newtype ChronicleT c m a
+newtype TI a
+newtype Flipped m a b
+newtype NoShow a
+newtype Micro
+newtype Day
+newtype DotNetTime
+newtype User
+newtype Channel
+newtype Icon
+newtype UniversalTime
+newtype Day
+newtype IntervalSequence t s
+newtype EnumerablePeriodFilter
+newtype FilterablePeriodFilter
+newtype SelectablePeriodFilter
+newtype Timeout
+newtype Microseconds
+newtype Last' a
+newtype SeqMax a b
+newtype NFMonoid a
+newtype NetAddr
+newtype WriterT w m a
+newtype Fresh a
+newtype ScopeT a m b
+newtype RenamedId
+newtype Titlecase
+newtype Article
+newtype Conjunction
+newtype Credentials
+newtype BulkStream
+newtype EitherList a b
+newtype EitherList a b
+newtype AssocList k v
+newtype AssocList k v
+newtype TOML
+newtype TreeWalk
+newtype FixpointSubstitution
+newtype Qualification q a
+newtype Quantification q a
+newtype ReductionError a
+newtype Select t m a
+newtype VertexId
+newtype EdgeNr
+newtype Clique
+newtype Operation m
+newtype GreedyState info
+newtype SimpleState info
+newtype LogEntries
+newtype Heuristic info
+newtype TotalArray k a
+newtype TotalMap k a
+newtype TotalSubsetMap s k a
+newtype TotalSubsetArray s k a
+newtype DNF lit
+newtype Expr
+newtype ConIndex
+newtype ContT r m a
+newtype ReaderT r m a
+newtype RWST r w s m a
+newtype RWST r w s m a
+newtype StateT s m a
+newtype StateT s m a
+newtype Constant a b
+newtype ExceptT e m a
+newtype ErrorT e m a
+newtype IdentityT f a
+newtype ListT m a
+newtype MaybeT m a
+newtype WriterT w m a
+newtype WriterT w m a
+newtype Compose f g a
+newtype Backwards f a
+newtype Reverse f a
+newtype FinishT f μ α
+newtype AbortT e μ α
+newtype FreeT f m a
+newtype PrettyDouble
+newtype TreeBuilder t
+newtype Ordered a
+newtype Rev k
+newtype Key k
+newtype TMap k a
+newtype TSet a
+newtype IntervalMap v a
+newtype Parser a
+newtype Trans k v status a :: * -> * -> * -> * -> *
+newtype T e s
+newtype Pair a b s
+newtype List a s
+newtype TubeF a b k
+newtype TubeF a b k
+newtype NTup1 a
+newtype NTup2 a
+newtype NTup3 a
+newtype NTup4 a
+newtype NTup5 a
+newtype NTup6 a
+newtype NTup7 a
+newtype NTup8 a
+newtype NTup9 a
+newtype HParser (rep :: [*]) val
+newtype Tuple0 a
+newtype Tuple1 a
+newtype Tuple2 a
+newtype Tuple3 a
+newtype Tuple4 a
+newtype Tuple5 a
+newtype Tuple6 a
+newtype Tuple7 a
+newtype Tuple8 a
+newtype Tuple9 a
+newtype Tuple10 a
+newtype Tuple11 a
+newtype Tuple12 a
+newtype Tuple13 a
+newtype Tuple14 a
+newtype Tuple15 a
+newtype Shell a
+newtype MW m p q a
+newtype NonEmptyText
+newtype RequestF a
+newtype RequestT m a
+newtype TwilioT m a
+newtype WrappedApp fun arg
+newtype Item key a
+newtype Falsity
+newtype All p
+newtype SMap set a
+newtype (:.) g f a
+newtype OO f j a b
+newtype FunA h a b
+newtype Flip j b a
+newtype (:$) f a
+newtype Id a
+newtype (:*:) f g a
+newtype (::*::) f g a b
+newtype Arrw j f g a
+newtype CxMonoid a
+newtype Axis (v :: * -> *)
+newtype ObjectPath
+newtype PackedString
+newtype ObjectPath
+newtype PackedString
+newtype BusName
+newtype ErrorName
+newtype Member
+newtype Interface
+newtype Automaton (a :: * -> * -> *) b c :: (* -> * -> *) -> * -> * -> *
+newtype Element a
+newtype Element a
+newtype Element a
+newtype Stream a
+newtype Element a
+newtype Stream a
+newtype Element a
+newtype Perm a
+newtype Multiset a
+newtype FreshMT m a
+newtype LFreshMT m a
+newtype TRec p
+newtype Embed t
+newtype Shift p
+newtype NthCont
+newtype Embed t
+newtype Shift p
+newtype Multiset a
+newtype Perm a
+newtype FreshMT m a
+newtype LFreshMT m a
+newtype DisjointSet a
+newtype Embed t
+newtype Shift e
+newtype TRec p
+newtype Embed t
+newtype TRec p
+newtype Boxed a
+newtype Random g m a
+newtype NumConst a x
+newtype DualA f a
+newtype WithRec f a
+newtype BFS f x
+newtype Event a
+newtype PartialShow a
+newtype PureGraph nodeInfo arcInfo
+newtype GraphAll graph graphParms node nodeType nodeTypeParms arc arcType arcTypeParms => Graph graph graphParms node nodeType nodeTypeParms arc arcType arcTypeParms
+newtype LocalMenu value
+newtype GlobalMenu
+newtype Color value
+newtype NodeArcsHidden
+newtype DoubleClickAction value
+newtype OptimiseLayout
+newtype SurveyView
+newtype AllowDragging
+newtype AllowClose
+newtype ActionWrapper
+newtype RawData
+newtype TkCommand
+newtype Distance
+newtype Font
+newtype Colour
+newtype KeySym
+newtype CallBackId
+newtype Cursor
+newtype ObjectID :: *
+newtype KeySym
+newtype GUIValue a => TkVariable a
+newtype Screen w
+newtype Toplevel
+newtype ICursor w
+newtype Selection w
+newtype Slider w
+newtype Slider w
+newtype IndexModifiers
+newtype HTkMenu value
+newtype KeySym
+newtype Password value
+newtype NodeId
+newtype EdgeId
+newtype MenuId
+newtype MenuLabel
+newtype MenuMne
+newtype MenuAcc
+newtype IconId
+newtype Type
+newtype Filename
+newtype ContextId
+newtype WindowId
+newtype Wrapped a
+newtype ReadShow a
+newtype ViaEnum a
+newtype Unsigned integral
+newtype LineShow a
+newtype ObjectID
+newtype MonadWithError m a
+newtype Full a
+newtype Str a
+newtype UTF8 bytes
+newtype SimpleSource x
+newtype Keyed x
+newtype VariableSet x
+newtype VariableMapUpdate key elt
+newtype Fix f
+newtype IntVar
+newtype IntVar
+newtype Node
+newtype Node
+newtype Hide a
+newtype Wrap t m a
+newtype Track m a
+newtype Qu (a :: [Factor *]) (lcsu :: LCSU *) (n :: *)
+newtype UnsafeQu d l n
+newtype Point n
+newtype Eval a
+newtype Scheme
+newtype Host
+newtype Port
+newtype Query
+newtype TemplateString
+newtype AList k v
+newtype AList k v
+newtype TemplateString
+newtype Scheme
+newtype UrlDisp m a
+newtype RelativeUrlT h m b
+newtype GroundedUrlT h m b
+newtype AbsoluteUrlT h m b
+newtype URLT url m a
+newtype HIDReportDesc
+newtype LongItem
+newtype HIDUsagePage
+newtype HIDUsage
+newtype PasswordPlain
+newtype PasswordResetToken
+newtype ActivationToken
+newtype SessionId
+newtype Persistent
+newtype Id x
+newtype RealParser state s p a
+newtype RealRecogn state s p
+newtype RealAccept state result s p a
+newtype ParsRec state result s p a
+newtype OffsideParser i o s p a
+newtype S s a
+newtype G e v
+newtype G e v
+newtype Validator errorKey errorValue monad a b
+newtype Validation errors monad state newState
+newtype Address
+newtype TimeStamp
+newtype Origin
+newtype SimpleBurst
+newtype ExtendedBurst
+newtype PassThrough
+newtype DayMap
+newtype Ctx a
+newtype Ctx a
+newtype Ctx a
+newtype Ctx a
+newtype Quaternion
+newtype UnitQuaternion
+newtype Quaternion
+newtype UnitQuaternion
+newtype Quaternion a
+newtype UnitQuaternion a
+newtype Id a
+newtype UnsafeHVector xs
+newtype HVector box (xs :: [a])
+newtype Sum a
+newtype Point v
+newtype I x
+newtype K x y
+newtype Nat n
+newtype Fin n
+newtype Vec n v a
+newtype MVec n v s a
+newtype Vec n a
+newtype Vec n a
+newtype Vec n a
+newtype VhdDiffTime
+newtype BlockSize
+newtype BlockByteAddress
+newtype BlockSectorAddress
+newtype VirtualBlockAddress
+newtype VirtualByteAddress
+newtype Cookie
+newtype CreatorApplication
+newtype ParentUnicodeName
+newtype ParentLocatorEntries
+newtype Checksum
+newtype PMapAspect
+newtype When
+newtype Identity a
+newtype Lift (op :: l -> l' -> *) (f :: k -> l) (g :: k -> l') (x :: k)
+newtype Compose (f :: l -> *) (g :: k -> l) (x :: k)
+newtype Const (a :: *) (b :: k)
+newtype BufferedVertices (fields :: [*])
+newtype NodeId
+newtype BufferId
+newtype Domain
+newtype HostedZoneId
+newtype ResourceRecord
+newtype ChangeId
+newtype GetDateResponse
+newtype VKAPI m a
+newtype Phys
+newtype Formatter
+newtype ApiKey
+newtype SecretKey
+newtype Secret
+newtype Key
+newtype ResultT f m t
+newtype P a
+newtype Parser a b
+newtype Header
+newtype KV
+newtype MediaType
+newtype URL
+newtype Location
+newtype EmailAddress
+newtype CreditCardNumber
+newtype NonEmpty
+newtype Phone
+newtype AllDigits
+newtype Text
+newtype Password
+newtype CGI a
+newtype TCGI b a
+newtype DTree cgi x y
+newtype Location
+newtype Text
+newtype NonEmpty
+newtype AllDigits
+newtype EmailAddress
+newtype CreditCardNumber
+newtype Location
+newtype Text
+newtype NonEmpty
+newtype AllDigits
+newtype Phone
+newtype EmailAddress
+newtype CreditCardNumber
+newtype Password
+newtype URL
+newtype Location
+newtype Text
+newtype NonEmpty
+newtype AllDigits
+newtype Phone
+newtype EmailAddress
+newtype CreditCardNumber
+newtype Password
+newtype URL
+newtype Plugins theme m hook config st
+newtype RouteT url m a
+newtype WebCont r a
+newtype WebcrankT m a
+newtype PreparedProfile b
+newtype ProfileParseError
+newtype ProfileParseError
+newtype BadJSON
+newtype SessionId
+newtype SessionId
+newtype Element
+newtype WindowHandle
+newtype NoSessionId
+newtype InvalidURL
+newtype NoSessionId
+newtype BadJSON
+newtype UnknownCommand
+newtype ServerError
+newtype Element
+newtype WindowHandle
+newtype WD a
+newtype WD a
+newtype SessionId
+newtype Element
+newtype WindowHandle
+newtype InvalidURL
+newtype NoSessionId
+newtype BadJSON
+newtype UnknownCommand
+newtype ServerError
+newtype WD a
+newtype PreparedProfile b
+newtype ProfileParseError
+newtype ProfileParseError
+newtype BadJSON
+newtype SessionId
+newtype SessionId
+newtype Element
+newtype WindowHandle
+newtype NoSessionId
+newtype InvalidURL
+newtype NoSessionId
+newtype BadJSON
+newtype UnknownCommand
+newtype ServerError
+newtype Element
+newtype WindowHandle
+newtype WD a
+newtype WD a
+newtype SessionId
+newtype Element
+newtype WindowHandle
+newtype InvalidURL
+newtype NoSessionId
+newtype BadJSON
+newtype UnknownCommand
+newtype ServerError
+newtype WD a
+newtype JavaDoc
+newtype Text
+newtype TreeWalker
+newtype TimeRanges
+newtype Text
+newtype TreeWalker
+newtype TimeRanges
+newtype Numeric a
+newtype RegExp c
+newtype WhebT g s m a
+newtype InitM g s m a
+newtype FILETIME
+newtype FindData
+newtype Stub_DTM
+newtype DIA_TEMPLATE
+newtype MapiRecipDesc
+newtype InPin
+newtype OutPin
+newtype PrimInpId
+newtype CellId
+newtype Length
+newtype Layer_
+newtype Capacitance
+newtype Resistance
+newtype Time
+newtype TransitionTime
+newtype Elasticity
+newtype Layout s b a
+newtype LayoutT s b m a
+newtype Length
+newtype Lava lib a
+newtype Dungeon a b t
+newtype Chipped t a
+newtype WitnessDict (w :: * -> *)
+newtype WitnessFDict (w :: k -> *) (f :: k -> *)
+newtype EitherWitness (w1 :: k -> *) (w2 :: k -> *) (a :: k)
+newtype Wizard backend a
+newtype Wizard backend a
+newtype Pos
+newtype T i name str
+newtype ConnectorBoxSpec u
+newtype ConnectorPathSpec u
+newtype Color
+newtype CInt :: *
+newtype CIntPtr :: *
+newtype CDouble :: *
+newtype CChar :: *
+newtype CWchar :: *
+newtype WXGUI b c
+newtype WXBox b c
+newtype Inherit super
+newtype TTYException
+newtype S n a
+newtype HN a
+newtype Display
+newtype Screen
+newtype Visual
+newtype GC
+newtype Image
+newtype XEvent
+newtype Display
+newtype FontSet
+Binary file ./hoogle-data/X11-extras/0.4/doc/html/X11-extras.txt matches
+newtype Extensions
+newtype DistinguishedName
+newtype CertificateChain
+newtype CertificateChainRaw
+newtype Fingerprint
+newtype Id a
+newtype Arr a b
+newtype (:.:) f g a
+newtype AtomCacheT m a
+newtype XHtmlMT x t a
+newtype Root
+newtype UserList
+newtype Device
+newtype KeyCode
+newtype CKeycode
+newtype CLayoutIndex
+newtype CModIndex
+newtype CLevelIndex
+newtype CLedIndex
+newtype Keysym
+newtype CModMask
+newtype Styles
+newtype T
+newtype Name ident
+newtype Name ident
+newtype T
+newtype Name ident
+newtype XmlT e s m a
+newtype HtmlWriter a
+newtype ScreenId
+newtype Query a
+newtype Mirror l a
+newtype ScreenId
+newtype Query a
+newtype Mirror l a
+newtype Invisible m a
+newtype EscapedMessage
+newtype PhysicalScreen
+newtype SpawnUrgencyHook
+newtype Invisible m a
+newtype EscapedMessage
+newtype PhysicalScreen
+newtype SpawnUrgencyHook
+newtype Xorshift64
+newtype Xorshift32
+newtype NotHitted a
+newtype Hitted a
+newtype TEitherAlterHitted a
+newtype LyBuf
+newtype InBBox a
+newtype IntersectBBox
+newtype UnionBBox
+newtype SeqZipper a
+newtype VM a
+newtype Symbol
+newtype IsoPure a b
+newtype Lens w m a b
+newtype LensLift w m a b
+newtype LensJoin m a b
+newtype LensW w a b
+newtype YamlBuilder
+newtype YamlParser a
+newtype KeyError
+newtype KeyError
+newtype Vector a
+newtype Matrix a
+newtype Quantity u a
+newtype Fun n a b :: * -> * -> * -> *
+newtype VecList n a :: * -> * -> *
+newtype CoreStrictness
+newtype CoreTypeSig
+newtype Backend
+newtype ApplicationPackage
+newtype YellerToken
+newtype ApplicationPackage
+newtype YellerToken
+newtype Backend
+newtype MergedValue
+newtype PersonImage
+newtype SessionBackend
+newtype WaiSubsite
+newtype HandlerT site m a
+newtype WidgetT site m a
+newtype CssBuilder
+newtype RepJson
+newtype RepPlain
+newtype RepXml
+newtype DontFullyEvaluate a
+newtype UniqueList x
+newtype Title
+newtype Head url
+newtype Body url
+newtype DontFullyEvaluate a
+newtype RepJson
+newtype RepPlain
+newtype RepXml
+newtype CssBuilder
+newtype WaiSubsite
+newtype SessionBackend
+newtype LiteApp
+newtype CrudSubsite sub
+newtype Sorts k
+newtype AForm m a
+newtype FormInput m a
+newtype Textarea
+newtype Markdown
+newtype Size
+newtype ForceDefault
+newtype Markdown
+newtype RepRss
+newtype RepAtom
+newtype DBRunner site
+newtype RST
+newtype Static
+newtype Table site a
+newtype Key
+newtype Template
+newtype Secret
+newtype Transposed lm
+newtype YiM a
+newtype BufferM a
+newtype EditorM a
+newtype BufferM a
+newtype ConfigM a
+newtype Tag
+newtype YiM a
+newtype ArticleDB
+newtype Histories
+newtype (:::) t doc
+newtype CommandArguments
+newtype EventString
+newtype OperatorName
+newtype CabalBuffer
+newtype BufferMarks
+newtype DependentMarks
+newtype SupertabExt
+newtype Mark
+newtype BufferRef
+newtype Point
+newtype Size
+newtype WindowRef
+newtype Point
+newtype Size
+newtype Size
+newtype N a
+newtype Rec a
+newtype Dep a
+newtype Par1 f a
+newtype Par2 f a b
+newtype Default a
+newtype Start dt
+newtype Vec n a
+newtype Signed n
+newtype Record
+newtype RecordInfo
+newtype Miniblock
+newtype Block
+newtype BlockIndex
+newtype Z3_lbool
+newtype Z3_bool
+newtype MidiTrack
+newtype MidiDataOther
+newtype Channel
+newtype Pitch
+newtype Octave
+newtype PitchClass
+newtype Interval
+newtype Velocity
+newtype Time
+newtype Bar
+newtype Beat
+newtype BeatRat
+newtype BarRat
+newtype TPB
+newtype GridUnit
+newtype QBins
+newtype QDev
+newtype QDevPerc
+newtype TimeStamp
+newtype TimeStampDiff
+newtype TimeStamp
+newtype TimeStampDiff
+newtype TimeStamp
+newtype TimeStampDiff

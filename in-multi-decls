@@ -1,0 +1,80 @@
+(+, -, *) :: Num a => a -> a -> a
+(**, logBase) :: Floating a => a -> a -> a
+(&&*, ||*) :: Boolean b => b -> b -> b
+(==*, /=*) :: (EqB a, bool ~ BooleanOf a) => a -> a -> bool
+(<*, >=*, >*, <=*) :: (OrdB a, bool ~ BooleanOf a) => a -> a -> bool
+(==!, /=!) :: SemanticEq a => a -> a -> Bool
+(<!, >!, >=!, <=!) :: SemanticOrd a => a -> a -> Bool
+(==, >=, >, <=, <, /=) :: Int -> Int -> Bool
+(+, *, -) :: Int -> Int -> Int
+(==, >=, >, <=, <, /=) :: Word8 -> Word8 -> Bool
+(+, *, -) :: Word8 -> Word8 -> Word8
+(==, >=, >, <=, <, /=) :: Float -> Float -> Bool
+(+, *, -) :: Float -> Float -> Float
+(**, logBase) :: Float -> Float -> Float
+(==, >=, >, <=, <, /=) :: Double -> Double -> Bool
+(+, *, -) :: Double -> Double -> Double
+(**, logBase) :: Double -> Double -> Double
+(==, >=, >, <=, <, /=) :: Int -> Int -> Bool
+(+, *, -) :: Int -> Int -> Int
+(==, >=, >, <=, <, /=) :: Word8 -> Word8 -> Bool
+(+, *, -) :: Word8 -> Word8 -> Word8
+(==, >=, >, <=, <, /=) :: Float -> Float -> Bool
+(+, *, -) :: Float -> Float -> Float
+(**, logBase) :: Float -> Float -> Float
+(==, >=, >, <=, <, /=) :: Double -> Double -> Bool
+(+, *, -) :: Double -> Double -> Double
+(**, logBase) :: Double -> Double -> Double
+(.&., xor, .|., .-.) :: (Enum a, Bits w) => T w a -> T w a -> T w a
+(+:+, =:=) :: Construct medium => medium a -> medium a -> medium a
+(!==, !/=) :: Eq a => RefSrcPos -> RefExp -> R (Fun a (Fun a Bool))
+(|==, |/=) :: Eq a => R (Fun a (Fun a Bool))
+(!<, !>, !>=, !<=) :: Ord a => RefSrcPos -> RefExp -> R (Fun a (Fun a Bool))
+(|<, |>, |>=, |<=) :: Ord a => R (Fun a (Fun a Bool))
+(!+, !*, !-) :: Num a => RefSrcPos -> RefExp -> R (Fun a (Fun a a))
+(|+, |*, |-) :: Num a => R (Fun a (Fun a a))
+(!**, glogBase) :: Floating a => RefSrcPos -> RefExp -> R (Fun a (Fun a a))
+(|**, slogBase) :: Floating a => R (Fun a (Fun a a))
+(!==, !/=) :: Eq a => RefSrcPos -> RefExp -> R (Fun a (Fun a Bool))
+(|==, |/=) :: Eq a => R (Fun a (Fun a Bool))
+(!<, !>, !>=, !<=) :: Ord a => RefSrcPos -> RefExp -> R (Fun a (Fun a Bool))
+(|<, |>, |>=, |<=) :: Ord a => R (Fun a (Fun a Bool))
+(!+, !*, !-) :: Num a => RefSrcPos -> RefExp -> R (Fun a (Fun a a))
+(|+, |*, |-) :: Num a => R (Fun a (Fun a a))
+(!**, glogBase) :: Floating a => RefSrcPos -> RefExp -> R (Fun a (Fun a a))
+(|**, slogBase) :: Floating a => R (Fun a (Fun a a))
+(<@, set) :: (SetAttr m elem, EmbedAsAttr m attr) => elem -> attr -> GenXML m
+(<:, app) :: (AppendChild m elem, EmbedAsChild m c) => elem -> c -> GenXML m
+(</>, beside, <->, above) :: (HTMLTABLE ht1, HTMLTABLE ht2) => ht1 -> ht2 -> HtmlTable
+(+=:, -=:, *=:) :: (HasValue r (V k r) i, Num b) => V TyVar r b -> V k r b -> MIO i r ()
+(<., <=., >=., >.) :: (Ord c, HasValue r (V b1 r) i, HasValue r (V b2 r) i) => V b1 r c -> V b2 r c -> V (TyComp i TyVal) r Bool
+(+., *., -.) :: (Num c, HasValue r (V b1 r) i, HasValue r (V b2 r) i) => V b1 r c -> V b2 r c -> V (TyComp i TyVal) r c
+(&&., ||.) :: (HasValue r (V b1 r) i, HasValue r (V b2 r) i) => V b1 r Bool -> V b2 r Bool -> V (TyComp i TyVal) r Bool
+(^-^, interpol) :: (ToString a, ToString b) => a -> b -> String
+(*&*, *=*, *=>*, *|*) :: Property -> Property -> Property
+(%==, %>=, %>, %<=, %<, %/=) :: CmpRet a b => TValue r a -> TValue r a -> TValue r b
+(+, -) :: C a => a -> a -> a
+(+, -) :: C a => a -> a -> a
+(+, -) :: C a => a -> a -> a
+(&&, ||) :: Boolean b => b -> b -> b
+(^+=, ^*=, ^-=) :: Num b => PartialLens a b -> b -> a -> a
+(+=, *=, -=) :: (Monad m, Num b) => PartialLens a b -> b -> StateT a m (Maybe b)
+(&&=, ||=) :: Monad m => PartialLens a Bool -> Bool -> StateT a m (Maybe Bool)
+(/, ^) :: NumExt a => a -> a -> a
+(.==, ./=) :: EqSymbolic a => a -> a -> SBool
+(.<, .>=, .>, .<=) :: OrdSymbolic a => a -> a -> SBool
+(.+., .*.) :: Semiring s => s -> s -> s
+(∈, ∉) :: Member a b => a -> b -> Bool
+(∋, ∌) :: Member a b => b -> a -> Bool
+(⊂, ⊅, ⊃, ⊄) :: ProperSubsetOf a => a -> a -> Bool
+(⊆, ⊉, ⊇, ⊈) :: SubsetOf a => a -> a -> Bool
+(==, /=) :: Integer -> Integer -> Bool
+(<, >, >=, <=) :: Integer -> Integer -> Bool
+(+, *, -) :: Integer -> Integer -> Integer
+(.>., .<<., .<., .>>.) :: [a] -> Tree a -> Tree a
+(<+>, <|>) :: Monad m => m (Path a) -> m (Path a) -> m (Path a)
+(.=>., .<=>.) :: Boolean a => a -> a -> a
+(.+., .*.) :: Semiring s => s -> s -> s
+(</>, beside, <->, above) :: (HTMLTABLE ht1, HTMLTABLE ht2) => ht1 -> ht2 -> HtmlTable
+(+, -) :: AbelianGroup a => a -> a -> a
+(**, logBase) :: Floating a => a -> a -> a

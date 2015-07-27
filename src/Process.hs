@@ -28,14 +28,6 @@ data HState = HState { h_moduleName :: String    -- current module
 
 emptyHState = HState "" "" []
 
-processFile path lines startLN =
-  forM_ (zip [startLN ..] lines) $ \(i,ln) -> do
-    let source = path ++ " line " ++ show i
-        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
-    case parse Lib.anyLine source ln' of
-      Left e  -> return ()
-      Right x -> processLine x
-
 fixupComments :: [String] -> String
 fixupComments xs = unlines $ map go xs
   where go x = dropWhile (\ch -> isSpace ch || ch == '|') x
@@ -70,6 +62,14 @@ addComment s = modify (\hs -> hs { h_comments = (s:(h_comments hs)) } )
 setPackage s = modify (\hs -> hs { h_package = s })
 setModuleName s  = modify (\hs -> hs { h_moduleName = s })
 clearComments = modify (\hs -> hs { h_comments = [] })
+
+processFile path lines startLN =
+  forM_ (zip [startLN ..] lines) $ \(i,ln) -> do
+    let source = path ++ " line " ++ show i
+        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
+    case parse Lib.anyLine source ln' of
+      Left e  -> return ()
+      Right x -> processLine x
 
 doit path = do
   allLines <- fmap LBS.lines $ LBS.readFile path
