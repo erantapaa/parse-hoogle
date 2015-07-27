@@ -57,7 +57,7 @@ fromFct'Type = drop 4 . show
 
 -- mkFunctionInfo is a strict constructor
 
-mkFunctionInfo                  :: String -> String -> String -> String -> String -> String
+mkFunctionInfo                  :: String -> String -> String -> String -> String -> String 
                                    -> FunctionInfo
 mkFunctionInfo m s p r d t      = let res = FunctionInfo m s p r d (toFct'Type t) in
                                   rnf res `seq` res

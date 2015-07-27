@@ -19,42 +19,61 @@ import Data.Text.Lazy.Encoding (decodeUtf8)
 import Hayoo.FunctionInfo
 import Text.Show.Pretty (ppShow)
 
-import Data.Char (isSpace)
+import Data.Char (isSpace,ord,isAlphaNum)
 
 data HState = HState { h_moduleName :: String    -- current module
                      , h_package    :: String    -- current package
                      , h_comments   :: [String]  -- comment lines preceding a definition
+                     , h_uriPrefix  :: String    -- current uri prefix
                      }
 
-emptyHState = HState "" "" []
+emptyHState = HState "" "" [] ""
 
 fixupComments :: [String] -> String
 fixupComments xs = unlines $ map go xs
   where go x = dropWhile (\ch -> isSpace ch || ch == '|') x
 
-makeFunctionInfo kind name signature = do
+makeFunctionInfo kind name signature uriSuffix = do
   hs <- get
   let comments = fixupComments . reverse . h_comments $ hs
-      fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) "" comments kind
+      uri = h_uriPrefix hs ++ uriSuffix
+      fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) uri comments kind
   clearComments
   return fi
 
-emitFunctionInfo kind name signature = do
-  fi <- makeFunctionInfo kind name signature
+emitFunctionInfo kind name signature uri = do
+  fi <- makeFunctionInfo kind name signature uri
   liftIO $ putStrLn $ ppShow (name, fi)
+
+toUri :: String -> String
+toUri name = concatMap go name
+  where go ch | isAlphaNum ch = [ch]
+              | otherwise     = "-" ++ show (ord ch) ++ "-"
+
+typeUri name = "#t:" ++ toUri name
+funcUri name = "#v:" ++ toUri name
 
 processLine BlankLine    = return ()
 processLine (Comment s)  = addComment s
 processLine (Package s)  = setPackage s
 processLine (Version s)  = return ()
-processLine (Module s)   = setModuleName s
+processLine (Module s)   = do
+  setModuleName s
+  hs <- get
+  let prefix = "http://hackage.haskell.org/package/" ++ (h_package hs) ++ "/docs/" ++ moduleDashed ++ ".html"
+      moduleDashed = map (replaceDot '-') (h_moduleName hs)
+        where replaceDot ch '.' = ch
+              replaceDot _  x   = x
+  put $ hs { h_uriPrefix = prefix }
+  emitFunctionInfo "module" s "" "#"
+
 processLine (Instance s) = return ()
 
-processLine (Type name lhs sig)     = emitFunctionInfo "type" name sig
-processLine (Newtype name _)        = emitFunctionInfo "newtype" name ""
-processLine (FunctionDecl name sig) = emitFunctionInfo "function" name sig
-processLine (DataDecl name)         = emitFunctionInfo "data" name ""
-processLine (MultiDecl names sig)   = forM_ names $ \name -> emitFunctionInfo "function" name sig
+processLine (Type name lhs sig)     = emitFunctionInfo "type"     name sig (typeUri name)
+processLine (Newtype name _)        = emitFunctionInfo "newtype"  name ""  (typeUri name)
+processLine (FunctionDecl name sig) = emitFunctionInfo "function" name sig (funcUri name)
+processLine (DataDecl name)         = emitFunctionInfo "data"     name ""  (typeUri name)
+processLine (MultiDecl names sig)   = forM_ names $ \name -> emitFunctionInfo "function" name sig (funcUri name)
 
 processLine _           = return ()
 

@@ -77,11 +77,9 @@ buildDocument now fctName fctInfo =
   , pair "name"        fctName
   , pair "type"        infoType
   , pair "description" (fctDescr fctInfo)
-  , pair "source"      ""
   , ("index",          index)
+  , pair "uri"         (sourceURI fctInfo)
 {-
-  , pair "index"  index
-  , pair "uri"    uri
   , pair "weight" weight
 -}
   ]
