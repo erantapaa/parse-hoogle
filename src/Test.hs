@@ -62,5 +62,5 @@ testAllFiles = do
 -- emit the Json for a hoogle file
 testJson path = do
   now <- getCurrentTime
-  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const 1.0) now
+  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 3.14) now
 

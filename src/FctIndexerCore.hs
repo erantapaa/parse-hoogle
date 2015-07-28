@@ -29,11 +29,17 @@ fmtDate' fmt
 pair :: Text -> String -> (Text, A.Value)
 pair k v = (k, A.String (T.pack v))
 
+optPair :: Text -> String -> [ (Text, A.Value) ]
+optPair k [] = []
+optPair k v  = [ pair k v ]
+
+type APair = (Text, A.Value)
+
 -- | Build the index for a FunctionInfo
-buildIndex :: String                       -- ^ Name of function / type / module / etc.
-           -> FunctionInfo                 -- ^ FunctionInfo record
-           -> [(Text, A.Value)]            -- ^ Pairs comprising the index for this document
-buildIndex fctName fctInfo = kvpairs
+buildIndexPairs :: String                       -- ^ Name of function / type / module / etc.
+                -> FunctionInfo                 -- ^ FunctionInfo record
+                -> [(Text, A.Value)]            -- ^ Pairs comprising the index for this document
+buildIndexPairs fctName fctInfo = kvpairs
   where
     kvpairs =
       [ pair "package"     (package fctInfo)
@@ -41,8 +47,8 @@ buildIndex fctName fctInfo = kvpairs
       , pair "name"        fctName
       , pair "type"        infoType
       , pair "hierarchy"   hierarchy
-      , pair "description" descrWords
       ]
+      ++ optPair "description" descrWords
       ++ sigPairs
 
     infoType = fromFct'Type (fctType fctInfo)
@@ -63,48 +69,49 @@ buildIndex fctName fctInfo = kvpairs
     descrWords = removeTags (fctDescr fctInfo)
 
 -- | Build the document component of an Insert command.
-buildDocument :: A.Value         -- ^ Score for this package (as a A.Number value)
-              -> A.Value         -- ^ The index time as an Aeson value (A.String)
+buildDocument :: [APair]         -- ^ Score key-value pair for this package (or null)
+              -> UTCTime         -- ^ The indexed time
               -> String          -- ^ The function / method / type name
               -> FunctionInfo    -- ^ The FunctionInfo record
               -> A.Value         -- ^ Document object (as JSON)
-buildDocument scoreA nowA fctName fctInfo =
-  A.object 
-  [ ("description",    A.object
-                       [ ("indexed",        nowA)
+buildDocument scoreKV now fctName fctInfo =
+  A.object  $
+  [ ("description",    A.object $
+                       [ ("indexed",        nowD)
                        , pair "package"     (package fctInfo)
                        , pair "module"      (moduleName fctInfo)
                        , pair "name"        fctName
                        , pair "type"        infoType
                        , pair "source"      (sourceURI fctInfo)
-                       , pair "description" (fctDescr fctInfo)
                        ]
+                       ++ optPair "description" (fctDescr fctInfo)
     )
   , ("index",          index)
   , pair "uri"         (docURI fctInfo)
-  , ("weight",         scoreA)
   ]
+  ++ scoreKV
   where
+    nowD     = A.String $ T.pack $ fmtDateHTTP now       -- date formatted for the document
+    nowI     = A.String $ T.pack $ fmtDateXmlSchema now  -- date formatted for the index
     infoType = fromFct'Type (fctType fctInfo)
-    index    = A.object $ [ ("indexed", nowA) ] ++ buildIndex fctName fctInfo
+    index    = A.object $ [ ("indexed", nowI) ] ++ buildIndexPairs fctName fctInfo
 
-buildInsert :: A.Value          -- ^ Score for this package (as a A.Number value)
-            -> A.Value          -- ^ The index time (as a A.String value)
+buildInsert :: [APair]          -- ^ Score Pair (or null) for this package
+            -> UTCTime          -- ^ The index time
             -> String           -- ^ The function / method / type name
             -> FunctionInfo     -- ^ The FunctionInfo record
             -> A.Value          -- ^ Insert command (as JSON)
-buildInsert scoreA nowA fctName fctInfo =
+buildInsert scoreKV now fctName fctInfo =
   A.object
   [ ("cmd",      "insert")
-  , ("document", buildDocument scoreA nowA fctName fctInfo)
+  , ("document", buildDocument scoreKV now fctName fctInfo)
   ]
     
 -- | Build the Insert commands for a list of FunctionInfo records.
-buildInserts :: Score -> UTCTime -> [ (String, FunctionInfo) ] -> [A.Value]
-buildInserts score now items = [ buildInsert scoreA nowA fctName fctInfo | (fctName, fctInfo) <- items ]
+buildInserts :: Maybe Score -> UTCTime -> [ (String, FunctionInfo) ] -> [A.Value]
+buildInserts score now items = [ buildInsert scoreKV now fctName fctInfo | (fctName, fctInfo) <- items ]
   where
-    nowA = A.String $ T.pack $ fmtDateXmlSchema now
-    scoreA = A.Number $ S.fromFloatDigits score
+    scoreKV = maybe []  (\s -> [ ("weight", A.Number $ S.fromFloatDigits s) ] ) score
 
 -- | Build the Delete command for a package.
 buildDelete :: String -> A.Value

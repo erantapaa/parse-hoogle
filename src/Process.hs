@@ -83,5 +83,5 @@ test1 = evalHState . test1pipe
 test2 = evalHState . test2pipe
 test3 path = do
   now <- getCurrentTime
-  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const 1.0) now
+  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 1.23) now
 
