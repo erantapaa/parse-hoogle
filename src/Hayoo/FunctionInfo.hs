@@ -9,6 +9,7 @@ module Hayoo.FunctionInfo
     , Fct'Type(..)
     , mkFunctionInfo
     , fromFct'Type
+    , Score
     )
 where
 import           Control.Applicative ((<$>), (<*>))
@@ -23,6 +24,8 @@ import           Data.Typeable       (Typeable)
 -- ------------------------------------------------------------
 
 -- | Additional information about a function.
+
+type Score = Float
 
 data FunctionInfo
     = FunctionInfo

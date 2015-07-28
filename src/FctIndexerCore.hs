@@ -5,12 +5,16 @@ where
 
 import qualified Data.Aeson                   as A
 import qualified Data.Vector                  as V
-import           Hayoo.FunctionInfo           (FunctionInfo(..), fromFct'Type)
 import qualified Data.Text                    as T
 import           Data.Text                    (Text)
+
+import           Hayoo.FunctionInfo           (FunctionInfo(..), fromFct'Type, Score)
+import           ParseHoogle                  (removeTags)
+
 import           Data.Time                    (UTCTime)
 import           Data.Time.Format             (formatTime)
 import           System.Locale                (defaultTimeLocale)
+import           Data.Scientific              as S
 
 fmtDateXmlSchema :: UTCTime -> String
 fmtDateXmlSchema = fmtDate' "%FT%X"
@@ -25,17 +29,19 @@ fmtDate' fmt
 pair :: Text -> String -> (Text, A.Value)
 pair k v = (k, A.String (T.pack v))
 
--- build the index for a FunctionInfo
-buildIndex :: String -> FunctionInfo -> [(Text, A.Value)]
+-- | Build the index for a FunctionInfo
+buildIndex :: String                       -- ^ Name of function / type / module / etc.
+           -> FunctionInfo                 -- ^ FunctionInfo record
+           -> [(Text, A.Value)]            -- ^ Pairs comprising the index for this document
 buildIndex fctName fctInfo = kvpairs
   where
     kvpairs =
-      [ pair "package"   (package fctInfo)
-      , pair "module"    mname
-      , pair "name"      fctName
-      , pair "type"      infoType
-      , pair "hierarchy" hierarchy
-      , ("description",  descrWords)
+      [ pair "package"     (package fctInfo)
+      , pair "module"      mname
+      , pair "name"        fctName
+      , pair "type"        infoType
+      , pair "hierarchy"   hierarchy
+      , pair "description" descrWords
       ]
       ++ sigPairs
 
@@ -54,61 +60,58 @@ buildIndex fctName fctInfo = kvpairs
                   else [ pair "signature" sig
                        , pair "subsig"    ""
                        ]
-    descrWords = "" -- XXX need to figure out how to remove puncuation and HTML tags from a string
+    descrWords = removeTags (fctDescr fctInfo)
 
- -- description:    words contained in the fctInfo description
- -- hierarchy:      module name with dots removed
- -- indexed:        time indexed
- -- package:        fctInfo package
- -- module:         fctInfo moduleName
- -- name:           fctName
- -- type:           fctInfo type
- -- signature:      fctInfo signature
- -- subsig:         derived from signature
-
-buildDocument :: UTCTime -> String -> FunctionInfo -> A.Value
-buildDocument now fctName fctInfo =
+-- | Build the document component of an Insert command.
+buildDocument :: A.Value         -- ^ Score for this package (as a A.Number value)
+              -> A.Value         -- ^ The index time as an Aeson value (A.String)
+              -> String          -- ^ The function / method / type name
+              -> FunctionInfo    -- ^ The FunctionInfo record
+              -> A.Value         -- ^ Document object (as JSON)
+buildDocument scoreA nowA fctName fctInfo =
   A.object 
-  [ pair "indexed"     now'
+  [ ("indexed",        nowA)
+  , ("weight",         scoreA)
   , pair "package"     (package fctInfo)
   , pair "module"      (moduleName fctInfo)
   , pair "name"        fctName
   , pair "type"        infoType
   , pair "description" (fctDescr fctInfo)
-  , ("index",          index)
   , pair "uri"         (docURI fctInfo)
-{-
-  , pair "weight" weight
--}
+  , ("index",          index)
   ]
   where
-    now'     = fmtDateXmlSchema now
-    nowA     = A.String $ T.pack now'
     infoType = fromFct'Type (fctType fctInfo)
     index    = A.object $ [ ("indexed", nowA) ] ++ buildIndex fctName fctInfo
 
-buildInsert :: UTCTime -> String -> FunctionInfo -> A.Value
-buildInsert now fctName fctInfo =
+buildInsert :: A.Value          -- ^ Score for this package (as a A.Number value)
+            -> A.Value          -- ^ The index time (as a A.String value)
+            -> String           -- ^ The function / method / type name
+            -> FunctionInfo     -- ^ The FunctionInfo record
+            -> A.Value          -- ^ Insert command (as JSON)
+buildInsert scoreA nowA fctName fctInfo =
   A.object
   [ ("cmd",      "insert")
-  , ("document", buildDocument now fctName fctInfo)
+  , ("document", buildDocument scoreA nowA fctName fctInfo)
   ]
-
-buildInserts :: UTCTime -> [ (String, FunctionInfo) ] -> [A.Value]
-buildInserts now pairs = insertCmds
+    
+-- | Build the Insert commands for a list of FunctionInfo records.
+buildInserts :: Score -> UTCTime -> [ (String, FunctionInfo) ] -> [A.Value]
+buildInserts score now items = [ buildInsert scoreA nowA fctName fctInfo | (fctName, fctInfo) <- items ]
   where
-    insertCmds = [ buildInsert now fctName fctInfo | (fctName, fctInfo) <- pairs ]
+    nowA = A.String $ T.pack $ fmtDateXmlSchema now
+    scoreA = A.Number $ S.fromFloatDigits score
 
--- generate the delete command for a single package
-deleteCommand :: String -> A.Value
-deleteCommand pkgName =
+-- | Build the Delete command for a package.
+buildDelete :: String -> A.Value
+buildDelete pkgName =
   A.object
   [ ("cmd",   "delete-by-query")
   , ("query", A.object [ ("contexts", A.Array $ V.fromList [ A.String "package" ] )
                        , ("type",     "context")
                        , ("query",    A.object [ ("op",   "case")
                                                , ("type", "fullword")
-                                               , ("word",  (A.String $ T.pack $ pkgName))
+                                               , ("word",  (A.String $ T.pack pkgName))
                                                ]
                          )
                        ]
