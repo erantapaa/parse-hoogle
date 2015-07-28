@@ -1,27 +1,16 @@
 {-# LANGUAGE NoMonomorphismRestriction #-}
 
-module Lib
+module ParseHoogle
 where
 
-import System.Environment
 import Control.Monad
 
 import Text.ParserCombinators.Parsec
-import Text.ParserCombinators.Parsec.Language (haskell, haskellDef)
-import qualified Text.ParserCombinators.Parsec.Token as Token
-import qualified Text.Parsec.Token as Token
-
--- import Text.Parsec.Prim
 import Text.Parsec.Char
 import Text.Parsec.Combinator
 
 import Data.Char
 import Data.List (isPrefixOf, break)
-
-import qualified Data.ByteString.Lazy.Char8 as LBS
-import qualified Data.ByteString.Lazy as LBS hiding (readFile, pack, snoc)
-import qualified Data.Text.Lazy as Text
-import Data.Text.Lazy.Encoding (decodeUtf8)
 
 data HoogleLine = BlankLine
                 | Comment String               -- comment line (begins with "--"
@@ -218,37 +207,16 @@ anyLine = try oneLineComment
 
 hoogleLine = anyLine
 
--- e.g.: testFile anyLine "hoogle-data/abacate/0.0.0.0/doc/html/abacate.txt"
-
--- test a parser against the lines in a file - do not skip preamble
-testFile' parser path = do
-  lns <- fmap LBS.lines $ LBS.readFile path
-  forM_ (zip [(1::Int)..] lns) $ \(i,ln) -> do
-    let source = path ++ " line " ++ show i
-        ln' = Text.unpack $ (decodeUtf8 ln)
-    case parse parser source ln' of
-      Left e  -> -- do putStrLn $ "error: " ++ show e; putStr ln'
-                 do putStr ln'
-      Right x -> return ()
-
--- test a parser against the lines in a file - skip lines before @package
-testFile parser path = do
-  lns <- fmap LBS.lines $ LBS.readFile path
-  -- Lines before @package may not be properly UTF-8 encoded
-  -- so ignore them.
-  let (ignored, lns') = break (LBS.isPrefixOf (LBS.pack "@package")) lns
-      i0 = 1+length ignored
-  forM_ (zip [(i0::Int)..] lns') $ \(i,ln) -> do
-    let source = path ++ " line " ++ show i
-        ln' = Text.unpack $ (decodeUtf8 ln)
-    case parse parser source ln' of
-      Left e  -> do putStrLn $ "error: " ++ show e
-                    putStr ln'
-                    putStrLn ""
-      Right x -> return ()
-
--- test the anyLine parse against all of the hoogle files
-testAllFiles = do
-  files <- fmap lines $ readFile "all-hoogle-files"
-  mapM_ (testFile anyLine) files
+-- | Naively remove HTML tags from a string.
+removeTags :: String -> String
+removeTags str =
+  let (before,rest1) = break (== '<') str
+      (tag,rest2)    = break (== '>') rest1
+      rest3 = case rest2 of
+                [] -> []
+                (_:xs) -> xs
+  in
+  if null rest1
+    then str
+    else before ++ " " ++ removeTags rest3
 

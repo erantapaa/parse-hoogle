@@ -3,8 +3,6 @@
 module FctIndexerCore
 where
 
--- import Debug.Trace
-
 import qualified Data.Aeson                   as A
 import qualified Data.Vector                  as V
 import           Hayoo.FunctionInfo           (FunctionInfo(..), fromFct'Type)
@@ -78,16 +76,16 @@ buildDocument now fctName fctInfo =
   , pair "type"        infoType
   , pair "description" (fctDescr fctInfo)
   , ("index",          index)
-  , pair "uri"         (sourceURI fctInfo)
+  , pair "uri"         (docURI fctInfo)
 {-
   , pair "weight" weight
 -}
   ]
   where
-    now'  = fmtDateXmlSchema now
-    nowA  = A.String $ T.pack now'
+    now'     = fmtDateXmlSchema now
+    nowA     = A.String $ T.pack now'
     infoType = fromFct'Type (fctType fctInfo)
-    index = A.object $ [ ("indexed", nowA) ] ++ buildIndex fctName fctInfo
+    index    = A.object $ [ ("indexed", nowA) ] ++ buildIndex fctName fctInfo
 
 buildInsert :: UTCTime -> String -> FunctionInfo -> A.Value
 buildInsert now fctName fctInfo =
@@ -101,7 +99,7 @@ buildInserts now pairs = insertCmds
   where
     insertCmds = [ buildInsert now fctName fctInfo | (fctName, fctInfo) <- pairs ]
 
--- generate the delete command for a package
+-- generate the delete command for a single package
 deleteCommand :: String -> A.Value
 deleteCommand pkgName =
   A.object

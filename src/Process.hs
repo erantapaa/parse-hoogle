@@ -4,8 +4,8 @@ module Process
 where
 
 import Text.Parsec (parse)
-import qualified Lib
-import           Lib (HoogleLine(..))
+import qualified ParseHoogle as PH
+import           ParseHoogle (HoogleLine(..))
 import Control.Monad.State.Strict
 
 import Data.Char
@@ -36,8 +36,9 @@ fixupComments xs = unlines $ map go xs
 makeFunctionInfo kind name signature uriSuffix = do
   hs <- get
   let comments = fixupComments . reverse . h_comments $ hs
-      uri = h_uriPrefix hs ++ uriSuffix
-      fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) uri comments kind
+      docuri = h_uriPrefix hs ++ uriSuffix
+      -- n.b. sourceURI is left empty
+      fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) "" comments kind docuri
   clearComments
   return fi
 
@@ -86,7 +87,7 @@ processFile path lines startLN =
   forM_ (zip [startLN ..] lines) $ \(i,ln) -> do
     let source = path ++ " line " ++ show i
         ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
-    case parse Lib.anyLine source ln' of
+    case parse PH.anyLine source ln' of
       Left e  -> return ()
       Right x -> processLine x
 
@@ -95,6 +96,4 @@ doit path = do
   let (ignored, body) = break (LBS.isPrefixOf (LBS.pack "@package")) allLines
       i0 = 1+length ignored
   runStateT (processFile path body i0) emptyHState
-
--- doit = runStateT (processFile "asd") emptyHState
 

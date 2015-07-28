@@ -3,11 +3,12 @@
 module TestSigs
 where
 
+import ParseHoogle (HoogleLine(..))
 import Hayoo.ParseSignature
 import Text.Parsec
 import Text.Show.Pretty
 
-import Lib
+import ParseHoogle (hoogleLine)
 import Pipes
 import Control.Monad
 import qualified Data.ByteString.Lazy as LBS hiding (readFile)

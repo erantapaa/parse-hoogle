@@ -1,6 +1,6 @@
 module Main where
 
-import qualified Lib
+import qualified ParseHoogle as PH
 import qualified Test
 import System.Environment
 import Data.List
@@ -55,7 +55,7 @@ main = do
     Usage                 -> usage "app"
     Error e               -> do putStrLn $ "error: " ++ e; exitFailure
     TestHoogleAll         -> Test.testAllFiles
-    TestHoogle path       -> Test.testFile Lib.hoogleLine path
+    TestHoogle path       -> Test.testFile PH.hoogleLine path
     EmitFunctionInfo path -> Test.testFunctionInfo path >> return ()
     TestSigParser path    -> Test.testParseSignature path
   exitSuccess

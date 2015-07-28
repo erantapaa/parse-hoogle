@@ -6,7 +6,7 @@ where
 import Control.Monad
 
 import Text.Parsec
-import Lib (HoogleLine(..), hoogleLine)
+import ParseHoogle (HoogleLine(..), hoogleLine)
 import Hayoo.ParseSignature
 
 import Data.Char
@@ -21,7 +21,6 @@ import Pipes
 import Text.Show.Pretty
 
 import qualified Process
-import qualified Lib
 import Control.Monad.State.Strict
 
 -- -----
@@ -30,7 +29,7 @@ processFile path lines startLN =
   forM_ (zip [startLN ..] lines) $ \(i,ln) -> do
     let source = path ++ " line " ++ show i
         ln' = Text.unpack $ (decodeUtf8 ln)
-    case parse Lib.hoogleLine source ln' of
+    case parse hoogleLine source ln' of
       Left e  -> return ()
       Right x -> Process.processLine x
 
