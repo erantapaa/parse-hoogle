@@ -31,13 +31,15 @@ emptyHState = HState "" "" [] ""
 
 fixupComments :: [String] -> String
 fixupComments xs = unlines $ map go xs
-  where go x = dropWhile (\ch -> isSpace ch || ch == '|') x
+  where go = PH.removeTags . dropBar
+        dropBar ('|':' ':xs) = xs
+        dropBar xs           = xs
 
 makeFunctionInfo kind name signature uriSuffix = do
   hs <- get
   let comments = fixupComments . reverse . h_comments $ hs
       docuri = h_uriPrefix hs ++ uriSuffix
-      -- n.b. sourceURI is left empty
+      -- n.b. sourceURI is left empty, we only use docURI
       fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) "" comments kind docuri
   clearComments
   return fi
