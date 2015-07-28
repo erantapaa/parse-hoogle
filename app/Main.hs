@@ -12,9 +12,10 @@ data Action = Error String
             | TestHoogle String
             | EmitFunctionInfo String
             | TestSigParser String
+            | EmitJson String
   deriving (Show)
 
-verbs = [ "test-hoogle-parser", "emit-function-info", "test-sig-parser" ]
+verbs = [ "test-hoogle-parser", "emit-function-info", "test-sig-parser", "emit-json" ]
 
 complete :: [String] -> String -> String
 complete words arg =
@@ -35,6 +36,8 @@ parseOpts (arg1:args) = go cmd args
     go "emit-function-info" _           = Error "path required for 'emit-function-info'"
     go "test-sig-parser"    (path:_)    = TestSigParser path
     go "test-sig-parser"    _           = Error "path required for 'test-sig-parser'"
+    go "emit-json"          (path:_)    = EmitJson path
+    go "emit-json"          _           = Error "path requried for 'emit-json'"
     go cmd                  _           = Error $ "unknown command: " ++ cmd
 parseOpts [] = Usage
 
@@ -45,6 +48,7 @@ usage name = do
      , "  app test-hoogle-parser file   -- test the hoogle parser on a specific file"
      , "  app emit-function-info file   -- emit the FunctionInfo records for a hoogle file"
      , "  app test-sig-parser file      -- test the signature parser on a hoogle file"
+     , "  app emit-json file            -- emit json commands for a hoogle file"
      ]
 
 main :: IO ()
@@ -58,6 +62,7 @@ main = do
     TestHoogle path       -> Test.testFile PH.hoogleLine path
     EmitFunctionInfo path -> Test.testFunctionInfo path
     TestSigParser path    -> Test.testParseSignature path
+    EmitJson path         -> Test.testJson path
   exitSuccess
     
 

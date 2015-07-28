@@ -16,6 +16,8 @@ import qualified Data.Text            as T
 import qualified Data.Text.IO         as T
 import           Control.Monad.State.Strict
 
+import           Data.Time
+
 -- emit the FunctionInfo records in a Hoogle file
 testFunctionInfo path = evalHState $ textLines path >-> toHoogleLine >-> toFunctionInfo >-> ppShowPipe
 
@@ -50,10 +52,15 @@ testFile' parser path = do
 
 -- test a parser against the lines in a file - skip lines before @package
 testFile parser path = 
-  runEffect $ skippedHeader path >-> forever (await >>= liftIO . checkLine path parser)
+  runEffect $ skipHeader path >-> forever (await >>= liftIO . checkLine path parser)
 
 -- test the anyLine parse against all of the hoogle files
 testAllFiles = do
   files <- fmap lines $ readFile "all-hoogle-files"
   mapM_ (testFile hoogleLine) files
+
+-- emit the Json for a hoogle file
+testJson path = do
+  now <- getCurrentTime
+  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const 1.0) now
 

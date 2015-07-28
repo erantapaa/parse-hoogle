@@ -22,7 +22,7 @@ import           Control.Monad.State.Strict
 
 import qualified Text.Show.Pretty as PP
 
-import qualified Hayoo.FunctionInfo (Score)
+import           Hayoo.FunctionInfo (Score, FunctionInfo(..))
 
 import qualified FctIndexerCore   as FJ
 import           Data.Time        (UTCTime, getCurrentTime)
@@ -50,8 +50,9 @@ skipToPackage = do
             forever $ do { (i,x) <- await; yield (i, Text.decodeUtf8 x) }
     else skipToPackage
 
-skippedHeader path = byteLines path >-> skipToPackage
+skipHeader path = byteLines path >-> skipToPackage
 
+-- convert a Text line into a Hoogle line
 toHoogleLine = forever $ do
   (lineno, txt)  <- await
   case parse hoogleLine "(file)" (Text.unpack txt) of
@@ -63,24 +64,24 @@ toFunctionInfo = forever $ do
   hline <- await
   PL.processLine yield hline
 
--- Pretty-print each eleement in a stream
+-- Pretty-print each element in a stream
 ppShowPipe = forever $ do { x <- await; liftIO $ putStrLn (PP.ppShow x) }
 
--- Emit a (name, fctInfo) to JSON commands
-toCommands pkgName score now  = forever $ do
+-- Convert (name, FunctionInfo) to JSON commands and emit them
+toCommands scoreFn now  = forever $ do
   item@(fctName, fctInfo) <- await
-  let cmds = FJ.buildInserts score now [ item ]
+  let score = scoreFn (package fctInfo)
+      cmds = FJ.buildInserts score now [ item ]
   liftIO $ forM_ cmds $ jsonPutStr True
 
 -- Run a MonadState HState pipeline
 evalHState pipeline = evalStateT (runEffect pipeline) PL.emptyHState
 
-test1pipe path = skippedHeader path >-> toHoogleLine >-> toFunctionInfo >-> P.drain
-test2pipe path = skippedHeader path >-> toHoogleLine >-> toFunctionInfo >-> ppShowPipe
+test1pipe path = skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> P.drain
+test2pipe path = skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> ppShowPipe
 test1 = evalHState . test1pipe
 test2 = evalHState . test2pipe
 test3 path = do
   now <- getCurrentTime
-  evalHState $ skippedHeader path >-> toHoogleLine >-> toFunctionInfo
-                           >-> toCommands "foo" 1.0 now
+  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const 1.0) now
 
