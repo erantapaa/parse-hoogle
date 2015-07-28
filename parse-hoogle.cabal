@@ -16,9 +16,9 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     ParseHoogle, Process, Hayoo.FunctionInfo, Hayoo.ParseSignature, TestSigs, Test, FctIndexerCore,
-                       ProcessLine, Process2
+                       ProcessLine, JsonUtil
   build-depends:       base >= 4.7 && < 5, text, parsec, bytestring, deepseq, aeson, binary, mtl, pretty-show,
-                       hxt-charproperties, pipes, time, old-locale, vector, scientific
+                       hxt-charproperties, pipes, time, old-locale, vector, scientific, aeson-pretty
   default-language:    Haskell2010
 
 executable parse-hoogle

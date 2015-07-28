@@ -20,7 +20,7 @@ import Data.Text.Lazy.Encoding (decodeUtf8)
 import Pipes
 import Text.Show.Pretty
 
-import qualified Process
+import qualified ProcessLine
 import Control.Monad.State.Strict
 
 -- -----
@@ -31,13 +31,14 @@ processFile path lines startLN =
         ln' = Text.unpack $ (decodeUtf8 ln)
     case parse hoogleLine source ln' of
       Left e  -> return ()
-      Right x -> Process.processLine x
+      Right x -> ProcessLine.processLine (liftIO . putStrLn . ppShow) x
+  where foo = undefined
 
 testFunctionInfo path = do
   allLines <- fmap LBS.lines $ LBS.readFile path
   let (ignored, body) = break (LBS.isPrefixOf (LBS.pack "@package")) allLines
       i0 = 1+length ignored
-  runStateT (processFile path body i0) Process.emptyHState
+  runStateT (processFile path body i0) ProcessLine.emptyHState
 
 -- -----
 

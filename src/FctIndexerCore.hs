@@ -70,15 +70,19 @@ buildDocument :: A.Value         -- ^ Score for this package (as a A.Number valu
               -> A.Value         -- ^ Document object (as JSON)
 buildDocument scoreA nowA fctName fctInfo =
   A.object 
-  [ ("indexed",        nowA)
-  , ("weight",         scoreA)
-  , pair "package"     (package fctInfo)
-  , pair "module"      (moduleName fctInfo)
-  , pair "name"        fctName
-  , pair "type"        infoType
-  , pair "description" (fctDescr fctInfo)
-  , pair "uri"         (docURI fctInfo)
+  [ ("description",    A.object
+                       [ ("indexed",        nowA)
+                       , pair "package"     (package fctInfo)
+                       , pair "module"      (moduleName fctInfo)
+                       , pair "name"        fctName
+                       , pair "type"        infoType
+                       , pair "source"      (sourceURI fctInfo)
+                       , pair "description" (fctDescr fctInfo)
+                       ]
+    )
   , ("index",          index)
+  , pair "uri"         (docURI fctInfo)
+  , ("weight",         scoreA)
   ]
   where
     infoType = fromFct'Type (fctType fctInfo)

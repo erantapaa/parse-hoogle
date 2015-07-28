@@ -27,7 +27,7 @@ clearComments = modify (\hs -> hs { h_comments = [] })
 
 fixupComments :: [String] -> String
 fixupComments xs = unlines $ map go xs
-  where go = PH.removeTags . dropBar
+  where go = dropBar
         dropBar ('|':' ':xs) = xs
         dropBar xs           = xs
 
