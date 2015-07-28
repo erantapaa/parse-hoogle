@@ -50,7 +50,7 @@ testFile' parser path = do
 
 -- test a parser against the lines in a file - skip lines before @package
 testFile parser path = 
-  runEffect $ textLines path >-> skipHeader >-> forever (await >>= liftIO . checkLine path parser)
+  runEffect $ skippedHeader path >-> forever (await >>= liftIO . checkLine path parser)
 
 -- test the anyLine parse against all of the hoogle files
 testAllFiles = do
