@@ -1,101 +1,60 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 
 module Process
 where
 
-import Text.Parsec (parse)
-import qualified ParseHoogle as PH
-import           ParseHoogle (HoogleLine(..))
+import qualified Data.Aeson   as A
+
+import qualified Data.Text    as Text
+import qualified Data.Text.IO as Text
+import           Data.Text    (Text)
+
+import Pipes
+import qualified Pipes.Prelude as P
+import ParseHoogle (hoogleLine)
+import Control.Monad
+import Text.Parsec
+
+import qualified ProcessLine as PL
 import Control.Monad.State.Strict
 
-import Data.Char
-import Data.List (isPrefixOf, break)
+import qualified Text.Show.Pretty as PP
 
-import qualified Data.ByteString.Lazy.Char8 as LBS
-import qualified Data.ByteString.Lazy as LBS hiding (readFile, pack, snoc)
-import qualified Data.Text.Lazy as Text
-import Data.Text.Lazy.Encoding (decodeUtf8)
+-- A producer which yields the lines of a file (as Text)
+-- The entire file is read strictly, so there shouldn't be any resource cleanup issues.
+-- XXX - make sure UTF-8 is used here.
+textLines path = do
+  lns <- liftIO $ fmap Text.lines (Text.readFile path)
+  forM_ (zip [(1::Int)..] lns) $ yield
 
-import Hayoo.FunctionInfo
-import Text.Show.Pretty (ppShow)
+skipHeader = do
+  (i,x) <- await
+  if (Text.isPrefixOf "@package" x)
+    then do yield (i,x); forever $ await >>= yield
+    else skipHeader
 
-import Data.Char (isSpace,ord,isAlphaNum)
+toHoogleLine = forever $ do
+  (lineno, txt)  <- await
+  case parse hoogleLine "(file)" (Text.unpack txt) of
+    Left e      -> do liftIO $ putStrLn $ "error on line " ++ show lineno ++ ": " ++ show e
+    Right hline -> yield hline
 
-data HState = HState { h_moduleName :: String    -- current module
-                     , h_package    :: String    -- current package
-                     , h_comments   :: [String]  -- comment lines preceding a definition
-                     , h_uriPrefix  :: String    -- current uri prefix
-                     }
+-- Convert a HoogleLine to a (String, FunctionInfo) pair
+toFunctionInfo = forever $ do
+  hline <- await
+  PL.processLine yield hline
 
-emptyHState = HState "" "" [] ""
+-- Pretty-print each eleement in a stream
+ppShowPipe = forever $ do { x <- await; liftIO $ putStrLn (PP.ppShow x) }
 
-fixupComments :: [String] -> String
-fixupComments xs = unlines $ map go xs
-  where go = PH.removeTags . dropBar
-        dropBar ('|':' ':xs) = xs
-        dropBar xs           = xs
+-- Run a MonadState HState pipeline
+evalHState pipeline = evalStateT (runEffect pipeline) PL.emptyHState
 
-makeFunctionInfo kind name signature uriSuffix = do
-  hs <- get
-  let comments = fixupComments . reverse . h_comments $ hs
-      docuri = h_uriPrefix hs ++ uriSuffix
-      -- n.b. sourceURI is left empty, we only use docURI
-      fi = mkFunctionInfo (h_moduleName hs) signature (h_package hs) "" comments kind docuri
-  clearComments
-  return fi
+test1pipe path = textLines path >-> skipHeader >-> toHoogleLine >-> toFunctionInfo >-> P.drain
 
-emitFunctionInfo kind name signature uri = do
-  fi <- makeFunctionInfo kind name signature uri
-  liftIO $ putStrLn $ ppShow (name, fi)
+test2pipe path = textLines path >-> skipHeader >-> toHoogleLine >-> toFunctionInfo >-> ppShowPipe
 
-toUri :: String -> String
-toUri name = concatMap go name
-  where go ch | isAlphaNum ch = [ch]
-              | otherwise     = "-" ++ show (ord ch) ++ "-"
-
-typeUri name = "#t:" ++ toUri name
-funcUri name = "#v:" ++ toUri name
-
-processLine BlankLine    = return ()
-processLine (Comment s)  = addComment s
-processLine (Package s)  = setPackage s
-processLine (Version s)  = return ()
-processLine (Module s)   = do
-  setModuleName s
-  hs <- get
-  let prefix = "http://hackage.haskell.org/package/" ++ (h_package hs) ++ "/docs/" ++ moduleDashed ++ ".html"
-      moduleDashed = map (replaceDot '-') (h_moduleName hs)
-        where replaceDot ch '.' = ch
-              replaceDot _  x   = x
-  put $ hs { h_uriPrefix = prefix }
-  emitFunctionInfo "module" s "" "#"
-
-processLine (Instance s) = return ()
-
-processLine (Type name lhs sig)     = emitFunctionInfo "type"     name sig (typeUri name)
-processLine (Newtype name _)        = emitFunctionInfo "newtype"  name ""  (typeUri name)
-processLine (FunctionDecl name sig) = emitFunctionInfo "function" name sig (funcUri name)
-processLine (DataDecl name)         = emitFunctionInfo "data"     name ""  (typeUri name)
-processLine (MultiDecl names sig)   = forM_ names $ \name -> emitFunctionInfo "function" name sig (funcUri name)
-
-processLine _           = return ()
-
-addComment s = modify (\hs -> hs { h_comments = (s:(h_comments hs)) } )
-setPackage s = modify (\hs -> hs { h_package = s })
-setModuleName s  = modify (\hs -> hs { h_moduleName = s })
-clearComments = modify (\hs -> hs { h_comments = [] })
-
-processFile path lines startLN =
-  forM_ (zip [startLN ..] lines) $ \(i,ln) -> do
-    let source = path ++ " line " ++ show i
-        ln' = Text.unpack $ (decodeUtf8 ln) `Text.snoc` '\n'
-    case parse PH.anyLine source ln' of
-      Left e  -> return ()
-      Right x -> processLine x
-
-doit path = do
-  allLines <- fmap LBS.lines $ LBS.readFile path
-  let (ignored, body) = break (LBS.isPrefixOf (LBS.pack "@package")) allLines
-      i0 = 1+length ignored
-  runStateT (processFile path body i0) emptyHState
+test1      = evalHState . test1pipe 
+test2 path = evalHState $ test2pipe path
 
