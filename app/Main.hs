@@ -56,7 +56,7 @@ main = do
     Error e               -> do putStrLn $ "error: " ++ e; exitFailure
     TestHoogleAll         -> Test.testAllFiles
     TestHoogle path       -> Test.testFile PH.hoogleLine path
-    EmitFunctionInfo path -> Test.testFunctionInfo path >> return ()
+    EmitFunctionInfo path -> Test.testFunctionInfo path
     TestSigParser path    -> Test.testParseSignature path
   exitSuccess
     
