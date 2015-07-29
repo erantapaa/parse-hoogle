@@ -1,12 +1,15 @@
 {-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE BangPatterns #-}
 
 module Test
 where
 
-import Control.Monad
-import Pipes
-import Text.Show.Pretty
-import Process
+import           Control.Monad
+import           Pipes
+import qualified Pipes.Prelude        as P
+import           Text.Show.Pretty
+import           Process
+import           ProcessLine          (fixupSignature)
 
 import           Text.Parsec
 import           ParseHoogle          (HoogleLine(..), hoogleLine)
@@ -17,6 +20,7 @@ import qualified Data.Text.IO         as T
 import           Control.Monad.State.Strict
 
 import           Data.Time
+import           Data.Either
 
 -- emit the FunctionInfo records in a Hoogle file
 testFunctionInfo path = evalHState $ textLines path >-> toHoogleLine >-> toFunctionInfo >-> ppShowPipe
@@ -25,9 +29,25 @@ testFunctionInfo path = evalHState $ textLines path >-> toHoogleLine >-> toFunct
 -- e.g. testParseSignatures "in-funcions"
 testParseSignature path = runEffect $ (textLines path >-> toHoogleLine) `for` (lift . checkSig)
 
+-- report on the number of unparsable signatures in a file
+testCountBadSignatures path = do
+  let accum (!bad,!total) (dbad, dtotal) = (bad+dbad, total+dtotal)
+  (bad,total) <- P.fold accum (0,0) id $ textLines path >-> toHoogleLine >-> P.map checkSig'
+  putStrLn $ path ++ ": " ++ show bad ++ " / " ++ show total ++ " unparsable signatures"
+
+-- same as testCountBadSignatures but intermittently report the current counts
+testCountBadSignatures' path = do
+  let report (bad,total) = putStrLn $ path ++ ": " ++ show bad ++ " / " ++ show total ++ " unparsable signatures"
+      accum (!bad,!total) (dbad, dtotal) = do
+        let r = (bad+dbad, total+dtotal)
+        when (mod (snd r) 10000 == 0) $ liftIO $ report r
+        return r
+  r <- P.foldM accum (return (0,0)) return $ textLines path >-> toHoogleLine >-> P.map checkSig'
+  report r
+
 -- Run parseSignature against a function signature
 checkSig (FunctionDecl name sig) = do
-  let sig' = filter (/= '!') sig -- remove bang annotations
+  let sig' = fixupSignature sig
   case parseSignature sig' of
     Left e -> do putStrLn $ "error parsing signature: " ++ show e
                  putStrLn $ "  - name: " ++ name
@@ -35,6 +55,13 @@ checkSig (FunctionDecl name sig) = do
                  putStrLn ""
     Right s -> return ()
 checkSig _ = return ()
+
+-- returns (delta bad, delta total)
+checkSig' :: HoogleLine -> (Int,Int)
+checkSig' (FunctionDecl name sig) =
+  let sig' = fixupSignature sig in
+  either (const (1,1)) (const (0,1)) (parseSignature sig')
+checkSig' _ = (0,0)
 
 -- check a line against a parser
 checkLine path parser (i,x) = do
@@ -51,7 +78,7 @@ testFile' parser path = do
   runEffect $ textLines path >-> forever (await >>= liftIO . checkLine path parser)
 
 -- test a parser against the lines in a file - skip lines before @package
-testFile parser path = 
+testFile parser path =
   runEffect $ skipHeader path >-> forever (await >>= liftIO . checkLine path parser)
 
 -- test the anyLine parse against all of the hoogle files

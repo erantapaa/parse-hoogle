@@ -11,6 +11,7 @@ import qualified ParseHoogle as PH
 import Text.Show.Pretty (ppShow)
 
 import Data.Char (isSpace,ord,isAlphaNum)
+import Data.List
 
 data HState = HState { h_moduleName :: String    -- current module
                      , h_package    :: String    -- current package
@@ -30,6 +31,18 @@ fixupComments xs = unlines $ map go xs
   where go = dropBar
         dropBar ('|':' ':xs) = xs
         dropBar xs           = xs
+
+fixupSignature :: String -> String
+fixupSignature = removeString "{- UNPACK -}" . removeBang
+  where
+    removeBang = filter (/='!')
+
+removeString substr str = go str
+  where go [] = []
+        go str@(c:cs)
+          | substr `isPrefixOf` str = ' ' : go (drop n str)
+          | otherwise               = c : go cs
+        n = length substr
 
 makeFunctionInfo kind name signature uriSuffix = do
   hs <- get

@@ -85,3 +85,7 @@ test3 path = do
   now <- getCurrentTime
   evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 1.23) now
 
+test4 path = do
+  count <- P.fold (\x _ -> x+1) 0 id (textLines path)
+  putStrLn $ path ++ ": " ++ show count
+
