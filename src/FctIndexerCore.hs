@@ -9,12 +9,16 @@ import qualified Data.Text                    as T
 import           Data.Text                    (Text)
 
 import           Hayoo.FunctionInfo           (FunctionInfo(..), fromFct'Type, Score)
+import           Hayoo.ParseSignature         (prettySignature, complexSignatures,
+                                               subSignatures, parseSignature)
+import           ProcessLine                  (fixupSignature)
 import           ParseHoogle                  (removeTags)
 
 import           Data.Time                    (UTCTime)
 import           Data.Time.Format             (formatTime)
 import           System.Locale                (defaultTimeLocale)
 import           Data.Scientific              as S
+import           Data.List                    (intercalate)
 
 fmtDateXmlSchema :: UTCTime -> String
 fmtDateXmlSchema = fmtDate' "%FT%X"
@@ -64,7 +68,7 @@ buildIndexPairs fctName fctInfo = kvpairs
       let sig = signature fctInfo in
       if null sig then []
                   else [ pair "signature" sig
-                       , pair "subsig"    ""
+                       , pair "subsig"    (toSubSignatures sig)
                        ]
     descrWords = removeTags (fctDescr fctInfo)
 
@@ -128,4 +132,12 @@ buildDelete pkgName =
                        ]
     )
   ]
+
+-- signature stuff
+
+toSubSignatures :: String -> String
+toSubSignatures str =
+  case parseSignature (fixupSignature str) of
+    Left _    -> ""
+    Right sig -> intercalate "\n" $ map prettySignature $ complexSignatures 1 $ subSignatures sig
 
