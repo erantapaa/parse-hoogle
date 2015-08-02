@@ -133,6 +133,9 @@ buildDelete pkgName =
     )
   ]
 
+buildNOOP :: A.Value
+buildNOOP = A.object [ ("cmd", "noop") ]
+
 -- signature stuff
 
 toSubSignatures :: String -> String

@@ -76,6 +76,8 @@ emitJsonStdout = for cat (liftIO . jsonPutStr True)
 
 emitJson fh = for cat (liftIO . hJsonPutStr True fh)
 
+emitCommaJson fh = for cat $ \x -> liftIO $ do { Text.hPutStrLn fh ","; hJsonPutStr True fh x }
+
 -- Convert (fctName, fctInfo) to JSON commands
 toCommands scoreFn now = for cat $ \item@(fctName, fctInfo) -> do
   let score = scoreFn (package fctInfo)

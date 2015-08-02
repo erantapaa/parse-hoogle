@@ -21,6 +21,11 @@ import           Control.Monad.State.Strict
 
 import           Data.Time
 import           Data.Either
+import qualified Data.Map             as M
+import           System.IO
+import           System.FilePath
+import           FctIndexerCore       (buildNOOP, buildDelete)
+import           JsonUtil             (hJsonPutStr)
 
 -- emit the FunctionInfo records in a Hoogle file
 testFunctionInfo path = evalHState $ textLines path >-> toHoogleLine >-> toFunctionInfo >-> ppShowPipe
@@ -90,4 +95,27 @@ testAllFiles = do
 testJson path = do
   now <- getCurrentTime
   evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 3.14) now >-> emitJsonStdout
+
+processHoogleFiles scorePath emitDeleteCmd paths = do
+  Just scoreMap <- readScores scorePath
+  now <- getCurrentTime
+  let scoreFn = \pkgName -> M.lookup pkgName scoreMap 
+  forM_ paths $ \path -> do
+    putStrLn $ "processing " ++ path
+    processHoogleFile scoreFn now emitDeleteCmd path
+
+processHoogleFile scoreFn now emitDeleteCmd path = do
+  let pkgName = dropExtension $ takeBaseName path
+      jsonPath = "json/" ++ pkgName ++ ".js"
+  fh <- openFile jsonPath WriteMode 
+  hPutStrLn fh "["
+  if emitDeleteCmd
+    then hJsonPutStr True fh (buildDelete pkgName)
+    else hJsonPutStr True fh buildNOOP
+  evalHState $ skipHeader path
+                 >-> toHoogleLine 
+                 >-> toFunctionInfo
+                 >-> toCommands scoreFn now
+                 >-> emitCommaJson fh
+  hPutStrLn fh "]"
 
