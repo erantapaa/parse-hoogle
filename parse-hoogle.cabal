@@ -18,7 +18,7 @@ library
   exposed-modules:     ParseHoogle, Process, Hayoo.FunctionInfo, Hayoo.ParseSignature, TestSigs, Test, FctIndexerCore,
                        ProcessLine, JsonUtil
   build-depends:       base >= 4.7 && < 5, text, parsec, bytestring, deepseq, aeson, binary, mtl, pretty-show,
-                       hxt-charproperties, pipes, time, old-locale, vector, scientific, aeson-pretty
+                       hxt-charproperties, pipes, time, old-locale, vector, scientific, aeson-pretty, containers, filepath
   default-language:    Haskell2010
 
 executable parse-hoogle

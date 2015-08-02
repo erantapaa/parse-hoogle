@@ -25,3 +25,5 @@ jsonOutput pretty io x
 jsonPutStr :: (ToJSON c) => Bool -> c -> IO ()
 jsonPutStr pretty c = jsonOutput pretty LC.putStrLn c
 
+hJsonPutStr pretty fh c = jsonOutput pretty (LC.hPutStrLn fh) c
+

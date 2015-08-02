@@ -27,9 +27,13 @@ import           Hayoo.FunctionInfo (Score, FunctionInfo(..))
 import qualified FctIndexerCore   as FJ
 import           Data.Time        (UTCTime, getCurrentTime)
 
-import           JsonUtil         (jsonPutStr)
+import           JsonUtil         (jsonPutStr, hJsonPutStr)
 
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map        as Map
+import qualified Data.ByteString.Lazy.Char8 as LBS
+import qualified System.FilePath.Posix as FP
+import Control.Monad.Error
 
 -- A producer which yields the lines of a file (as Text)
 -- The entire file is read strictly, so there shouldn't be any resource cleanup issues.
@@ -65,14 +69,18 @@ toFunctionInfo = forever $ do
   PL.processLine yield hline
 
 -- Pretty-print each element in a stream
-ppShowPipe = forever $ do { x <- await; liftIO $ putStrLn (PP.ppShow x) }
+ppShowPipe = for cat $ liftIO . putStrLn . PP.ppShow
 
--- Convert (name, FunctionInfo) to JSON commands and emit them
-toCommands scoreFn now  = forever $ do
-  item@(fctName, fctInfo) <- await
+-- emit JSON to stdout
+emitJsonStdout = for cat (liftIO . jsonPutStr True)
+
+emitJson fh = for cat (liftIO . hJsonPutStr True fh)
+
+-- Convert (fctName, fctInfo) to JSON commands
+toCommands scoreFn now = for cat $ \item@(fctName, fctInfo) -> do
   let score = scoreFn (package fctInfo)
       cmds = FJ.buildInserts score now [ item ]
-  liftIO $ forM_ cmds $ jsonPutStr True
+  each cmds
 
 -- Run a MonadState HState pipeline
 evalHState pipeline = evalStateT (runEffect pipeline) PL.emptyHState
@@ -83,9 +91,30 @@ test1 = evalHState . test1pipe
 test2 = evalHState . test2pipe
 test3 path = do
   now <- getCurrentTime
-  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 1.23) now
+  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 1.23) now >-> emitJsonStdout
+
+bar path now =  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo
+                                  >-> toCommands (const $ Just 1.23) now >-> emitJsonStdout
 
 test4 path = do
   count <- P.fold (\x _ -> x+1) 0 id (textLines path)
   putStrLn $ path ++ ": " ++ show count
+
+data UriWeight = UriWeight { docUri :: String, docWeight :: Score }
+
+instance A.FromJSON UriWeight where
+  parseJSON (A.Object v) = do d <- v A..: "document"
+                              u <- d A..: "uri"
+                              w <- d A..: "weight"
+                              return $ UriWeight u w
+  parseJSON _            = mzero
+
+-- read scores from a JSON file; return a Map
+readScores :: FilePath -> IO (Maybe (Map.Map String Score))
+readScores path = do
+  content <- LBS.readFile path
+  case A.decode content of
+    Nothing   ->  return Nothing
+    Just cmds ->  let m = Map.fromList [ (FP.takeBaseName u, w) | UriWeight u w <- cmds ]
+                  in return (Just m)
 

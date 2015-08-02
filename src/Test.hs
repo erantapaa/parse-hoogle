@@ -86,8 +86,8 @@ testAllFiles = do
   files <- fmap lines $ readFile "all-hoogle-files"
   mapM_ (testFile hoogleLine) files
 
--- emit the Json for a hoogle file
+-- emit to stdout the Json for a hoogle file
 testJson path = do
   now <- getCurrentTime
-  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 3.14) now
+  evalHState $ skipHeader path >-> toHoogleLine >-> toFunctionInfo >-> toCommands (const $ Just 3.14) now >-> emitJsonStdout
 
